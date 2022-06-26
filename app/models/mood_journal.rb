@@ -1,5 +1,5 @@
 class MoodJournal < ApplicationRecord
-  belongs_to :user, counter_cache: true
+  belongs_to :user
   after_create :set_date_time
 
   def set_date_time

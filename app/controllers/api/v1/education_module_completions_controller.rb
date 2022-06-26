@@ -32,7 +32,7 @@ module Api
       private
 
       def education_module_params
-        params.require(:education_module)
+        params.require(:education_module_completion)
         .permit(:uid, :user_id, :status, :module_id)
       end
 

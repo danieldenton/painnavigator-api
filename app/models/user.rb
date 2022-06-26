@@ -46,12 +46,15 @@ class User < ApplicationRecord
       education_module = self.education_modules.last
 
       return {
-        "progress" => education_module.module_id, 
+        "progress" => education_module.module_id + 1, 
         "last_completed_date" => education_module.created_at.to_f * 1000
       }
 
     else 
-      return 0
+      return {
+        "progress" => 1, 
+        "last_completed_date" => nil
+      }
     end
   end
 

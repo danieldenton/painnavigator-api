@@ -5,4 +5,8 @@ class SmartGoalUpdate < ApplicationRecord
   def set_date_time
     self.date_time_value = self.created_at.to_f * 1000
   end
+
+  def date_time_value
+    self.date_time_value = self.created_at.to_f * 1000
+  end
 end
