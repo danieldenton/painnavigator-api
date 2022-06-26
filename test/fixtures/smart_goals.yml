@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  goal: MyString
+  steps: MyString
+  reward: MyString
+  end_date: 2022-06-26
+  user_id: 1
+  status: 1
+  date_time_value: 1
+  smart_goal_updates_count: 1
+
+two:
+  goal: MyString
+  steps: MyString
+  reward: MyString
+  end_date: 2022-06-26
+  user_id: 1
+  status: 1
+  date_time_value: 1
+  smart_goal_updates_count: 1

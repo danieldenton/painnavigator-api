@@ -1,0 +1,47 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  role: 1
+  uid: MyString
+  first_name: MyString
+  last_name: MyString
+  gender: 1
+  commitment: 1
+  onboard_status: 1
+  profile_status: 1
+  phone: MyString
+  starting_pain_duration: 1
+  activity_level: 1
+  pace: 1
+  starting_pain_score: 1
+  dob: MyString
+  email: MyString
+  mood_journals_count: 1
+  food_journals_count: 1
+  education_modules_count: 1
+  movement_modules_count: 1
+  bookmarks_count: 1
+  smart_goals_count: 1
+
+two:
+  role: 1
+  uid: MyString
+  first_name: MyString
+  last_name: MyString
+  gender: 1
+  commitment: 1
+  onboard_status: 1
+  profile_status: 1
+  phone: MyString
+  starting_pain_duration: 1
+  activity_level: 1
+  pace: 1
+  starting_pain_score: 1
+  dob: MyString
+  email: MyString
+  mood_journals_count: 1
+  food_journals_count: 1
+  education_modules_count: 1
+  movement_modules_count: 1
+  bookmarks_count: 1
+  smart_goals_count: 1

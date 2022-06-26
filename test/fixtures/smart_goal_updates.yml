@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  smart_goal_id: 1
+  goal_update: MyString
+  date_time_value: 1
+
+two:
+  smart_goal_id: 1
+  goal_update: MyString
+  date_time_value: 1
