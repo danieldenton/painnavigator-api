@@ -54,7 +54,9 @@ module Api
           :commitment, 
           :gender,
           :dob,
-          :phone
+          :phone,
+          :onboard_status,
+          :profile_status
         )
       end
     end
