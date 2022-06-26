@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   def last_pain_journal_date
     if self.pain_journals.any? 
-      self.pain_journals.last.date_time_value
+      self.pain_journals.last.created_at.to_f * 1000
     else 
       return nil
     end
@@ -27,7 +27,7 @@ class User < ApplicationRecord
 
   def last_food_journal_date
     if self.food_journals.any? 
-      self.food_journals.last.date_time_value
+      self.food_journals.last.created_at.to_f * 1000
     else 
       return nil
     end
@@ -35,7 +35,7 @@ class User < ApplicationRecord
 
   def last_mood_journal_date
     if self.mood_journals.any? 
-      self.mood_journals.last.date_time_value
+      self.mood_journals.last.created_at.to_f * 1000
     else 
       return nil
     end
@@ -47,12 +47,26 @@ class User < ApplicationRecord
 
       return {
         "progress" => education_module.module_id, 
-        "last_completed_date" => education_module.date_time_value
+        "last_completed_date" => education_module.created_at.to_f * 1000
       }
 
     else 
       return 0
     end
+  end
+
+  def my_food_journals
+    food_journals = self.food_journals
+    return food_journals.map { |journal| 
+      { 
+        id: journal.id, 
+        date_time_value: journal.created_at.to_f * 1000, 
+        breakfast: journal.breakfast,
+        lunch: journal.lunch, 
+        dinner: journal.dinner,
+        snacks: journal.snacks
+      }
+    }
   end
 
   def conversation
@@ -61,7 +75,7 @@ class User < ApplicationRecord
       { 
         id: message.id, 
         body: message.body,
-        created_at: message.created_at.to_f * 1000, 
+        date_time_value: message.created_at.to_f * 1000, 
         sender_id: message.sender_id, 
         recipient_id: message.recipient_id,
         status: message.status
