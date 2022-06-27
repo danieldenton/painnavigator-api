@@ -58,6 +58,23 @@ class User < ApplicationRecord
     end
   end
 
+  def movement_progress
+    if self.movement_modules.any?
+      movement_module = self.movement_modules.last
+
+      return {
+        "progress" => movement_module.module_id + 1, 
+        "last_completed_date" => movement_module.created_at.to_f * 1000
+      }
+
+    else 
+      return {
+        "progress" => 1, 
+        "last_completed_date" => nil
+      }
+    end
+  end
+
   def my_food_journals
     food_journals = self.food_journals
     return food_journals.map { |journal| 
