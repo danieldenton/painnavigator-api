@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       patch '/mark_conversation_read/:uid' => 'messages#mark_conversation_read'
       resources :education_module_completions, only: [:index, :create, :update]
+      resources :movement_module_completions, only: [:index, :create, :update]
       resources :food_journals, only: [:index, :create, :update]
       resources :messages, only: [:index, :create, :update]
       resources :mood_journals, only: [:index, :create, :update, :destroy]
