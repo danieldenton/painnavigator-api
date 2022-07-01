@@ -2,6 +2,10 @@ module Api
   module V1
     class UsersController < ApplicationController
 
+      def get_journals
+        
+      end
+
       def show
         render json: UserSerializer.new(user).serializable_hash.to_json
       end

@@ -1,0 +1,6 @@
+<form action="/reply_to_user" method="post">
+  <h6 class="mt-2">New Message</h6>
+  <textarea class="form-control mt-2" name="body"></textarea>
+  <input type="hidden" value="<%= id %>" name="recipient_id" />
+  <button type="submit" class="btn btn-primary mt-2">Send Message</button>
+</form>

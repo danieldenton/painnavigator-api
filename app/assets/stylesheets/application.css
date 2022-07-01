@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.blue-message {
+  background-color: #E0E7F3;
+}
+
+.green-message {
+  background-color: #CDEBE6;
+}

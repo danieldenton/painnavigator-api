@@ -1,0 +1,25 @@
+<div class="mt-4">  
+  <div class="accordion" id="accordionExample">
+    <% @users.each do |user| %>
+      <% unless user.role == "admin" %>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading-<%= user.id %>">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<%= user.id %>" aria-expanded="false" aria-controls="collapse-<%= user.id %>">
+              <%= user.first_name %>
+              <%= user.last_name %>:
+              <%= user.email %>
+            </button>
+          </h2>
+          <div id="collapse-<%= user.id %>" class="accordion-collapse collapse" aria-labelledby="heading-<%= user.id %>" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <% user.wellness_coach.each do |message| %>
+                <%= render 'dashboard/message', { message: message } %>
+              <% end %>
+              <%= render 'dashboard/message_input', { id: user.id } %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

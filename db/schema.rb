@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_26_184451) do
+ActiveRecord::Schema.define(version: 2022_06_30_235206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(version: 2022_06_26_184451) do
     t.integer "status"
     t.integer "user_id"
     t.float "date_time_value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "education_modules", force: :cascade do |t|
+    t.integer "module_id"
+    t.integer "module_type"
+    t.string "name"
+    t.integer "length"
+    t.string "post_completion_destination"
+    t.string "source"
+    t.integer "skippable"
+    t.string "summary"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

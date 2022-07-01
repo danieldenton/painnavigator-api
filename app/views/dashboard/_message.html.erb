@@ -1,0 +1,11 @@
+<% if message.sender_id = 1 %>
+    <div class="card mt-2 me-4">
+    <div class="card-body blue-message">
+  <% else %>
+    <div class="card mt-2 ms-4">
+    <div class="card-body green-message">
+  <% end %>
+    <strong><%= User.find_by(id: message.sender_id).first_name %>:</strong>
+    <%= message.body %>
+  </div>
+</div>

@@ -89,6 +89,10 @@ class User < ApplicationRecord
     }
   end
 
+  def wellness_coach
+    messages = Message.where(sender_id: self.id).or(Message.where(recipient_id: self.id)).order(:created_at)
+  end
+
   def conversation
     messages = Message.where(sender_id: self.id).or(Message.where(recipient_id: self.id)).order(:created_at)
     return messages.map { |message| 

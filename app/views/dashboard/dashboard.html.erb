@@ -1,0 +1,34 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Module Id</th>
+      <th scope="col">Type</th>
+      <th scope="col">Name</th>
+      <th scope="col">Post Completion Destination</th>
+      <th scope="col">Skippable</th>
+      <th scope="col">Completions</th>
+      <th scope="col">Skips</th>
+      <th scope="col">Bookmarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @education_modules.each do |education_module| %>
+        <tr>
+          <th scope="row"><%= education_module.module_id %></th>
+          <td><%= education_module.module_type %></td>
+          <td>
+            <div>
+              <%= education_module.name %>
+            </div>
+            <div>
+              <%= education_module.summary %>
+            </div>
+          </td>
+          <td><%= education_module.post_completion_destination %></td>
+          <td><%= education_module.skippable %></td>
+          <td><%= @education_module_completions.where({ :module_id => education_module.module_id }).where({ :status => "completed" }).count %></td>
+          <td><%= @education_module_completions.where({ :module_id => education_module.module_id }).where({ :status => "skipped" }).count %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
