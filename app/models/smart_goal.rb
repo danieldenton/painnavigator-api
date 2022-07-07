@@ -11,4 +11,8 @@ class SmartGoal < ApplicationRecord
   def date_time_value
     self.created_at.to_f * 1000
   end
+
+  def goal_updates
+    self.smart_goal_updates.order(:created_at).reverse
+  end
 end
