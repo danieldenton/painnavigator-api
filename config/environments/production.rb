@@ -49,20 +49,14 @@ Rails.application.configure do
   # config.force_ssl = true
 
   #mailer URL
-  Rails.application.routes.default_url_options[:host] = { host: 'pain-navigator-mobile-staging.herokuapp.com' }
-
-  config.action_mailer.raise_delivery_errors = true
-    config.action_mailer.delivery_method = :smtp
-    host = 'pain-navigator-mobile-staging.herokuapp.com'
-    config.action_mailer.default_url_options = { host: host }
-    ActionMailer::Base.smtp_settings = {
-      :address        => 'smtp.sendgrid.net',
-      :port           => '587',
-      :authentication => :plain,
-      :user_name      => 'apikey',
-      :password       => ENV['SENDGRID_API_KEY'],
-      :domain         => 'heroku.com',
-      :enable_starttls_auto => true
+  ActionMailer::Base.smtp_settings = {
+    :user_name => 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
+    :password => ENV['SENDGRID_API_KEY'], # This is the secret sendgrid API key which was issued during API key creation
+    :domain => 'https://3000-stephenavoc-painnavigat-opr918elymm.ws-us53.gitpod.io/',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
   }
 
   # Include generic and useful information about system operation, but avoid logging too much

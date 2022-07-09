@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       patch '/mark_conversation_read/:uid' => 'messages#mark_conversation_read'
-      post '/contact_us' => 'mailer#contact_us'
+      post '/contact_us' => 'mailers#contact_us'
       resources :education_module_completions, only: [:index, :create, :update]
       resources :movement_module_completions, only: [:index, :create, :update]
       resources :food_journals, only: [:index, :create, :update]
