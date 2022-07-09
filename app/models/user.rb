@@ -105,19 +105,19 @@ class User < ApplicationRecord
 
   def profile
     return {
-        "first_name" => self.first_name, 
-        "last_name" => self.last_name,
-        "email" => self.email,
-        "uid" => self.uid,
-        "role" => self.role,
-        "activity_level" => self.activity_level,
-        "starting_pain_duration" => self.starting_pain_duration,
-        "starting_pain_score" => self.starting_pain_score,
-        "pace" => self.pace,
-        "commitment" => self.commitment,
-        "gender" => self.gender,
-        "dob" => self.dob,
-        "phone" => self.phone
+        first_name: self.first_name, 
+        last_name: self.last_name,
+        email: self.email,
+        uid: self.uid,
+        role: self.role,
+        activity_level: self.activity_level,
+        starting_pain_duration: self.starting_pain_duration,
+        starting_pain_score: self.starting_pain_score,
+        pace: self.pace,
+        commitment: self.commitment,
+        gender: self.gender,
+        dob: self.dob,
+        phone: self.phone
     }
   end
 
