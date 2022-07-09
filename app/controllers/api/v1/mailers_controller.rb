@@ -6,6 +6,7 @@ module Api
       def contact_us
         body = params[:body]
         MyMailer.contact_us(body, @user).deliver
+        head :no_content
       end
 
       private
