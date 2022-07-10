@@ -121,4 +121,8 @@ class User < ApplicationRecord
     }
   end
 
+  def pain_graph_data
+    self.pain_journals.group_by_month(:created_at, format: "%b").average(:intensity)
+  end
+
 end
