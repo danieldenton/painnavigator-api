@@ -8,6 +8,19 @@
               <%= user.first_name %>
               <%= user.last_name %>:
               <%= user.email %>
+              <% last_message = user.wellness_coach.where.not(sender_id: 1).last %>
+              <% if !last_message.nil? %>
+                <% days_unreplied = (Date.current - last_message.created_at.to_date).to_i %>                
+                <% if days_unreplied > 3 %>
+                <span class="badge bg-danger ms-2">
+                    Days without reply: <%= days_unreplied %>
+                </span>
+                <% else %>
+                  <span class="badge bg-secondary ms-2">
+                    Days without reply: <%= days_unreplied %>
+                  </span>
+                <% end %>
+              <% end %>  
             </button>
           </h2>
           <div id="collapse-<%= user.id %>" class="accordion-collapse collapse" aria-labelledby="heading-<%= user.id %>" data-bs-parent="#accordionExample">
