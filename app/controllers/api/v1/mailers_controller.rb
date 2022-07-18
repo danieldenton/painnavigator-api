@@ -11,7 +11,7 @@ module Api
 
         email_info =  { 
           :from => email,
-          :to => "me@stephenavocado.com",  
+          :to => "info@painnavigator.io",  
           :subject => "PainNavigator Contact Form Submission from #{name}",
           :text => body
         }
