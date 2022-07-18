@@ -5,8 +5,16 @@ module Api
       
       def contact_us
         body = params[:body]
-        MyMailer.contact_us(body, @user).deliver
-        head :no_content
+        mg_client = Mailgun::Client.new(ENV['MG_API_KEY'])
+
+        email_info =  { 
+          :from => "info@painnavigator.io",
+          :to => "me@stephenavocado.com",  
+          :subject => "PainNavigator Contact Form Submission",
+          :text => body
+        }
+
+        mg_client.send_message(ENV['MG_SENDING_DOMAIN'], email_info)
       end
 
       private
