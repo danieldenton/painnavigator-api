@@ -14,7 +14,7 @@ class User < ApplicationRecord
   enum pace: [:leisurely, :just_right, :zooming]
 
   def send_welcome_message
-    self.received_messages.create(sender_id: 1, body: "Hi #{self.first_name}! Welcome to Pain Navigator. My name’s Kelly and I’m here to help you get the most out of this program. Do you have any questions or comments you’d like to discuss?")
+    self.received_messages.create(sender_id: 1, body: "Hi #{self.first_name}! Welcome to PainNavigator! My name's Kelly. I'm your PainNavigator Wellness Coach, here to help you get the most out of the program. Feel free to ask me any questions here!")
   end
 
   def last_pain_journal_date
