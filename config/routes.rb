@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       patch '/mark_conversation_read/:uid' => 'messages#mark_conversation_read'
       post '/contact_us' => 'mailers#contact_us'
       get '/journals/:uid' => 'users#get_journals'
+      get '/providers/:code' => 'providers#check_referral_code'
       resources :education_module_completions, only: [:index, :create, :update]
       resources :movement_module_completions, only: [:index, :create, :update]
       resources :food_journals, only: [:index, :create, :update]
