@@ -27,6 +27,13 @@ gem "groupdate"
 # gem 'image_processing', '~> 1.2'
 gem "mailgun-ruby"
 
+gem 'activeadmin'
+
+gem 'devise'
+gem 'cancancan'
+gem 'draper'
+gem 'pundit'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

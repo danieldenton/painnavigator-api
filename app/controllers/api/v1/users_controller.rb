@@ -3,7 +3,7 @@ module Api
     class UsersController < ApplicationController
 
       def get_journals
-        
+        # render json: UserSerializer.new(user).serializable_hash.to_json
       end
 
       def show
