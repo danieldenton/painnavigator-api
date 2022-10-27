@@ -60,7 +60,8 @@ module Api
           :dob,
           :phone,
           :onboard_status,
-          :profile_status
+          :profile_status,
+          :provider_id,
         )
       end
     end
