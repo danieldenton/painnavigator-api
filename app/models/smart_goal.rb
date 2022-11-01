@@ -1,6 +1,6 @@
 class SmartGoal < ApplicationRecord
   belongs_to :user
-  has_many  :smart_goal_updates, dependent: :destroy
+  has_many :smart_goal_updates, dependent: :destroy
   enum status: [:active, :finished]
   after_create :set_date_time
 
