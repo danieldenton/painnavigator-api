@@ -131,7 +131,9 @@ class User < ApplicationRecord
   end
 
   def active_goal_updates
-    self.smart_goals.where(status: "active").last.smart_goal_updates.order(:created_at).reverse
+    if self.smart_goals.count > 0 
+      self.smart_goals.where(status: "active").last.smart_goal_updates.order(:created_at).reverse
+    end
   end
 
 end
