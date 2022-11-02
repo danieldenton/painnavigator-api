@@ -11,8 +11,15 @@ class User < ApplicationRecord
   belongs_to :provider, class_name: "Provider", foreign_key: "provider_id", counter_cache: true
   after_create :send_welcome_message
 
-  enum role: [:standard, :admin]
+  enum role: [:standard, :admin, :wellness_coach]
   enum pace: [:leisurely, :just_right, :zooming]
+
+  def wellness_coach_uid
+    wellness_coach = self.wellness_coach_id
+    user = User.find_by(id: wellness_coach)
+    uid = user.uid
+    return uid
+  end
 
   def send_welcome_message
     self.received_messages.create(sender_id: 1, body: "Hi #{self.first_name}! Welcome to PainNavigator! My name's Kelly. I'm your PainNavigator Wellness Coach, here to help you get the most out of the program. Feel free to ask me any questions here!")
