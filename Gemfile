@@ -27,6 +27,8 @@ gem "groupdate"
 # gem 'image_processing', '~> 1.2'
 gem "mailgun-ruby"
 
+gem 'activeadmin'
+
 gem 'devise'
 gem 'cancancan'
 gem 'draper'
