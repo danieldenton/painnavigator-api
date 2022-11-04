@@ -6,6 +6,14 @@ ActiveAdmin.register Provider do
   # Uncomment all parameters which should be permitted for assignment
   #
   permit_params :name, :code, :users_count
+
+  index do
+    id_column
+    column :name
+    column :code
+    column :users_count
+    actions
+  end
   #
   # or
   #
