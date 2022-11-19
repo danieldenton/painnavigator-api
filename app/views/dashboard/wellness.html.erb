@@ -1,14 +1,16 @@
 <div class="mt-4 mb-4">  
   <div class="accordion" id="accordionExample">
     <% @users.each do |user| %>
-      <% unless user.role == "admin" %>
+      <% unless user.role == "admin" || user.role == "wellness_coach"%>
         <div class="accordion-item">
           <h2 class="accordion-header" id="heading-<%= user.id %>">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<%= user.id %>" aria-expanded="false" aria-controls="collapse-<%= user.id %>">
               <%= user.first_name %>
               <%= user.last_name %>:
               <%= user.email %>
-              <% last_message = user.wellness_coach.last %>
+              <% if user.has_unreplied_message == true %>
+                <div class="has-unreplied-message"></div>
+              <% end %>
             </button>
           </h2>
           <div id="collapse-<%= user.id %>" class="accordion-collapse collapse" aria-labelledby="heading-<%= user.id %>" data-bs-parent="#accordionExample">
