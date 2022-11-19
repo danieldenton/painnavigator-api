@@ -27,7 +27,7 @@ class User < ApplicationRecord
   end
 
   def send_welcome_message
-    self.received_messages.create(sender_id: 3, body: "Hi #{self.first_name}! Welcome to PainNavigator! My name's Kelly. I'm your PainNavigator Wellness Coach, here to help you get the most out of the program. Feel free to ask me any questions here!")
+    self.received_messages.create(sender_id: 1, body: "Hi #{self.first_name}! Welcome to PainNavigator! My name's Marina. I'm your PainNavigator Wellness Coach, here to help you get the most out of the program. Feel free to ask me any questions here!")
   end
 
   def last_pain_journal_date

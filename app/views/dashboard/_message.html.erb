@@ -1,11 +1,10 @@
 <div class="card mt-2">
-  <% if message.sender_id == 3 %>
+  <% if message.sender_id == 1 %>
     <div class="card-body blue-message">
-    <strong>PainNavigator:</strong>
   <% else %>
     <div class="card-body green-message">
-    <strong><%= User.find_by(id: message.sender_id).first_name %>:</strong>
   <% end %>
+    <strong><%= User.find_by(id: message.sender_id).first_name %>:</strong>
     <%= message.body %>
   </div>
 </div>
