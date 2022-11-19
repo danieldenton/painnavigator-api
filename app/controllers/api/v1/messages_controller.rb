@@ -41,7 +41,7 @@ module Api
         if message.save
           if @sender.role == "standard"
             @sender.update(has_unreplied_message: true)
-          elsif @sender.role == "wellness_coach"
+          elsif @sender.role == "wellness_coach" || @sender.role == "admin"
             @recipient.update(has_unreplied_message: false)
           end
           render json: MessageSerializer.new(message).serializable_hash.to_json

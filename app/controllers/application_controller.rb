@@ -16,12 +16,13 @@ class ApplicationController < ActionController::Base
   end
 
   def reply_to_user
-    recipient_id = params[:recipient_id]
+    @recipient_id = params[:recipient_id]
     body = params[:body]
 
-    message = Message.new(sender_id: 1, recipient_id: recipient_id, body: body)
+    message = Message.new(sender_id: 1, recipient_id: @recipient_id, body: body)
 
     if message.save
+      User.find_by(id: @recipient_id).update(has_unreplied_message: false)
       redirect_to "/wellness"
     else 
       render json: { error: message.errors.messages }, status: 422
