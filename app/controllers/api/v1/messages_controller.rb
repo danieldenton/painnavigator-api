@@ -29,16 +29,21 @@ module Api
 
       def create
         sender_uid = params[:sender_id]
-        sender = User.find_by(uid: sender_uid)
+        @sender = User.find_by(uid: sender_uid)
 
         recipient_uid = params[:recipient_id]
-        recipient = User.find_by(uid: recipient_uid)
+        @recipient = User.find_by(uid: recipient_uid)
 
         body = params[:body]
 
-        message = Message.new(sender_id: sender.id, recipient_id: recipient.id, body: body)
+        message = Message.new(sender_id: @sender.id, recipient_id: @recipient.id, body: body)
 
         if message.save
+          if @sender.role == "standard"
+            @sender.update(has_unreplied_message: true)
+          elsif @sender.role == "wellness_coach"
+            @recipient.update(has_unreplied_message: false)
+          end
           render json: MessageSerializer.new(message).serializable_hash.to_json
         else 
           render json: { error: message.errors.messages }, status: 422
