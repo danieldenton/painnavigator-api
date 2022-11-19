@@ -9,16 +9,6 @@
               <%= user.last_name %>:
               <%= user.email %>
               <% last_message = user.wellness_coach.last %>
-              <% days_unreplied = (Date.current - last_message.created_at.to_date).to_i %>                
-                <% if days_unreplied > 5 %>
-                  <span class="badge bg-danger ms-2">
-                      Days since last message: <%= days_unreplied %>
-                  </span>
-                <% else %>
-                  <span class="badge bg-secondary ms-2">
-                    Days since last message: <%= days_unreplied %>
-                  </span>
-                <% end %>
             </button>
           </h2>
           <div id="collapse-<%= user.id %>" class="accordion-collapse collapse" aria-labelledby="heading-<%= user.id %>" data-bs-parent="#accordionExample">
