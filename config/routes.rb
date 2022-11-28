@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :wellness_coaches, controllers: { sessions: 'wellness_coaches/sessions' }
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  get '/wellness' => 'application#wellness'
+  root to: 'wellness_coaches#wellness'
+  get '/wellness' => 'wellness_coaches#wellness'
   post '/reply_to_user' => 'application#reply_to_user'
   
   namespace :api do
