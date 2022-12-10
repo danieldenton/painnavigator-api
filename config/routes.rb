@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root to: 'wellness_coaches#wellness'
   get '/wellness' => 'wellness_coaches#wellness'
-  post '/reply_to_user' => 'application#reply_to_user'
+  post '/reply_to_user' => 'wellness_coaches#reply_to_user'
   
   namespace :api do
     namespace :v1 do
