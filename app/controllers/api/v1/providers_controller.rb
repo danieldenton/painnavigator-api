@@ -17,6 +17,7 @@ module Api
         params.require(:provider).permit(
           :name, 
           :code, 
+          :condensed_program,
           :users_count,
         )
       end

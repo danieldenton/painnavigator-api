@@ -1,26 +1,18 @@
 module Api
   module V1
-    class EducationModuleCompletionsController < ApplicationController
-      before_action :get_user
+    class EducationUnitsController < ApplicationController
 
       def index
         education_modules = EducationModuleCompletion.all.order(:created_at).reverse
 
-        render json: EducationModuleCompletionSerializer.new(education_modules).serializable_hash.to_json
+        render json: EducationUnitSerializer.new(education_modules).serializable_hash.to_json
       end
 
       def create
         education_module = @user.education_modules.new(education_module_params)
 
         if education_module.save
-          if (@user.condensed_program) 
-            units = EducationUnit.where("id > ?", @user.education_modules.last.module_id).where({ :condensed_program => true })
-            render json: units.first(2).to_json
-          else 
-            units = EducationUnit.where("id > ?", @user.education_modules.last.module_id)
-            render json: units.first(2).to_json
-            #render json: EducationModuleCompletionSerializer.new(education_module).serializable_hash.to_json
-          end
+          render json: EducationUnitSerializer.new(education_module).serializable_hash.to_json
         else 
           render json: { error: education_module.errors.messages }, status: 422
         end
@@ -30,7 +22,7 @@ module Api
         education_module = EducationModuleCompletion.find_by(id: params[:id])
 
         if education_module.update(education_module_params)
-          render json: EducationModuleCompletionSerializer.new(education_module).serializable_hash.to_json
+          render json: EducationUnitSerializer.new(education_module).serializable_hash.to_json
         else 
           render json: { error: education_module.errors.messages }, status: 422
         end

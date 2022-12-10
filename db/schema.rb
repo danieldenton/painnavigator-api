@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_28_025949) do
+ActiveRecord::Schema.define(version: 2022_12_10_164709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,21 @@ ActiveRecord::Schema.define(version: 2022_11_28_025949) do
     t.string "source"
     t.integer "skippable"
     t.string "summary"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "education_units", force: :cascade do |t|
+    t.integer "module_order"
+    t.string "module_type"
+    t.string "name"
+    t.integer "length"
+    t.string "post_video_destination"
+    t.string "source"
+    t.boolean "skippable"
+    t.string "summary"
+    t.string "steps"
+    t.boolean "condensed_program"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -133,6 +148,7 @@ ActiveRecord::Schema.define(version: 2022_11_28_025949) do
     t.integer "users_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "condensed_program", default: false
   end
 
   create_table "smart_goal_updates", force: :cascade do |t|
