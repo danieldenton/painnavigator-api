@@ -6,5 +6,12 @@
   <% end %>
     <strong><%= User.find_by(id: message.sender_id).first_name %>:</strong>
     <%= message.body %>
+    <br>
+    <br>
+    <span>
+      <strong>
+        <%= message.timestamp %>
+      </strong>
+    </span>
   </div>
 </div>
