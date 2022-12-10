@@ -14,6 +14,10 @@ class User < ApplicationRecord
   enum role: [:standard, :admin, :wellness_coach]
   enum pace: [:leisurely, :just_right, :zooming]
 
+  def condensed_program 
+    provider.condensed_program
+  end
+
   def assign_wellness_coach
     coach = User.where({ :role => "wellness_coach" }).first
     self.wellness_coach_id = coach.id

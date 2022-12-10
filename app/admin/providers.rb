@@ -11,6 +11,7 @@ ActiveAdmin.register Provider do
     id_column
     column :name
     column :code
+    column :condensed_program
     column :users_count
     actions
   end
