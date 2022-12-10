@@ -62,10 +62,10 @@ class User < ApplicationRecord
     if self.education_modules.any?
       if condensed_program
         units = EducationUnit.where("id > ?", education_modules.last.module_id).where({ :condensed_program => true })
-        @current_unit_id = units.first.module_order
+        @current_unit_id = units.first.id
       else 
         units = EducationUnit.where("id > ?", education_modules.last.module_id)
-        @current_unit_id = units.first.module_order
+        @current_unit_id = units.first.id
       end
 
       return {
