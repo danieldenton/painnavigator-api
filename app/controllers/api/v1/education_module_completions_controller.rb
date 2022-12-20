@@ -13,14 +13,7 @@ module Api
         education_module = @user.education_modules.new(education_module_params)
 
         if education_module.save
-          if (@user.condensed_program) 
-            units = EducationUnit.where("id > ?", @user.education_modules.last.module_id).where({ :condensed_program => true })
-            render json: units.first(2).to_json
-          else 
-            units = EducationUnit.where("id > ?", @user.education_modules.last.module_id)
-            render json: units.first(2).to_json
-            #render json: EducationModuleCompletionSerializer.new(education_module).serializable_hash.to_json
-          end
+          render json: EducationModuleCompletionSerializer.new(education_module).serializable_hash.to_json
         else 
           render json: { error: education_module.errors.messages }, status: 422
         end
