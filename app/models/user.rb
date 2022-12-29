@@ -8,15 +8,15 @@ class User < ApplicationRecord
   has_many  :smart_goals, dependent: :destroy
   has_many  :sent_messages, class_name: "Message", foreign_key: "sender_id", dependent: :destroy
   has_many  :received_messages, class_name: "Message", foreign_key: "recipient_id", dependent: :destroy
-  belongs_to :provider, class_name: "Provider", foreign_key: "provider_id", counter_cache: true
+  #belongs_to :provider, class_name: "Provider", foreign_key: "provider_id", counter_cache: true
   after_create :send_welcome_message
 
   enum role: [:standard, :admin, :wellness_coach]
   enum pace: [:leisurely, :just_right, :zooming]
 
-  def condensed_program 
-    provider.condensed_program
-  end
+  #def condensed_program 
+    #provider.condensed_program
+  #end
 
   def assign_wellness_coach
     coach = User.where({ :role => "wellness_coach" }).first
