@@ -14,9 +14,9 @@ class User < ApplicationRecord
   enum role: [:standard, :admin, :wellness_coach]
   enum pace: [:leisurely, :just_right, :zooming]
 
-  def condensed_program 
-    provider.condensed_program
-  end
+  #def condensed_program 
+    #provider.condensed_program
+  #end
 
   def assign_wellness_coach
     coach = User.where({ :role => "wellness_coach" }).first
@@ -60,19 +60,18 @@ class User < ApplicationRecord
 
   def education_progress
     if self.education_modules.any?
-      if condensed_program
-        units = EducationUnit.where("id > ?", education_modules.last.module_id).where({ :condensed_program => true })
-        @current_unit_id = units.first.id
-      else 
-        units = EducationUnit.where("id > ?", education_modules.last.module_id)
-        @current_unit_id = units.first.id
-      end
-
       return {
-        "progress" => @current_unit_id, 
+        "progress" => self.education_modules.last.id,
         "last_completed_date" => education_modules.last.created_at.to_f * 1000,
       }
 
+      #if condensed_program
+        #units = EducationUnit.where("id > ?", education_modules.last.module_id).where({ :condensed_program => true })
+        #@current_unit_id = units.first.id
+      #else 
+        #units = EducationUnit.where("id > ?", education_modules.last.module_id)
+        #@current_unit_id = units.first.id
+      #end
     else 
       return {
         "progress" => 1, 

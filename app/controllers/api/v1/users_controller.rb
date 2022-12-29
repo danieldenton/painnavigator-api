@@ -61,7 +61,7 @@ module Api
           :phone,
           :onboard_status,
           :profile_status,
-          :provider_id,
+          :provider_id
         )
       end
     end
