@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many  :smart_goals, dependent: :destroy
   has_many  :sent_messages, class_name: "Message", foreign_key: "sender_id", dependent: :destroy
   has_many  :received_messages, class_name: "Message", foreign_key: "recipient_id", dependent: :destroy
-  #belongs_to :provider, class_name: "Provider", foreign_key: "provider_id", counter_cache: true
+  belongs_to :provider, class_name: "Provider", foreign_key: "provider_id", counter_cache: true
   after_create :send_welcome_message
 
   enum role: [:standard, :admin, :wellness_coach]
@@ -60,19 +60,18 @@ class User < ApplicationRecord
 
   def education_progress
     if self.education_modules.any?
-      if condensed_program
-        units = EducationUnit.where("id > ?", education_modules.last.module_id).where({ :condensed_program => true })
-        @current_unit_id = units.first.id
-      else 
-        units = EducationUnit.where("id > ?", education_modules.last.module_id)
-        @current_unit_id = units.first.id
-      end
-
       return {
-        "progress" => @current_unit_id, 
+        "progress" => self.education_modules.last.id,
         "last_completed_date" => education_modules.last.created_at.to_f * 1000,
       }
 
+      #if condensed_program
+        #units = EducationUnit.where("id > ?", education_modules.last.module_id).where({ :condensed_program => true })
+        #@current_unit_id = units.first.id
+      #else 
+        #units = EducationUnit.where("id > ?", education_modules.last.module_id)
+        #@current_unit_id = units.first.id
+      #end
     else 
       return {
         "progress" => 1, 
