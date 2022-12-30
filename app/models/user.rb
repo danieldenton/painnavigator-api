@@ -61,7 +61,7 @@ class User < ApplicationRecord
   def education_progress
     if self.education_modules.any?
       return {
-        "progress" => self.education_modules.last.id,
+        "progress" => self.education_modules.last.module_id,
         "last_completed_date" => education_modules.last.created_at.to_f * 1000,
       }
 
