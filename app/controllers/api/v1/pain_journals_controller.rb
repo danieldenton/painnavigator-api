@@ -50,7 +50,8 @@ module Api
           :who_i_was_with, 
           :coping_strategies, 
           :notes, 
-          :intensity_after
+          :intensity_after,
+          :date_time_value
         )
       end
 

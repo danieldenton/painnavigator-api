@@ -32,7 +32,12 @@ module Api
         @sender = User.find_by(uid: sender_uid)
 
         recipient_uid = params[:recipient_id]
-        @recipient = User.find_by(uid: recipient_uid)
+
+        if User.find_by(uid: recipient_uid)
+          @recipient = User.find_by(uid: recipient_uid)
+        else 
+          @recipient = User.first
+        end
 
         body = params[:body]
 
