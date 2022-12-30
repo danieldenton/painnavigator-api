@@ -49,10 +49,10 @@ module Api
           :feeling, 
           :who_i_was_with, 
           :primary_thought, 
-          :cognitive_distortions
+          :cognitive_distortions,
+          :date_time_value
         )
       end
-
     end
   end
 end
