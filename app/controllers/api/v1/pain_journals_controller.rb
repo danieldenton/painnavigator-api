@@ -51,7 +51,8 @@ module Api
           :coping_strategies, 
           :notes, 
           :intensity_after,
-          :date_time_value
+          :date_time_value,
+          :created
         )
       end
 
