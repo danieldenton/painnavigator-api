@@ -33,7 +33,7 @@ module Api
 
       def food_journal_params
         params.require(:food_journal)
-        .permit(:user_id, :breakfast, :lunch, :dinner, :snacks, :date_time_value)
+        .permit(:user_id, :breakfast, :lunch, :dinner, :snacks, :created)
       end
 
     end
