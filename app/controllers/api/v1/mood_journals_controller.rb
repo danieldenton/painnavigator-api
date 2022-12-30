@@ -50,7 +50,7 @@ module Api
           :who_i_was_with, 
           :primary_thought, 
           :cognitive_distortions,
-          :date_time_value
+          :created
         )
       end
     end
