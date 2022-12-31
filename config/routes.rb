@@ -24,4 +24,10 @@ Rails.application.routes.draw do
       resources :users, only: [:show, :create, :update, :destroy]
     end
   end
+
+  namespace :api do
+    namespace :v2 do
+      resources :education_module_completions, only: [:index, :create, :update]
+    end
+  end
 end
