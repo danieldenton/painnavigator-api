@@ -44,7 +44,19 @@ module Api
               }
             end
           else
-            render json: EducationModuleCompletionSerializer.new(education_module).serializable_hash.to_json
+            #render json: EducationModuleCompletionSerializer.new(education_module).serializable_hash.to_json
+            render json: {
+              "data": {
+                "id": @user.education_modules.last.module_id + 1,
+                "type": "education_module_completion",
+                "attributes": {
+                  "id": @user.education_modules.last.module_id + 1,
+                  "date_time_value": nil,
+                  "status": nil,
+                  "module_id": @user.education_modules.last.module_id + 1
+                }
+              }
+            }
           end
         else 
           render json: { error: education_module.errors.messages }, status: 422
