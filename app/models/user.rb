@@ -60,23 +60,34 @@ class User < ApplicationRecord
 
   def education_progress
     if self.education_modules.any?
-      return {
-        "progress" => self.education_modules.last.module_id + 1,
-        "last_completed_date" => education_modules.last.created_at.to_f * 1000,
-      }
+      if condensed_program
+        unit = EducationUnit.where("id > ?", education_modules.last.module_id).where({ :condensed_program => true })[0]
+            
+        if unit 
+          return {
+            "progress" => unit.module_order,
+            "last_completed_date" => education_modules.last.created_at.to_f * 1000,
+          }
+        else 
+          return {
+            "progress" => self.education_modules.last.module_id + 1,
+            "last_completed_date" => education_modules.last.created_at.to_f * 1000,
+          }
+        end
+      else 
+        return {
+          "progress" => self.education_modules.last.module_id + 1,
+          "last_completed_date" => education_modules.last.created_at.to_f * 1000,
+        }
+      end
 
-      #if condensed_program
-        #units = EducationUnit.where("id > ?", education_modules.last.module_id).where({ :condensed_program => true })
-        #@current_unit_id = units.first.id
-      #else 
-        #units = EducationUnit.where("id > ?", education_modules.last.module_id)
-        #@current_unit_id = units.first.id
-      #end
     else 
+
       return {
         "progress" => 1, 
         "last_completed_date" => nil
       }
+      
     end
   end
 
