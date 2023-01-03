@@ -5,7 +5,7 @@ ActiveAdmin.register Provider do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :code, :users_count
+  permit_params :name, :code, :users_count, :condensed_program
 
   index do
     id_column

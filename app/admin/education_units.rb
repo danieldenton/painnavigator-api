@@ -5,7 +5,7 @@ ActiveAdmin.register EducationUnit do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :module_order, :module_type, :name, :length, :post_video_destination, :source, :skippable, :summary, :steps, :condensed_program
+  permit_params :name, :length, :post_video_destination, :skippable, :summary, :steps, :condensed_program
   #
   # or
   #
