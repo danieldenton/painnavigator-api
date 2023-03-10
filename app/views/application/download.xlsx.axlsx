@@ -1,0 +1,57 @@
+wb = xlsx_package.workbook
+
+# User
+wb.add_worksheet(name: "Users") do |sheet|
+  sheet.add_row @user['headers']
+  @user['objects'].each do |object|
+    sheet.add_row object.attributes.values
+  end
+end
+
+# Education Module Completion
+wb.add_worksheet(name: "Education_Module_Completion") do |sheet|
+  sheet.add_row @education_module_completion['headers']
+  @education_module_completion['objects'].each do |object|
+    sheet.add_row object.attributes.values
+  end
+end
+
+# Movement Module Completion
+wb.add_worksheet(name: "Movement Module Completion") do |sheet|
+  sheet.add_row @movement_module_completion['headers']
+  @movement_module_completion['objects'].each do |object|
+    sheet.add_row object.attributes.values
+  end
+end
+
+# Smart Goal
+wb.add_worksheet(name: "Smart_Goal") do |sheet|
+  sheet.add_row @smart_goal['headers']
+  @smart_goal['objects'].each do |object|
+    sheet.add_row object.attributes.values
+  end
+end
+
+# Pain Journal
+wb.add_worksheet(name: "Pain_Journal") do |sheet|
+  sheet.add_row @pain_journal['headers']
+  @pain_journal['objects'].each do |object|
+    sheet.add_row object.attributes.values
+  end
+end
+
+# Mood Journal
+wb.add_worksheet(name: "Mood_Journal") do |sheet|
+  sheet.add_row @mood_journal['headers']
+  @mood_journal['objects'].each do |object|
+    sheet.add_row object.attributes.values
+  end
+end
+
+# Food Journal
+wb.add_worksheet(name: "Food_Journal") do |sheet|
+  sheet.add_row @food_journal['headers']
+  @food_journal['objects'].each do |object|
+    sheet.add_row object.attributes.values
+  end
+end
