@@ -29,7 +29,8 @@ gem "mailgun-ruby"
 gem 'kaminari'
 
 gem 'activeadmin'
-
+gem 'caxlsx'
+gem 'caxlsx_rails'
 gem 'devise'
 gem 'cancancan'
 gem 'draper'
