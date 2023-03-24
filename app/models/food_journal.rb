@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: food_journals
+#
+#  id              :bigint           not null, primary key
+#  user_id         :integer
+#  breakfast       :string
+#  lunch           :string
+#  dinner          :string
+#  snacks          :string
+#  date_time_value :float
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  created         :string
+#
 class FoodJournal < ApplicationRecord
   belongs_to :user
   #after_create :set_date_time

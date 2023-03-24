@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: smart_goal_updates
+#
+#  id              :bigint           not null, primary key
+#  smart_goal_id   :integer
+#  goal_update     :string
+#  date_time_value :float
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
 class SmartGoalUpdate < ApplicationRecord
   belongs_to :smart_goal, counter_cache: true
   after_create :set_date_time
