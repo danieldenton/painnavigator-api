@@ -15,4 +15,5 @@ class SmartGoal < ApplicationRecord
   def goal_updates
     self.smart_goal_updates.order(:created_at).reverse
   end
+  
 end

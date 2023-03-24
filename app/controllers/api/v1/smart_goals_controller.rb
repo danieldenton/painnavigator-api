@@ -43,7 +43,7 @@ module Api
 
       def smart_goal_params
         params.require(:smart_goal)
-        .permit(:user_id, :goal, :steps, :reward, :status, :meaning, :challenges)
+        .permit(:user_id, :goal, :steps, :reward, :status, :meaning, :challenges, :end_date)
       end
 
       def options
