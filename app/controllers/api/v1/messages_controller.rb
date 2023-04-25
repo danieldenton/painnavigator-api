@@ -35,6 +35,7 @@ module Api
 
         if User.find_by(uid: recipient_uid)
           @recipient = User.find_by(uid: recipient_uid)
+
         else 
           @recipient = User.first
         end
@@ -47,6 +48,18 @@ module Api
           if @sender.role == "standard"
             @sender.update(has_unreplied_message: true)
           elsif @sender.role == "wellness_coach" || @sender.role == "admin"
+
+            expo_push_token = "ExponentPushToken[pl4gsnDTGSWaqjhi2D_4hj]"
+            if expo_push_token.present?
+              message = {
+                to: expo_push_token,
+                sound: "default",
+                body: "You have a new message from your wellness coach"
+              }
+              client = Exponent::Push::Client.new
+              handler = client.publish(message)
+              client.verify_deliveries(handler.receipt_ids)
+            end
             @recipient.update(has_unreplied_message: false)
           end
           render json: MessageSerializer.new(message).serializable_hash.to_json
@@ -69,3 +82,17 @@ module Api
     end
   end
 end
+
+
+
+# @Deprecated
+# client.publish(messages)
+
+# MAX 100 messages at a time
+
+
+# Array of all errors returned from the API
+# puts handler.errors
+
+# you probably want to delay calling this because the service might take a few moments to send
+# I would recommend reading the expo documentation regarding delivery delays
