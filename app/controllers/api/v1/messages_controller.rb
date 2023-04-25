@@ -1,7 +1,6 @@
 module Api
   module V1
     class MessagesController < ApplicationController
-      require 'exponent-server-sdk'
       before_action :find_user, only: [:get_conversation, :mark_conversation_read]
       
       def get_conversation
@@ -46,25 +45,13 @@ module Api
         message = Message.new(sender_id: @sender.id, recipient_id: @recipient.id, body: body)
 
         if message.save
-          puts "MESSAGE SAVING"
           if @sender.role == "standard"
             @sender.update(has_unreplied_message: true)
           elsif @sender.role == "wellness_coach" || @sender.role == "admin"
-            expo_push_token = "ExponentPushToken[pl4gsnDTGSWaqjhi2D_4hj]"
-            if expo_push_token.present?
-              messages = {
-                to: expo_push_token,
-                body: "You have a new message from your wellness coach"
-              }
-              client = Exponent::Push::Client.new
-              handler = client.publish(messages)
-              client.verify_deliveries(handler.receipt_ids)
-            end
             @recipient.update(has_unreplied_message: false)
           end
           render json: MessageSerializer.new(message).serializable_hash.to_json
         else 
-          puts "creating an error"
           render json: { error: message.errors.messages }, status: 422
         end
       end
