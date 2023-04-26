@@ -1,5 +1,4 @@
 class WellnessCoachesController < ApplicationController
-  require 'exponent-server-sdk'
   before_action :authenticate_wellness_coach!
 
   def index
@@ -14,14 +13,14 @@ class WellnessCoachesController < ApplicationController
   def reply_to_user
     @recipient_id = params[:recipient_id]
     body = params[:body]
-
+    @recipient = User.find_by(id: @recipient_id)
     message = Message.new(sender_id: 1, recipient_id: @recipient_id, body: body)
 
     if message.save
-      expo_push_token = "ExponentPushToken[gWJvMJCKDcMNZ-wStOxChX]"
+      token = @recipient.expo_push_token
             if expo_push_token.present?
               messages = {
-                to: expo_push_token,
+                to: token,
                 body: "You have a new message from your wellness coach"
               }
               client = Exponent::Push::Client.new
