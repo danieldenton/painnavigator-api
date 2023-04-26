@@ -35,6 +35,7 @@ module Api
 
         if User.find_by(uid: recipient_uid)
           @recipient = User.find_by(uid: recipient_uid)
+
         else 
           @recipient = User.first
         end
@@ -69,3 +70,17 @@ module Api
     end
   end
 end
+
+
+
+# @Deprecated
+# client.publish(messages)
+
+# MAX 100 messages at a time
+
+
+# Array of all errors returned from the API
+# puts handler.errors
+
+# you probably want to delay calling this because the service might take a few moments to send
+# I would recommend reading the expo documentation regarding delivery delays

@@ -13,10 +13,20 @@ class WellnessCoachesController < ApplicationController
   def reply_to_user
     @recipient_id = params[:recipient_id]
     body = params[:body]
-
+    @recipient = User.find_by(id: @recipient_id)
     message = Message.new(sender_id: 1, recipient_id: @recipient_id, body: body)
 
     if message.save
+      token = @recipient.expo_push_token
+            if expo_push_token.present?
+              messages = {
+                to: token,
+                body: "You have a new message from your wellness coach"
+              }
+              client = Exponent::Push::Client.new
+              client.publish(messages)
+              # client.verify_deliveries(handler.receipt_ids)
+            end
       User.find_by(id: @recipient_id).update(has_unreplied_message: false)
       redirect_to "/wellness"
     else 
