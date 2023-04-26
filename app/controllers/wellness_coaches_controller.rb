@@ -18,7 +18,7 @@ class WellnessCoachesController < ApplicationController
 
     if message.save
       token = @recipient.expo_push_token
-            if expo_push_token.present?
+            if token.present?
               messages = {
                 to: token,
                 body: "You have a new message from your wellness coach"
