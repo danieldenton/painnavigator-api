@@ -204,7 +204,7 @@ ActiveRecord::Schema.define(version: 2023_05_02_173829) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "provider_id"
     t.integer "wellness_coach_id"
-    t.boolean "has_unreplied_message"
+    t.boolean "has_unreplied_message", default: false
     t.string "expo_push_token"
     t.boolean "completed_program", default: false
   end
