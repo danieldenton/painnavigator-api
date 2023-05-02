@@ -206,7 +206,7 @@ ActiveRecord::Schema.define(version: 2023_05_02_183328) do
     t.integer "wellness_coach_id"
     t.boolean "has_unreplied_message", default: false
     t.string "expo_push_token"
-    t.boolean "completed_program", default: false
+    t.boolean "completed_program"
   end
 
   create_table "wellness_coaches", force: :cascade do |t|
