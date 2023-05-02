@@ -62,7 +62,8 @@ module Api
           :onboard_status,
           :profile_status,
           :provider_id,
-          :expo_push_token
+          :expo_push_token,
+          :completed_program
         )
       end
     end
