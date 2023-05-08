@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_02_184115) do
+ActiveRecord::Schema.define(version: 2023_05_08_160734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -207,6 +207,9 @@ ActiveRecord::Schema.define(version: 2023_05_02_184115) do
     t.boolean "has_unreplied_message", default: false
     t.string "expo_push_token"
     t.boolean "completed_program", default: false
+    t.integer "enjoyment_of_life"
+    t.integer "activity_interference"
+    t.string "hopes_to_achieve"
   end
 
   create_table "wellness_coaches", force: :cascade do |t|

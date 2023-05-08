@@ -16,6 +16,9 @@
 #  activity_level          :integer
 #  pace                    :integer
 #  starting_pain_score     :integer
+#  enjoyment_of_life       :integer
+#  activity_interference   :integer
+#  hopes_to_achieve        :string
 #  dob                     :string
 #  email                   :string
 #  mood_journals_count     :integer
@@ -29,6 +32,7 @@
 #  provider_id             :integer
 #  wellness_coach_id       :integer
 #  has_unreplied_message   :boolean          default(FALSE)
+#  completed_program       :boolean          default(FALSE)
 #
 class UserSerializer
   include JSONAPI::Serializer
