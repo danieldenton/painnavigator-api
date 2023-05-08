@@ -183,8 +183,6 @@ class User < ApplicationRecord
         activity_level: self.activity_level,
         starting_pain_duration: self.starting_pain_duration,
         starting_pain_score: self.starting_pain_score,
-        pace: self.pace,
-        commitment: self.commitment,
         enjoyment_of_life: self.enjoyment_of_life,
         activity_interference: self.activity_interference,
         hopes_to_achieve: self.hopes_to_achieve,
