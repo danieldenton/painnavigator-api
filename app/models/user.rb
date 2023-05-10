@@ -194,11 +194,12 @@ class User < ApplicationRecord
 
   def outcome        
     return {  
+      completed_program: self.completed_program,
       recommendation: self.recommendation,  
       outcome_enjoyment_of_life:  self.outcome_enjoyment_of_life,  
-      outcome_activity_interference: self.outcome_activity_experience,  
+      outcome_activity_interference: self.outcome_activity_interference,  
       anxious: self.anxious,  
-      unable_to_stop_worrying: self.unable_to_start_learning,  
+      unable_to_stop_worrying: self.unable_to_stop_worrying,  
       little_interest_or_pleasure: self.little_interest_or_pleasure, 
       depressed: self.depressed 
       } 
