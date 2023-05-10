@@ -183,8 +183,6 @@ class User < ApplicationRecord
         activity_level: self.activity_level,
         starting_pain_duration: self.starting_pain_duration,
         starting_pain_score: self.starting_pain_score,
-        pace: self.pace,
-        commitment: self.commitment,
         enjoyment_of_life: self.enjoyment_of_life,
         activity_interference: self.activity_interference,
         hopes_to_achieve: self.hopes_to_achieve,
@@ -193,6 +191,19 @@ class User < ApplicationRecord
         phone: self.phone
     }
   end
+
+  def outcome        
+    return {  
+      completed_program: self.completed_program,
+      recommendation: self.recommendation,  
+      outcome_enjoyment_of_life:  self.outcome_enjoyment_of_life,  
+      outcome_activity_interference: self.outcome_activity_interference,  
+      anxious: self.anxious,  
+      unable_to_stop_worrying: self.unable_to_stop_worrying,  
+      little_interest_or_pleasure: self.little_interest_or_pleasure, 
+      depressed: self.depressed 
+      } 
+    end
 
   def pain_graph_data
     self.pain_journals.group_by_month(:created_at, format: "%b").average(:intensity)

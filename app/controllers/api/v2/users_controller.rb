@@ -1,5 +1,5 @@
 module Api
-  module V1
+  module V2
     class UsersController < ApplicationController
 
       def get_journals
@@ -64,7 +64,14 @@ module Api
           :profile_status,
           :provider_id,
           :expo_push_token,
-          :completed_program
+          :completed_program,
+          :recommendation,
+          :outcome_enjoyment_of_life,
+          :outcome_activity_interference,
+          :anxious,
+          :unable_to_stop_worrying,
+          :little_interest_or_pleasure,
+          :depressed
         )
       end
     end
