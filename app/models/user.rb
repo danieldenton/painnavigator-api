@@ -192,6 +192,18 @@ class User < ApplicationRecord
     }
   end
 
+  def outcome        
+    return {  
+      recommendation: self.recommendation,  
+      outcome_enjoyment_of_life:  self.outcome_enjoyment_of_life,  
+      outcome_activity_interference: self.outcome_activity_experience,  
+      anxious: self.anxious,  
+      unable_to_stop_worrying: self.unable_to_start_learning,  
+      little_interest_or_pleasure: self.little_interest_or_pleasure, 
+      depressed: self.depressed 
+      } 
+    end
+
   def pain_graph_data
     self.pain_journals.group_by_month(:created_at, format: "%b").average(:intensity)
   end
