@@ -209,7 +209,7 @@ ActiveRecord::Schema.define(version: 2023_05_10_003253) do
     t.boolean "completed_program", default: false
     t.integer "enjoyment_of_life"
     t.integer "activity_interference"
-    t.string "hopes_to_achieve", default: "{}"
+    t.string "hopes_to_achieve"
     t.integer "recommendation"
     t.integer "outcome_enjoyment_of_life"
     t.integer "outcome_activity_interference"
