@@ -23,7 +23,8 @@ class PushNotificationJob < ApplicationJob
     "Remember to give yourself a few minutes each day to engage with your PainNavigator app and help manage your chronic low back pain."
     ]
 
-    random_reminder = reminders.sample
+    random_index = rand(reminders.length)
+    random_reminder = reminders[random_index]
 
   def perform
     # you need to add the push tokens of all of the users and read the docs about sending multiple push notifications
