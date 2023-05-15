@@ -186,6 +186,12 @@ class User < ApplicationRecord
         enjoyment_of_life: self.enjoyment_of_life,
         activity_interference: self.activity_interference,
         hopes_to_achieve: self.hopes_to_achieve,
+        anxious: self.anxious,  
+        unable_to_stop_worrying: self.unable_to_stop_worrying,  
+        little_interest_or_pleasure: self.little_interest_or_pleasure, 
+        depressed: self.depressed,
+        pain_injections: self.pain_injections,
+        spine_surgery: self.spine_surgery, 
         gender: self.gender,
         dob: self.dob,
         phone: self.phone
