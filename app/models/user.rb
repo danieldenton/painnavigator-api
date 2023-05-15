@@ -198,10 +198,10 @@ class User < ApplicationRecord
       recommendation: self.recommendation,  
       outcome_enjoyment_of_life:  self.outcome_enjoyment_of_life,  
       outcome_activity_interference: self.outcome_activity_interference,  
-      anxious: self.anxious,  
-      unable_to_stop_worrying: self.unable_to_stop_worrying,  
-      little_interest_or_pleasure: self.little_interest_or_pleasure, 
-      depressed: self.depressed 
+      outcome_anxious: self.outcome_anxious,  
+      outcome_unable_to_stop_worrying: self.outcome_unable_to_stop_worrying,  
+      outcome_little_interest_or_pleasure: self.outcome_little_interest_or_pleasure, 
+      outcome_depressed: self.outcome_depressed 
       } 
     end
 
