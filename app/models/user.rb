@@ -183,7 +183,11 @@ class User < ApplicationRecord
         gender: self.gender,
         dob: self.dob,
         phone: self.phone,
-        activity_level: self.activity_level
+        activity_level: self.activity_level,
+        onboard_status: self.onboard_status,
+        profile_status: self.profile_status,
+        condensed_program: self.condensed_program,
+        expo_push_token: self.expo_push_token
     }
   end
 
