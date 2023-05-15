@@ -180,6 +180,9 @@ class User < ApplicationRecord
         email: self.email,
         uid: self.uid,
         role: self.role,
+        gender: self.gender,
+        dob: self.dob,
+        phone: self.phone,
         activity_level: self.activity_level,
         starting_pain_duration: self.starting_pain_duration,
         starting_pain_score: self.starting_pain_score,
@@ -191,10 +194,7 @@ class User < ApplicationRecord
         little_interest_or_pleasure: self.little_interest_or_pleasure, 
         depressed: self.depressed,
         pain_injections: self.pain_injections,
-        spine_surgery: self.spine_surgery, 
-        gender: self.gender,
-        dob: self.dob,
-        phone: self.phone
+        spine_surgery: self.spine_surgery
     }
   end
 
