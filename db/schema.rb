@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_10_003253) do
+ActiveRecord::Schema.define(version: 2023_05_15_203130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -213,10 +213,10 @@ ActiveRecord::Schema.define(version: 2023_05_10_003253) do
     t.integer "recommendation"
     t.integer "outcome_enjoyment_of_life"
     t.integer "outcome_activity_interference"
-    t.string "anxious"
-    t.string "unable_to_stop_worrying"
-    t.string "little_interest_or_pleasure"
-    t.string "depressed"
+    t.string "outcome_anxious"
+    t.string "outcome_unable_to_stop_worrying"
+    t.string "outcome_little_interest_or_pleasure"
+    t.string "outcome_depressed"
   end
 
   create_table "wellness_coaches", force: :cascade do |t|
