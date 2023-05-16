@@ -1,7 +1,8 @@
 class PushNotificationJob < ApplicationJob
   queue_as :default
 
-  reminders = [
+  def perform
+    reminders = [
     "Don't forget to do your daily back stretches to alleviate chronic low back pain. Your body will thank you!",
     "Take a break and move around for a few minutes to help prevent low back pain from prolonged sitting.",
     "Today's tip: Apply heat therapy to your lower back to help relieve chronic pain and stiffness.",
@@ -22,21 +23,18 @@ class PushNotificationJob < ApplicationJob
     "Set a reminder to engage with your PainNavigator each day to help stay on track with managing your chronic low back pain.",
     "Remember to give yourself a few minutes each day to engage with your PainNavigator app and help manage your chronic low back pain."
     ]
-
     random_index = rand(reminders.length)
     random_reminder = reminders[random_index]
-
-  # def perform
-  #   active_users = User.where(completed_program: false)
-  #   active_users.each do |user|
-  #     if user.expo_push_token.present?
-  #       message = {
-  #         to: user.expo_push_token,
-  #         body: random_reminder
-  #       }
-  #       client = Exponent::Push::Client.new
-  #       client.publish(random_reminder)
-  #       # client.verify_deliveries(handler.receipt_ids)
-  #     end        
-  # end
+    active_users = User.where(completed_program: false)
+    active_users.each do |user|
+      if user.expo_push_token.present?
+        message = {
+          to: user.expo_push_token,
+          body: random_reminder
+        }
+        client = Exponent::Push::Client.new
+        client.publish(random_reminder)
+        # client.verify_deliveries(handler.receipt_ids)
+      end        
+  end
 end
