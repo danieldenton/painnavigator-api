@@ -202,7 +202,7 @@ class User < ApplicationRecord
         little_interest_or_pleasure: self.little_interest_or_pleasure, 
         depressed: self.depressed,
         pain_injections: self.pain_injections,
-        # spine_surgery: self.spine_surgery
+        spine_surgery: self.spine_surgery
     }
   end
 
