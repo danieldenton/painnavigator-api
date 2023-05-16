@@ -57,6 +57,12 @@ module Api
           :enjoyment_of_life,
           :activity_interference,
           :hopes_to_achieve, 
+          :anxious,
+          :unable_to_stop_worrying,
+          :little_interest_or_pleasure,
+          :depressed,
+          :pain_injections,
+          :spine_surgery,
           :gender,
           :dob,
           :phone,
@@ -68,10 +74,10 @@ module Api
           :recommendation,
           :outcome_enjoyment_of_life,
           :outcome_activity_interference,
-          :anxious,
-          :unable_to_stop_worrying,
-          :little_interest_or_pleasure,
-          :depressed
+          :outcome_anxious,
+          :outcome_unable_to_stop_worrying,
+          :outcome_little_interest_or_pleasure,
+          :outcome_depressed
         )
       end
     end

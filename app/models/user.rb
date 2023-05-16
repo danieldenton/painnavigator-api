@@ -180,15 +180,29 @@ class User < ApplicationRecord
         email: self.email,
         uid: self.uid,
         role: self.role,
+        gender: self.gender,
+        dob: self.dob,
+        phone: self.phone,
         activity_level: self.activity_level,
+        onboard_status: self.onboard_status,
+        profile_status: self.profile_status,
+        condensed_program: self.condensed_program
+    }
+  end
+
+  def onboard
+    return {
         starting_pain_duration: self.starting_pain_duration,
         starting_pain_score: self.starting_pain_score,
         enjoyment_of_life: self.enjoyment_of_life,
         activity_interference: self.activity_interference,
         hopes_to_achieve: self.hopes_to_achieve,
-        gender: self.gender,
-        dob: self.dob,
-        phone: self.phone
+        anxious: self.anxious,  
+        unable_to_stop_worrying: self.unable_to_stop_worrying,  
+        little_interest_or_pleasure: self.little_interest_or_pleasure, 
+        depressed: self.depressed,
+        pain_injections: self.pain_injections,
+        spine_surgery: self.spine_surgery
     }
   end
 
@@ -198,10 +212,10 @@ class User < ApplicationRecord
       recommendation: self.recommendation,  
       outcome_enjoyment_of_life:  self.outcome_enjoyment_of_life,  
       outcome_activity_interference: self.outcome_activity_interference,  
-      anxious: self.anxious,  
-      unable_to_stop_worrying: self.unable_to_stop_worrying,  
-      little_interest_or_pleasure: self.little_interest_or_pleasure, 
-      depressed: self.depressed 
+      outcome_anxious: self.outcome_anxious,  
+      outcome_unable_to_stop_worrying: self.outcome_unable_to_stop_worrying,  
+      outcome_little_interest_or_pleasure: self.outcome_little_interest_or_pleasure, 
+      outcome_depressed: self.outcome_depressed 
       } 
     end
 
