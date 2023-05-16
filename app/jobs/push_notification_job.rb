@@ -26,17 +26,17 @@ class PushNotificationJob < ApplicationJob
     random_index = rand(reminders.length)
     random_reminder = reminders[random_index]
 
-  def perform
-    active_users = User.where(completed_program: false)
-    active_users.each do |user|
-      if user.expo_push_token.present?
-        message = {
-          to: user.expo_push_token,
-          body: random_reminder
-        }
-        client = Exponent::Push::Client.new
-        client.publish(random_reminder)
-        # client.verify_deliveries(handler.receipt_ids)
-      end        
-  end
+  # def perform
+  #   active_users = User.where(completed_program: false)
+  #   active_users.each do |user|
+  #     if user.expo_push_token.present?
+  #       message = {
+  #         to: user.expo_push_token,
+  #         body: random_reminder
+  #       }
+  #       client = Exponent::Push::Client.new
+  #       client.publish(random_reminder)
+  #       # client.verify_deliveries(handler.receipt_ids)
+  #     end        
+  # end
 end
