@@ -25,8 +25,7 @@ class PushNotificationJob < ApplicationJob
     ]
     random_index = rand(reminders.length)
     random_reminder = reminders[random_index]
-    # active_users = User.where(completed_program: false)
-    active_users = User.all
+    active_users = User.where(completed_program: false)
     active_users.each do |user|
       if user.expo_push_token.present?
         message = {
