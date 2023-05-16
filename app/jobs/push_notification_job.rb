@@ -28,8 +28,18 @@ class PushNotificationJob < ApplicationJob
 
   def perform
     # you need to add the push tokens of all of the users and read the docs about sending multiple push notifications
-    client = Exponent::Push::Client.new
-              client.publish(random_reminder)
-              # client.verify_deliveries(handler.receipt_ids)
+    active_users = User.where(completed_program: false)
+    active_users.each do |user|
+      # Check if the user has an Expo push token
+      if user.expo_push_token.present?
+        # Prepare the push notification message
+        message = {
+          to: user.expo_push_token,
+          body: random_reminder
+        }
+        client = Exponent::Push::Client.new
+        client.publish(random_reminder)
+        # client.verify_deliveries(handler.receipt_ids)
+      end        
   end
 end
