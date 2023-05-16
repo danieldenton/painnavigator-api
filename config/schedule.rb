@@ -19,12 +19,12 @@
 
 # Learn more: http://github.com/javan/whenever
 
-# set :environment, 'production'
-# set :output, 'log/cron.log'
-# set :job_template, "/bin/bash -l -c ':job'"
+set :environment, 'production'
+set :output, 'log/cron.log'
+set :job_template, "/bin/bash -l -c ':job'"
 
-# every '0 13 * * 1-5' do
-#   tz 'Central Time (US & Canada)'
-#   rake 'push_notifications:send'
-# end
+every '0 13 * * 1-5' do
+  tz 'Central Time (US & Canada)'
+  rake 'push_notifications:send'
+end
 
