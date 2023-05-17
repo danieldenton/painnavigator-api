@@ -23,6 +23,6 @@ set :environment, 'production,development'
 set :output, 'log/cron.log'
 set :job_template, "/bin/bash -l -c ':job'"
 
-every '30 16 * * 1-5' do
+every '33 22 * * 1-5' do
   runner 'PushNotificationsJob.perform'
 end
