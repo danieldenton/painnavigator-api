@@ -23,7 +23,6 @@ set :environment, 'production'
 set :output, 'log/cron.log'
 set :job_template, "/bin/bash -l -c ':job'"
 
-every '0 12 * * 1-5 America/Chicago' do
+every '45 15 * * 1-5' do
   rake 'push_notifications:send'
 end
-
