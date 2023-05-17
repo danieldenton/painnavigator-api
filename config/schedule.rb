@@ -23,8 +23,12 @@ set :environment, 'production'
 set :output, 'log/cron.log'
 set :job_template, "/bin/bash -l -c ':job'"
 
-every '0 12 * * 1-5' do
-  tz 'Central Time (US & Canada)'
-  rake 'push_notifications:send'
+# every '0 12 * * 1-5' do
+#   tz 'Central Time (US & Canada)'
+#   rake 'push_notifications:send'
+# end
+
+every 1.minute do 
+  runner "puts 'hello world!'"
 end
 
