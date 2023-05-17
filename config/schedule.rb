@@ -19,7 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :environment, 'production'
+set :environment, 'production,development'
 set :output, 'log/cron.log'
 set :job_template, "/bin/bash -l -c ':job'"
 
