@@ -24,5 +24,5 @@ set :output, 'log/cron.log'
 set :job_template, "/bin/bash -l -c ':job'"
 
 every '30 16 * * 1-5' do
-  rake 'push_notifications:send'
+  runner 'PushNotificationsJob.perform'
 end
