@@ -1,5 +1,5 @@
-production_key_path = ENV['PRODUCTION_KEY_PATH']
-production_key = File.read(Rails.root.join(production_key_path)).strip
+production_key_path = Rails.root.join('config', 'credentials', 'production.key')
+production_key = File.read(production_key_path).strip
 
 # Configure your application to use the production key
 PainNavigatorMobileApi.configure do |config|
