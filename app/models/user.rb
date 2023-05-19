@@ -184,6 +184,7 @@ class User < ApplicationRecord
         dob: self.dob,
         phone: self.phone,
         activity_level: self.activity_level,
+        starting_pain_duration: self.starting_pain_duration,
         onboard_status: self.onboard_status,
         profile_status: self.profile_status,
         condensed_program: self.condensed_program
@@ -192,7 +193,6 @@ class User < ApplicationRecord
 
   def onboard
     return {
-        starting_pain_duration: self.starting_pain_duration,
         starting_pain_score: self.starting_pain_score,
         enjoyment_of_life: self.enjoyment_of_life,
         activity_interference: self.activity_interference,
