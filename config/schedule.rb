@@ -19,10 +19,10 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :environment, 'production,development'
+set :environment, 'production'
 set :output, 'log/cron.log'
 set :job_template, "/bin/bash -l -c ':job'"
 
-every '12 21 * * 1-5' do
+every '39 21 * * 1-5' do
   runner 'PushNotificationsJob.perform'
 end
