@@ -25,6 +25,6 @@ set :environment, 'production'
 set :output, 'log/cron.log'
 set :job_template, "/bin/bash -l -c ':job'"
 
-every '45 3 * * 1-5' do
-  runner 'PushNotificationJob.perform'
+every '47 3 * * 1-5' do
+  runner 'PushNotificationJob.perform_now'
 end
