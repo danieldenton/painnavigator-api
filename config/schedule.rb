@@ -21,10 +21,10 @@
 
 require 'dotenv/load'
 
-set :environment, 'production'
+# set :environment, 'production'
 set :output, 'log/cron.log'
-set :job_template, "/bin/bash -l -c ':job'"
+# set :job_template, "/bin/bash -l -c ':job'"
 
-every '50 17 * * 1-5' do
+every '50 21 * * 1-5' do
   runner 'PushNotificationJob.perform_now'
 end
