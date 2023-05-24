@@ -39,5 +39,6 @@ namespace :reminder do
       client = Exponent::Push::Client.new
       client.send_messages(random_reminder)
         # client.verify_deliveries(handler.receipt_ids)            
+    end
   end
 end
