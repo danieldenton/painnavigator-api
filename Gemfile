@@ -36,7 +36,6 @@ gem 'cancancan'
 gem 'draper'
 gem 'pundit'
 gem 'exponent-server-sdk'
-gem 'whenever', require: false
 gem 'dotenv'
 
 
