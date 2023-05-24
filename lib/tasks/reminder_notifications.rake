@@ -27,7 +27,7 @@ namespace :reminder do
     random_index = rand(reminders.length)
     random_reminder = reminders[random_index]
     active_users = User.where(completed_program: false)
-    active_users.each_slice(100) do |batch|
+    active_users.each_slice(50) do |batch|
       messages = batch.map do |user|
         if user.expo_push_token.present?
           message = {
@@ -36,7 +36,7 @@ namespace :reminder do
           }
         end
       end.compact 
-      client = Exponent::Push::Client.new
+      client = Exponent::Push::Client.new(gzip: true)
       client.send_messages(random_reminder)
         # client.verify_deliveries(handler.receipt_ids)            
     end
