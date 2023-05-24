@@ -38,7 +38,8 @@ namespace :reminder do
       end.compact 
       client = Exponent::Push::Client.new(gzip: true)
       client.send_messages(random_reminder)
-        # client.verify_deliveries(handler.receipt_ids)            
+        # client.verify_deliveries(handler.receipt_ids) 
+      sleep(300)             
     end
   end
 end
