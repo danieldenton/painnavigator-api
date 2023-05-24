@@ -28,18 +28,20 @@ namespace :reminder do
     random_reminder = reminders[random_index]
     active_users = User.where(completed_program: false)
     active_users.each_slice(50) do |batch|
-      messages = batch.map do |user|
-        if user.expo_push_token.present?
-          message = {
-            to: user.expo_push_token,
-            body: random_reminder
-          }
-        end
-      end.compact 
-      client = Exponent::Push::Client.new(gzip: true)
-      client.send_messages(random_reminder)
-        # client.verify_deliveries(handler.receipt_ids) 
-      sleep(300)             
+      batch.each_slice(100) do |sub_batch|
+        messages = sub_batch.map do |user|
+          if user.expo_push_token.present?
+            message = {
+              to: user.expo_push_token,
+              body: random_reminder
+            }
+          end
+        end.compact 
+        client = Exponent::Push::Client.new(gzip: true)
+        client.send_messages(random_reminder)
+          # client.verify_deliveries(handler.receipt_ids) 
+        sleep(300)
+      end             
     end
   end
 end
