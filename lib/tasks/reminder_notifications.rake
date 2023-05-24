@@ -1,4 +1,5 @@
 require 'exponent-server-sdk'
+require 'concurrent'
 
 namespace :reminder do
   desc "Send reminder push notifications"
@@ -27,21 +28,32 @@ namespace :reminder do
     random_index = rand(reminders.length)
     random_reminder = reminders[random_index]
     active_users = User.where(completed_program: false)
-    active_users.each_slice(50) do |batch|
-      batch.each_slice(100) do |sub_batch|
-        messages = sub_batch.map do |user|
-          if user.expo_push_token.present?
-            message = {
-              to: user.expo_push_token,
-              body: random_reminder
-            }
+
+    
+    semaphore = Concurrent::Semaphore.new(6) # Maximum of 6 concurrent connections
+
+    active_users.each_slice(100) do |batch|
+      batch.each do |user|
+        if user.expo_push_token.present?
+          message = {
+            to: user.expo_push_token,
+            body: random_reminder
+          }
+
+          # Acquire a permit from the semaphore
+          semaphore.acquire
+
+          # Send the push notification
+          begin
+            client = Exponent::Push::Client.new(gzip: true)
+            client.send_messages([message])
+            # client.verify_deliveries(handler.receipt_ids)
+          ensure
+            # Release the permit after the push notification is sent
+            semaphore.release
           end
-        end.compact 
-        client = Exponent::Push::Client.new(gzip: true)
-        client.send_messages(random_reminder)
-          # client.verify_deliveries(handler.receipt_ids) 
-        sleep(300)
-      end             
+        end
+      end
     end
   end
 end

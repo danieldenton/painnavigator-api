@@ -36,6 +36,7 @@ gem 'cancancan'
 gem 'draper'
 gem 'pundit'
 gem 'exponent-server-sdk'
+gem 'concurrent-ruby'
 gem 'dotenv'
 
 
