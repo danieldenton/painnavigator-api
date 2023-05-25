@@ -27,37 +27,45 @@ namespace :reminder do
     ]
     random_index = rand(reminders.length)
     random_reminder = reminders[random_index]
-    # current_day = Date.today.strftime('%A')
+    current_day = Date.today.strftime('%A')
 
-    # if current_day == 'Saturday' || current_day == 'Sunday'
-    #   puts "Skipping reminder push notifications. It's the weekend."
-    #   return
-    # end
+    if current_day == 'Saturday' || current_day == 'Sunday'
+      puts "Skipping reminder push notifications. It's the weekend."
+      return
+    end
     
     semaphore = Concurrent::Semaphore.new(6) # Maximum of 6 concurrent connections
 
     active_users = User.where(completed_program: false)
 
-    active_users do |user|
-      if user.expo_push_token.present?
-        message = {
-          to: user.expo_push_token,
-          body: random_reminder
-        }
+    active_users.each_slice(100) do |batch|
+      batch.each do |user|
+        if user.expo_push_token.present?
+          message = {
+            to: user.expo_push_token,
+            body: random_reminder
+          }
 
-        # Acquire a permit from the semaphore
-        semaphore.acquire
+          # Acquire a permit from the semaphore
+          semaphore.acquire
 
-        # Send the push notification
-        begin
-          client = Exponent::Push::Client.new(gzip: true)
-          client.send_messages([message])
-          # client.verify_deliveries(handler.receipt_ids)
-        ensure
-          # Release the permit after the push notification is sent
-          semaphore.release
+          # Send the push notification
+          begin
+            client = Exponent::Push::Client.new(gzip: true)
+            client.send_messages([message])
+            # client.verify_deliveries(handler.receipt_ids)
+          ensure
+            # Release the permit after the push notification is sent
+            semaphore.release
+          end
         end
       end
     end
   end
 end
+
+
+
+
+
+
