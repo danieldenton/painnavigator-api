@@ -27,12 +27,12 @@ namespace :reminder do
     ]
     random_index = rand(reminders.length)
     random_reminder = reminders[random_index]
-    current_day = Date.today.strftime('%A')
+    # current_day = Date.today.strftime('%A')
 
-    if current_day == 'Saturday' || current_day == 'Sunday'
-      puts "Skipping reminder push notifications. It's the weekend."
-      return
-    end
+    # if current_day == 'Saturday' || current_day == 'Sunday'
+    #   puts "Skipping reminder push notifications. It's the weekend."
+    #   return
+    # end
     
     semaphore = Concurrent::Semaphore.new(6) # Maximum of 6 concurrent connections
 
