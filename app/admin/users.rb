@@ -5,7 +5,7 @@ ActiveAdmin.register User do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :role, :uid, :first_name, :last_name, :gender, :commitment, :onboard_status, :profile_status, :phone, :starting_pain_duration, :activity_level, :pace, :starting_pain_score, :enjoyment_of_life, :activity_interference, :hopes_to_achieve, :dob, :email, :mood_journals_count, :food_journals_count, :education_progress, :movement_progress, :bookmarks_count, :smart_goals_count, :provider_id, :wellness_coach_id, :completed_program
+  permit_params :role, :uid, :first_name, :last_name, :gender, :commitment, :onboard_status, :profile_status, :phone, :starting_pain_duration, :activity_level, :pace, :starting_pain_score, :enjoyment_of_life, :activity_interference, :hopes_to_achieve, :dob, :email, :mood_journals_count, :food_journals_count, :education_progress, :movement_progress, :bookmarks_count, :smart_goals, :provider_id, :wellness_coach_id, :completed_program
  
   index do
     id_column
@@ -49,7 +49,9 @@ ActiveAdmin.register User do
         "#{progress} on #{formatted_date}"
       end
     end
-    column :smart_goals_count
+    column "Smart Goal Count", sortable: :smart_goals do |user|
+      user.smart_goals.count
+    end
     column :provider_id
     column :completed_program
     actions
