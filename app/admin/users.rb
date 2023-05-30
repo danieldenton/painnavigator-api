@@ -33,7 +33,7 @@ ActiveAdmin.register User do
       last_completed_date = user.education_progress["last_completed_date"]
 
     if last_completed_date.nil?
-      "Nil"
+      "none"
     else
       formatted_date = Time.at(last_completed_date / 1000).strftime('%m-%d-%y')
       "Unit #{progress} on #{formatted_date}"
@@ -44,7 +44,7 @@ ActiveAdmin.register User do
       last_completed_date = user.movement_progress["last_completed_date"]
 
     if last_completed_date.nil?
-      "Nil"
+      "none"
     else
       formatted_date = Time.at(last_completed_date / 1000).strftime('%m-%d-%y')
       "#{progress} on #{formatted_date}"
