@@ -29,21 +29,21 @@ ActiveAdmin.register User do
     column :mood_journals_count
     column :food_journals_count
     column :education_progress, sortable: :education_progress do |user|
-      progress = user.education_progress["progress"]
+      progress = user.education_progress["progress"] - 1
       last_completed_date = user.education_progress["last_completed_date"]
       if last_completed_date.nil?
-        "Unit #{progress}"
+        "none"
       else
         formatted_date = Time.at(last_completed_date / 1000).strftime('%m-%d-%y')
         "Unit #{progress} on #{formatted_date}"
       end
     end
     column :movement_progress, sortable: :movement_progress do |user|
-      progress = user.movement_progress["progress"]
+      progress = user.movement_progress["progress"] - 1
       last_completed_date = user.movement_progress["last_completed_date"]
 
       if last_completed_date.nil?
-        "Unit #{progress}"
+        "none"
       else
         formatted_date = Time.at(last_completed_date / 1000).strftime('%m-%d-%y')
         "Unit #{progress} on #{formatted_date}"
