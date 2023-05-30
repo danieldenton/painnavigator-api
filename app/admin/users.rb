@@ -35,7 +35,7 @@ ActiveAdmin.register User do
         "none"
       else
         formatted_date = Time.at(last_completed_date / 1000).strftime('%m-%d-%y')
-        "Unit #{progress} on #{formatted_date}"
+        "#{progress} on #{formatted_date}"
       end
     end
     column :movement_progress, sortable: :movement_progress do |user|
@@ -46,7 +46,7 @@ ActiveAdmin.register User do
         "none"
       else
         formatted_date = Time.at(last_completed_date / 1000).strftime('%m-%d-%y')
-        "Unit #{progress} on #{formatted_date}"
+        "#{progress} on #{formatted_date}"
       end
     end
     column :smart_goals_count
