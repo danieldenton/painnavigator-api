@@ -5,7 +5,7 @@ ActiveAdmin.register User do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :role, :uid, :first_name, :last_name, :profile_status, :phone, :starting_pain_score, :enjoyment_of_life, :activity_interference, :hopes_to_achieve, :dob, :email, :mood_journals_count, :food_journals_count, :education_progress, :movement_progress, :bookmarks_count, :smart_goals, :provider_id, :wellness_coach_id, :completed_program
+  permit_params :role, :uid, :first_name, :last_name, :profile_status, :phone, :starting_pain_score, :enjoyment_of_life, :activity_interference, :hopes_to_achieve, :dob, :email, :pain_journals, :mood_journals, :food_journals, :education_progress, :movement_progress, :bookmarks_count, :smart_goals, :provider_id, :wellness_coach_id, :completed_program
  
   index do
     id_column
@@ -20,8 +20,7 @@ ActiveAdmin.register User do
     column :hopes_to_achieve
     column :dob
     column :email
-    column :mood_journals_count
-    column :food_journals_count
+    column :provider_id
     column :education_progress, sortable: :education_progress do |user|
       progress = user.education_progress["progress"] - 1
       last_completed_date = user.education_progress["last_completed_date"]
@@ -43,10 +42,18 @@ ActiveAdmin.register User do
         "#{progress} on #{formatted_date}"
       end
     end
-    column "Smart Goal Count", sortable: :smart_goals do |user|
+    column "Pain Journals Count", sortable: :pain_journals do |user|
+      user.pain_journals.count
+    end
+    column "Mood Journals Count", sortable: :mood_journals do |user|
+      user.mood_journals.count
+    end
+    column "Food Journals Count", sortable: :food_journals do |user|
+       user.food_journals.count
+    end
+    column "Smart Goals Count", sortable: :smart_goals do |user|
       user.smart_goals.count
     end
-    column :provider_id
     column :completed_program
     actions
   end
