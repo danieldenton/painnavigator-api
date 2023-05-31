@@ -62,7 +62,6 @@ module Api
           :gender,
           :dob,
           :phone,
-          :onboard_status,
           :profile_status,
           :provider_id,
           :expo_push_token,
