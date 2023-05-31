@@ -1,9 +1,6 @@
 class WellnessCoachesController < ApplicationController
   before_action :authenticate_wellness_coach!
 
-  def index
-  end
-
   def wellness
     @users = User.all.order(has_unreplied_message: :desc)
     @messages = Message.all.where.not({ "sender_id" => 1})
@@ -24,7 +21,7 @@ class WellnessCoachesController < ApplicationController
                 body: "You have a new message from your wellness coach"
               }
               client = Exponent::Push::Client.new
-              client.send_messagesh(messages)
+              client.send_messages(messages)
               # client.verify_deliveries(handler.receipt_ids)
             end
       User.find_by(id: @recipient_id).update(has_unreplied_message: false)
