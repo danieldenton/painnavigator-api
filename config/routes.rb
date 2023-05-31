@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       post '/contact_us' => 'mailers#contact_us'
       get '/journals/:uid' => 'users#get_journals'
       get '/providers/:code' => 'providers#check_referral_code'
+      get '/messages/:uid' => 'messages#get_conversation'
       resources :education_module_completions, only: [:index, :create, :update]
       resources :movement_module_completions, only: [:index, :create, :update]
       resources :food_journals, only: [:index, :create, :update]
