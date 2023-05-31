@@ -185,7 +185,6 @@ class User < ApplicationRecord
         phone: self.phone,
         starting_pain_duration: self.starting_pain_duration,
         activity_level: self.activity_level,
-        onboard_status: self.onboard_status,
         profile_status: self.profile_status,
         condensed_program: self.condensed_program
     }
