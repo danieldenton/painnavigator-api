@@ -23,7 +23,7 @@ class WellnessCoachesController < ApplicationController
                 to: token,
                 body: "You have a new message from your wellness coach"
               }
-              client = Exponent::Push::Client.new
+              client = Exponent::Push::Client.new(gzip: true)
               client.send_messages([message])
               # client.verify_deliveries(handler.receipt_ids)
             end
