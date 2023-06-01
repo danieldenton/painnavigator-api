@@ -24,7 +24,7 @@ class WellnessCoachesController < ApplicationController
                 body: "You have a new message from your wellness coach"
               }
               client = Exponent::Push::Client.new
-              client.send_messages(messages)
+              client.send_messages([message])
               # client.verify_deliveries(handler.receipt_ids)
             end
       User.find_by(id: @recipient_id).update(has_unreplied_message: false)
