@@ -19,12 +19,12 @@ class WellnessCoachesController < ApplicationController
     if message.save
       token = @recipient.expo_push_token
             if token.present?
-              messages = {
+              messages = [{
                 to: token,
                 body: "You have a new message from your wellness coach"
-              }
-              client = Exponent::Push::Client.new(gzip: true)
-              client.send_messages([message])
+              }]
+              client = Exponent::Push::Client.new
+              handler = client.send_messages(messages)
               # client.verify_deliveries(handler.receipt_ids)
             end
       User.find_by(id: @recipient_id).update(has_unreplied_message: false)
