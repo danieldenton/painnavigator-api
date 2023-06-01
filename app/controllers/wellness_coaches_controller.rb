@@ -1,6 +1,9 @@
 class WellnessCoachesController < ApplicationController
   before_action :authenticate_wellness_coach!
 
+  def index
+  end
+
   def wellness
     @users = User.all.order(has_unreplied_message: :desc)
     @messages = Message.all.where.not({ "sender_id" => 1})
