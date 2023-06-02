@@ -219,7 +219,7 @@ class User < ApplicationRecord
     end
 
   def daily_pain_score
-    self.daily_pain_score
+    daily_pain_score: self.daily_pain_score
   end
 
   def pain_graph_data
