@@ -70,6 +70,7 @@ module Api
           :provider_id,
           :expo_push_token,
           :completed_program,
+          :daily_pain_score
           :recommendation,
           :outcome_enjoyment_of_life,
           :outcome_activity_interference,
