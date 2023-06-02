@@ -70,14 +70,14 @@ module Api
           :provider_id,
           :expo_push_token,
           :completed_program,
-          :daily_pain_scores,
           :recommendation,
           :outcome_enjoyment_of_life,
           :outcome_activity_interference,
           :outcome_anxious,
           :outcome_unable_to_stop_worrying,
           :outcome_little_interest_or_pleasure,
-          :outcome_depressed
+          :outcome_depressed,
+          :daily_pain_scores => [],
         )
       end
     end
