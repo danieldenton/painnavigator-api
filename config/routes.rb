@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :daily_pain_scores
   devise_for :wellness_coaches, controllers: { sessions: 'wellness_coaches/sessions' }
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
