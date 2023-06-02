@@ -76,7 +76,8 @@ module Api
           :outcome_anxious,
           :outcome_unable_to_stop_worrying,
           :outcome_little_interest_or_pleasure,
-          :outcome_depressed
+          :outcome_depressed,
+          :daily_pain_scores => [],
         )
       end
     end
