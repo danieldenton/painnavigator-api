@@ -29,13 +29,13 @@ class Api::V2::DailyPainScoresController < ApplicationController
     end
   end
 
-  def update
-    if @daily_pain_score.update(daily_pain_score_params)
-      render json: @daily_pain_score
-    else
-      render json: @daily_pain_score.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   if @daily_pain_score.update(daily_pain_score_params)
+  #     render json: @daily_pain_score
+  #   else
+  #     render json: @daily_pain_score.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   private
 end
