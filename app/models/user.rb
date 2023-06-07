@@ -38,7 +38,6 @@ class User < ApplicationRecord
   has_many  :pain_journals, dependent: :destroy
   has_many  :pleasant_activities, dependent: :destroy
   has_many  :smart_goals, dependent: :destroy
-  has_many  :daily_pain_scores, dependent: :destroy
   has_many  :sent_messages, class_name: "Message", foreign_key: "sender_id", dependent: :destroy
   has_many  :received_messages, class_name: "Message", foreign_key: "recipient_id", dependent: :destroy
   belongs_to :provider, class_name: "Provider", foreign_key: "provider_id", counter_cache: true
