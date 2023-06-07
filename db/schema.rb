@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_06_151207) do
+ActiveRecord::Schema.define(version: 2023_05_15_203130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,14 +39,6 @@ ActiveRecord::Schema.define(version: 2023_06_06_151207) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
-  end
-
-  create_table "daily_pain_scores", force: :cascade do |t|
-    t.integer "score"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_daily_pain_scores_on_user_id"
   end
 
   create_table "education_module_completions", force: :cascade do |t|
@@ -225,12 +217,6 @@ ActiveRecord::Schema.define(version: 2023_06_06_151207) do
     t.string "outcome_unable_to_stop_worrying"
     t.string "outcome_little_interest_or_pleasure"
     t.string "outcome_depressed"
-    t.string "depressed"
-    t.string "anxious"
-    t.string "unable_to_stop_worrying"
-    t.string "little_interest_or_pleasure"
-    t.string "pain_injections"
-    t.string "spine_surgery"
   end
 
   create_table "wellness_coaches", force: :cascade do |t|
@@ -245,5 +231,4 @@ ActiveRecord::Schema.define(version: 2023_06_06_151207) do
     t.index ["reset_password_token"], name: "index_wellness_coaches_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "daily_pain_scores", "users"
 end
