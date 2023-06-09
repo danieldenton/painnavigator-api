@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_07_213144) do
+ActiveRecord::Schema.define(version: 2023_06_09_234643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,8 +44,7 @@ ActiveRecord::Schema.define(version: 2023_06_07_213144) do
   create_table "daily_pain_scores", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "score"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at"
+    t.integer "date_time_value"
     t.index ["user_id"], name: "index_daily_pain_scores_on_user_id"
   end
 
