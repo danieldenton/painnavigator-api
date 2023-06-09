@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2023_06_07_213144) do
     t.bigint "user_id", null: false
     t.integer "score"
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "updated_at"
     t.index ["user_id"], name: "index_daily_pain_scores_on_user_id"
   end
 
