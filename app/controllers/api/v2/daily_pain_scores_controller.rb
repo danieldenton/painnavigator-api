@@ -10,7 +10,7 @@ module Api
       end
     
       def set_daily_pain_score
-        @daily_pain_score = @user.daily_pain_scores.find(params[:id])
+        @daily_pain_score = DailyPainScore.find(params[:id])
       end
     
       def daily_pain_score_params
