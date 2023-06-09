@@ -14,7 +14,7 @@ module Api
       end
     
       def daily_pain_score_params
-        params.require(:daily_pain_score).permit(:score, :created_at, :updated_at)
+        params.require(:daily_pain_score).permit(:score, :date_time_value)
       end
     
       def index

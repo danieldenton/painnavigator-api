@@ -1,3 +1,3 @@
 class DailyPainScore < ApplicationRecord
-  belongs_to :user, touch: false
+  belongs_to :user
 end
