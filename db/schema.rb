@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_09_234643) do
+ActiveRecord::Schema.define(version: 2023_05_15_204628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,13 +39,6 @@ ActiveRecord::Schema.define(version: 2023_06_09_234643) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
-  end
-
-  create_table "daily_pain_scores", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.integer "score"
-    t.integer "date_time_value"
-    t.index ["user_id"], name: "index_daily_pain_scores_on_user_id"
   end
 
   create_table "education_module_completions", force: :cascade do |t|
@@ -244,5 +237,4 @@ ActiveRecord::Schema.define(version: 2023_06_09_234643) do
     t.index ["reset_password_token"], name: "index_wellness_coaches_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "daily_pain_scores", "users"
 end
