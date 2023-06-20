@@ -68,6 +68,7 @@ module Api
           :phone,
           :profile_status,
           :provider_id,
+          :education_program,
           :expo_push_token,
           :completed_program,
           :recommendation,
