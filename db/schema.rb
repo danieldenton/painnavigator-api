@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_10_004915) do
+ActiveRecord::Schema.define(version: 2023_06_20_042542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -229,6 +229,7 @@ ActiveRecord::Schema.define(version: 2023_06_10_004915) do
     t.string "little_interest_or_pleasure"
     t.string "pain_injections"
     t.string "spine_surgery"
+    t.integer "education_program", default: 1
   end
 
   create_table "wellness_coaches", force: :cascade do |t|
