@@ -5,7 +5,7 @@ ActiveAdmin.register User do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :role, :uid, :first_name, :last_name, :profile_status, :phone, :starting_pain_score, :enjoyment_of_life, :activity_interference, :hopes_to_achieve, :dob, :email, :pain_journals, :mood_journals, :food_journals, :education_progress, :movement_progress, :bookmarks_count, :smart_goals, :provider_id, :wellness_coach_id, :completed_program
+  permit_params :role, :uid, :first_name, :last_name, :profile_status, :phone, :starting_pain_score, :enjoyment_of_life, :activity_interference, :hopes_to_achieve, :dob, :email, :pain_journals, :mood_journals, :food_journals, :education_program, :education_progress, :movement_progress, :bookmarks_count, :smart_goals, :provider_id, :wellness_coach_id, :completed_program
  
   index do
     id_column
@@ -21,6 +21,28 @@ ActiveAdmin.register User do
     column :dob
     column :email
     column :provider_id
+    column "Education Program Length", sortable: :education_program do |user|
+      if user.education_program == 1
+        "67"
+      elsif user.education_program == 2
+        "24"
+      elsif user.education_program == 3
+        "48"
+      elsif user.education_program == 4
+        "45"
+      elsif user.education_program == 5
+        "43"
+      elsif user.education_program == 6
+        "46"
+      elsif user.education_program == 7
+        "64"
+      elsif user.education_program == 8
+        "62"
+      elsif user.education_program == 9
+        "65"
+      end
+    end
+
     column :education_progress, sortable: :education_progress do |user|
       progress = user.education_progress["progress"] - 1
       last_completed_date = user.education_progress["last_completed_date"]
