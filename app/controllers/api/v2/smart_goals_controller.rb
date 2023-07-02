@@ -1,7 +1,6 @@
 module Api
   module V1
     class SmartGoalsController < ApplicationController
-      before_action :get_user
       before_action :find_user_by_uid, only: [:index, :create]
 
       def find_user_by_uid
