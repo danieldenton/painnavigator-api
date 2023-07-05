@@ -1,5 +1,5 @@
 module Api
-  module V1
+  module V2
     class SmartGoalsController < ApplicationController
       before_action :find_user_by_uid, only: [:index, :create]
 
@@ -9,7 +9,7 @@ module Api
       end
 
       def index
-        smart_goals = SmartGoal.all.order(:created_at).reverse
+        @smart_goals = @user.smart_goals
 
         render json: SmartGoalSerializer.new(smart_goals).serializable_hash.to_json
       end
