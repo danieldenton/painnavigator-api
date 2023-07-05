@@ -10,8 +10,7 @@ module Api
 
       def index
         @smart_goals = @user.smart_goals
-
-        render json: SmartGoalSerializer.new(smart_goals).serializable_hash.to_json
+        render json: smart_goals
       end
 
       def create
