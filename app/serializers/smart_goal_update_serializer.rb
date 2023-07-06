@@ -11,6 +11,6 @@
 #
 class SmartGoalUpdateSerializer
   include JSONAPI::Serializer
-  belongs_to :smart_goals
+  belongs_to :smart_goal
   attributes :id, :smart_goal_id, :goal_update, :date_time_value, :date_time_value
 end
