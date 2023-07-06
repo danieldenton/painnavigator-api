@@ -219,14 +219,14 @@ class User < ApplicationRecord
       } 
     end
 
-  def pain_graph_data
-    self.pain_journals.group_by_month(:created_at, format: "%b").average(:intensity)
-  end
+  # def pain_graph_data
+  #   self.pain_journals.group_by_month(:created_at, format: "%b").average(:intensity)
+  # end
 
-  def active_goal_updates
-    if self.smart_goals.count > 0 
-      self.smart_goals.where(status: "active").last.smart_goal_updates.order(:created_at).reverse
-    end
-  end
+  # def active_goal_updates
+  #   if self.smart_goals.count > 0 
+  #     self.smart_goals.where(status: "active").last.smart_goal_updates.order(:created_at).reverse
+  #   end
+  # end
 
 end

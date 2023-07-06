@@ -2,12 +2,6 @@ module Api
   module V1
     class SmartGoalsController < ApplicationController
       before_action :get_user
-      before_action :find_user_by_uid, only: [:index, :create]
-
-      def find_user_by_uid
-        @user = User.find_by(uid: params[:uid])
-        render json: { error: 'User not found' }, status: :not_found unless @user
-      end
 
       def index
         smart_goals = SmartGoal.all.order(:created_at).reverse
