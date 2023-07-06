@@ -12,6 +12,16 @@ module Api
         end
       end
 
+      def update
+        smart_goal_update = SmartGoalUpdate.find_by(id: params[:id])
+
+        if smart_goal_update.update(smart_goal_update_params)
+          render json: SmartGoalUpdateSerializer.new(smart_goal).serializable_hash.to_json
+        else 
+          render json: { error: smart_goal.errors.messages }, status: 422
+        end
+      end
+
       def destroy
         smart_goal_update = SmartGoalUpdate.find(params[:id])
 
