@@ -9,9 +9,11 @@ module Api
       end
 
       def index
-        # smart_goals = SmartGoal.all.order(:created_at).reverse
-        @smart_goals = @user.smart_goals
-        render json: @smart_goals
+        @smart_goals = @user.smart_goals.order(created_at: :desc)
+        serialized_smart_goals = @smart_goals.map do |smart_goal|
+          SmartGoalSerializer.new(smart_goal).serializable_hash
+        end
+        render json: serialized_smart_goals.to_json
       end
 
       def create
