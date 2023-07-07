@@ -35,6 +35,9 @@ Rails.application.routes.draw do
       resources :users, only: [:show, :create, :update, :destroy]
       resources :daily_pain_scores, only: [:index, :create, :update]
       resources :smart_goals, only: [:index, :create, :update, :destroy]
+      resources :pain_journals, only: [:index, :create, :update, :destroy]
+      resources :mood_journals, only: [:index, :create, :update, :destroy]
+      resources :food_journals, only: [:index, :create, :update]
     end
   end
 end
