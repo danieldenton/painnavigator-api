@@ -26,7 +26,7 @@ module Api
                     "date_time_value": nil,
                     "status": nil,
                     "module_id": unit.module_order,
-                    "education_progress": @user.education_progress
+                    "education_progress": self.education_progress
                   }
                 }
               }
@@ -40,7 +40,7 @@ module Api
                     "date_time_value": nil,
                     "status": nil,
                     "module_id": 66,
-                    "education_progress": @user.education_progress
+                    "education_progress": self.education_progress
                   }
                 }
               }
@@ -56,7 +56,7 @@ module Api
                   "date_time_value": nil,
                   "status": nil,
                   "module_id": @user.education_modules.last.module_id + 1,
-                  "education_progress": @user.education_progress
+                  "education_progress": self.education_progress
                 }
               }
             }
