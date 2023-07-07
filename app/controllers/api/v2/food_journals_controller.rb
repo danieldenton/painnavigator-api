@@ -1,0 +1,45 @@
+module Api
+  module V2
+    class FoodJournalsController < ApplicationController
+      before_action :find_user_by_uid, only: [:index, :create]
+
+      def find_user_by_uid
+        @user = User.find_by(uid: params[:uid])
+        render json: { error: 'User not found' }, status: :not_found unless @user
+      end
+
+      def index
+        @food_journals = @user.food_journals
+        render json: @food_journals
+      end
+
+      def create
+        food_journal = @user.food_journals.new(food_journal_params)
+
+        if food_journal.save
+          render json: FoodJournalSerializer.new(food_journal).serializable_hash.to_json
+        else 
+          render json: { error: food_journal.errors.messages }, status: 422
+        end
+      end
+
+      def update
+        food_journal = FoodJournal.find_by(id: params[:id])
+
+        if food_journal.update(food_journal_params)
+          render json: FoodJournalSerializer.new(food_journal).serializable_hash.to_json
+        else 
+          render json: { error: food_journal.errors.messages }, status: 422
+        end
+      end
+
+      private
+
+      def food_journal_params
+        params.require(:food_journal)
+        .permit(:user_id, :breakfast, :lunch, :dinner, :snacks, :created)
+      end
+
+    end
+  end
+end
