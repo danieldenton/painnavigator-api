@@ -44,7 +44,7 @@ ActiveAdmin.register User do
     end
 
     column :education_progress, sortable: :education_progress do |user|
-      progress = user.education_progress["education_progress"] - 1
+      progress = user.education_progress["education_progress"] ? user.education_progress["education_progress"] - 1 : user.education_progress["progress"]
       last_completed_date = user.education_progress["last_completed_date"]
       if last_completed_date.nil?
         "none"
