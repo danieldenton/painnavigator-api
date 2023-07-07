@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       resources :education_module_completions, only: [:index, :create, :update]
       resources :users, only: [:show, :create, :update, :destroy]
       resources :daily_pain_scores, only: [:index, :create, :update]
+      resources :smart_goals, only: [:index, :create, :update, :destroy]
     end
   end
 end
