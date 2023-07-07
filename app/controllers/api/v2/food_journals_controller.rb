@@ -1,12 +1,16 @@
 module Api
   module V2
     class FoodJournalsController < ApplicationController
-      before_action :get_user
+      before_action :find_user_by_uid, only: [:index, :create]
+
+      def find_user_by_uid
+        @user = User.find_by(uid: params[:uid])
+        render json: { error: 'User not found' }, status: :not_found unless @user
+      end
 
       def index
-        food_journals = FoodJournal.all.order(:created_at).reverse
-
-        render json: FoodJournalSerializer.new(food_journals).serializable_hash.to_json
+        @food_journals = @user.food_journals
+        render json: @food_journals
       end
 
       def create

@@ -1,12 +1,16 @@
 module Api
   module V2
     class MoodJournalsController < ApplicationController
-      before_action :get_user
+      before_action :find_user_by_uid, only: [:index, :create]
+
+      def find_user_by_uid
+        @user = User.find_by(uid: params[:uid])
+        render json: { error: 'User not found' }, status: :not_found unless @user
+      end
 
       def index
-        mood_journals = MoodJournal.all.order(:created_at).reverse
-
-        render json: MoodJournalSerializer.new(mood_journals).serializable_hash.to_json
+        @mood_journals = @user.mood_journals
+        render json: @mood_journals
       end
 
       def create

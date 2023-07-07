@@ -1,12 +1,16 @@
 module Api
   module V2
     class PainJournalsController < ApplicationController
-      before_action :get_user
+      before_action :find_user_by_uid, only: [:index, :create]
+
+      def find_user_by_uid
+        @user = User.find_by(uid: params[:uid])
+        render json: { error: 'User not found' }, status: :not_found unless @user
+      end
 
       def index
-        pain_journals = PainJournal.all.order(:created_at).reverse
-
-        render json: PainJournalSerializer.new(pain_journals).serializable_hash.to_json
+        @pain_journals = @user.pain_journals
+        render json: @pain_journals
       end
 
       def create
