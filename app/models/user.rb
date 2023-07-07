@@ -105,14 +105,14 @@ class User < ApplicationRecord
         else 
           return {
             "progress" => self.education_modules.last.module_id + 1,
-            "education_progress" => self.education_modules.last.education_progress + 1,
+            "education_progress" => self.education_modules.last.education_progress ? self.education_modules.last.education_progress + 1 :nil,
             "last_completed_date" => education_modules.last.created_at.to_f * 1000,
           }
         end
       else 
         return {
           "progress" => self.education_modules.last.module_id + 1,
-          "education_progress" => self.education_modules.last.education_progress + 1,
+          "education_progress" => self.education_modules.last.education_progress ? self.education_modules.last.education_progress + 1 :nil,
           "last_completed_date" => education_modules.last.created_at.to_f * 1000,
         }
       end
