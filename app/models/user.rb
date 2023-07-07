@@ -99,18 +99,18 @@ class User < ApplicationRecord
             
         if unit 
           return {
-            "progress" => unit.module_order,
+            "progress" => education_modules.education_progress,
             "last_completed_date" => education_modules.last.created_at.to_f * 1000,
           }
         else 
           return {
-            "progress" => self.education_modules.last.module_id + 1,
+            "progress" => self.education_modules.education_progress,
             "last_completed_date" => education_modules.last.created_at.to_f * 1000,
           }
         end
       else 
         return {
-          "progress" => self.education_modules.last.module_id + 1,
+          "progress" => self.education_modules.education_progress,
           "last_completed_date" => education_modules.last.created_at.to_f * 1000,
         }
       end
