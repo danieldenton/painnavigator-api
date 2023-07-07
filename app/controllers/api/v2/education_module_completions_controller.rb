@@ -25,7 +25,8 @@ module Api
                     "id": unit.id,
                     "date_time_value": nil,
                     "status": nil,
-                    "module_id": unit.module_order
+                    "module_id": unit.module_order,
+                    "education_progress": nil
                   }
                 }
               }
@@ -38,7 +39,8 @@ module Api
                     "id": 66,
                     "date_time_value": nil,
                     "status": nil,
-                    "module_id": 66
+                    "module_id": 66,
+                    "education_progress": nil
                   }
                 }
               }
@@ -53,7 +55,8 @@ module Api
                   "id": @user.education_modules.last.module_id + 1,
                   "date_time_value": nil,
                   "status": nil,
-                  "module_id": @user.education_modules.last.module_id + 1
+                  "module_id": @user.education_modules.last.module_id + 1,
+                  "education_progress": nil
                 }
               }
             }
@@ -77,7 +80,7 @@ module Api
 
       def education_module_params
         params.require(:education_module_completion)
-        .permit(:uid, :user_id, :status, :module_id)
+        .permit(:uid, :user_id, :status, :module_id, :education_progress)
       end
 
     end
