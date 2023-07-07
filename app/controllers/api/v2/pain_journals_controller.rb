@@ -1,12 +1,7 @@
 module Api
   module V2
     class PainJournalsController < ApplicationController
-      before_action :find_user_by_uid, only: [:index, :create]
-
-      def find_user_by_uid
-        @user = User.find_by(uid: params[:uid])
-        render json: { error: 'User not found' }, status: :not_found unless @user
-      end
+      before_action :get_user
 
       def index
         @pain_journals = @user.pain_journals

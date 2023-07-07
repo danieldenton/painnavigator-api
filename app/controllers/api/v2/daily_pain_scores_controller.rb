@@ -1,13 +1,8 @@
 module Api
   module V2
     class DailyPainScoresController < ApplicationController
-      before_action :find_user_by_uid, only: [:index, :create]
+      before_action :get_user
       before_action :set_daily_pain_score, only: [:show, :update, :destroy]
-    
-      def find_user_by_uid
-        @user = User.find_by(uid: params[:uid])
-        render json: { error: 'User not found' }, status: :not_found unless @user
-      end
     
       def set_daily_pain_score
         @daily_pain_score = DailyPainScore.find(params[:id])
