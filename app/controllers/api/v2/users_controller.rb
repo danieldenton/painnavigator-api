@@ -22,9 +22,9 @@ module Api
 
       def update
         if user.update(user_params)
-          user.dates_on_app ||= []
-          new_date = params[:dates_on_app]
-          user.dates_on_app. << new_date
+          # user.dates_on_app ||= []
+          # new_date = params[:dates_on_app]
+          # user.dates_on_app.push(params[:dates_on_app])
 
           render json: UserSerializer.new(user).serializable_hash.to_json
         else 
