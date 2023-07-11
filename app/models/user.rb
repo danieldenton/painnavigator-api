@@ -47,6 +47,11 @@ class User < ApplicationRecord
   enum role: [:standard, :admin, :wellness_coach]
   enum pace: [:leisurely, :just_right, :zooming]
 
+  def last_date_on_app=(value)
+    self.dates_on_app << value
+    super(value)
+  end
+
   def condensed_program 
     provider.condensed_program
   end
