@@ -48,7 +48,6 @@ class User < ApplicationRecord
   enum pace: [:leisurely, :just_right, :zooming]
 
   def last_date_on_app=(value)
-    self.dates_on_app ||= []
     self.dates_on_app << value
     super(value)
   end
