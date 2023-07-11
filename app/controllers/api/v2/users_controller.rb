@@ -22,7 +22,7 @@ module Api
 
       def update
         if user.update(user_params)
-          @user.dates_on_app ||= []
+          user.dates_on_app ||= []
           new_date = params[:dates_on_app]
           user.dates_on_app. << new_date
 
