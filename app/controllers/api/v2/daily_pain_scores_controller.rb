@@ -33,6 +33,14 @@ module Api
           render json: @daily_pain_score.errors, status: :unprocessable_entity
         end
       end
+
+      def destroy
+        if @daily_pain_score.destroy
+          head :no_content
+        else 
+          render json: { error: daily_pain_score.errors.messages }, status: 422
+        end
+      end
     end
   end
 end
