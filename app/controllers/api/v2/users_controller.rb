@@ -61,6 +61,7 @@ module Api
           :unable_to_stop_worrying,
           :little_interest_or_pleasure,
           :depressed,
+          :type_of_pain,
           :pain_injections,
           :spine_surgery,
           :gender,
