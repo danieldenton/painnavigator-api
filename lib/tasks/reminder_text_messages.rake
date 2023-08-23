@@ -20,7 +20,7 @@ namespace :text do
       batch.each do |user|
         if user.phone.present?
             message_params = {
-              from: 'info@painnavigator.com',  # Your email address
+              from: 'info@painnavigator.io',  # Your email address
               to: user[:phone],
               text: "Hello, #{user[:first_name]}! Don't forget to log your daily pain score on your PainNavigator app today."
             }
@@ -30,10 +30,9 @@ namespace :text do
 
           # Send the text messages
           begin
-            mg_client = Mailgun::Client.new('YOUR_MAILGUN_API_KEY')
-            mg_domain = 'YOUR_MAILGUN_DOMAIN'
-            client.send_messages([message])
-            # client.verify_deliveries(handler.receipt_ids)
+            mg_client = Mailgun::Client.new(ENV['MG_API_KEY'])
+            mg_domain = ENV['MG_SENDING_DOMAIN']
+            mg_client.send_message(mg_domain, message_params)
           ensure
             # Release the permit after the push notification is sent
             semaphore.release
