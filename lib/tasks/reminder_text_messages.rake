@@ -1,3 +1,4 @@
+require 'mailgun-ruby'
 require 'concurrent'
 
 namespace :text do
