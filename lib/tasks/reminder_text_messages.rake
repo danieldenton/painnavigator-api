@@ -11,14 +11,18 @@ namespace :text do
       puts "Skipping reminder text messages. It's the weekend."
       return
     end
+
+   
     
-    semaphore = Concurrent::Semaphore.new(6) # Maximum of 6 concurrent connections
+    semaphore = Concurrent::Semaphore.new(6)
 
     active_users = User.where(completed_program: false)
 
+    current_date = Date.today
+
     active_users.each_slice(100) do |batch|
       batch.each do |user|
-        if user.phone.present?
+        if user.phone.present? && current_date != Date.parse(user.last_date_on_app)
             message_params = {
               from: 'info@painnavigator.io',  # Your email address
               to: user[:phone],
