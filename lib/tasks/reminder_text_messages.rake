@@ -24,7 +24,7 @@ namespace :text do
       batch.each do |user|
         if user.phone.present? && current_date != Date.parse(user.last_date_on_app)
             message_params = {
-              from: 'info@painnavigator.io',  # Your email address
+              from: 'info@painnavigator.io',
               to: user[:phone],
               text: "Hello, #{user[:first_name]}! Don't forget to log your daily pain score on your PainNavigator app today."
             }
@@ -32,7 +32,6 @@ namespace :text do
           # Acquire a permit from the semaphore
           semaphore.acquire
 
-          # Send the text messages
           begin
             mg_client = Mailgun::Client.new(ENV['MG_API_KEY'])
             mg_domain = ENV['MG_SENDING_DOMAIN']
