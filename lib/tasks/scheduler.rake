@@ -3,7 +3,7 @@ task send_reminder_notifications: :environment do
   Rake::Task['reminder:send_notifications'].invoke
 end
 
-desc "Run text task"
+desc "Run reminder text task"
 task send_reminder_text_messages: :environment do
   Rake::Task['reminder:send_texts'].invoke
 end
