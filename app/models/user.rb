@@ -211,6 +211,7 @@ class User < ApplicationRecord
         unable_to_stop_worrying: self.unable_to_stop_worrying,  
         little_interest_or_pleasure: self.little_interest_or_pleasure, 
         depressed: self.depressed,
+        type_of_pain: self.type_of_pain,
         pain_injections: self.pain_injections,
         spine_surgery: self.spine_surgery
     }
