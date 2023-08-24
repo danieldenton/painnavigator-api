@@ -12,7 +12,8 @@ namespace :text do
       return
     end
 
-   
+    account_sid = process.ENV['TWILIO_ACCOUNT_SID']
+    auth_token = process.ENV['TWILIO_AUTH_TOKEN']
     
     semaphore = Concurrent::Semaphore.new(6)
 
@@ -33,9 +34,10 @@ namespace :text do
           semaphore.acquire
 
           begin
-            mg_client = Mailgun::Client.new(ENV['MG_API_KEY'])
-            mg_domain = ENV['MG_SENDING_DOMAIN']
-            mg_client.send_message(mg_domain, message_params)
+            @client = Twilio::REST::Client.new(account_sid, auth_token)
+            message = @client.messages.create(
+                to: user.phone
+            )
           ensure
             # Release the permit after the push notification is sent
             semaphore.release
