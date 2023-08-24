@@ -1,4 +1,4 @@
-require 'mailgun-ruby'
+require 'twilio-ruby'
 require 'concurrent'
 
 namespace :text do
