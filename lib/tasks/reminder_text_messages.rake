@@ -24,22 +24,19 @@ namespace :text do
     active_users.each_slice(100) do |batch|
       batch.each do |user|
         if user.phone.present? && current_date != Date.parse(user.last_date_on_app)
-            message_params = {
-              from: 'info@painnavigator.io',
-              to: user[:phone],
-              text: "Hello, #{user[:first_name]}! Don't forget to log your daily pain score on your PainNavigator app today."
-            }
 
-          # Acquire a permit from the semaphore
+          # See reminder_notifications.rake for semaphore explqanation
           semaphore.acquire
 
           begin
             @client = Twilio::REST::Client.new(account_sid, auth_token)
             message = @client.messages.create(
-                to: user.phone
+              from: '+17084577226'
+              to: user.phone
             )
+            puts message.sid
           ensure
-            # Release the permit after the push notification is sent
+    
             semaphore.release
           end
         end
