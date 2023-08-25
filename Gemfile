@@ -26,6 +26,7 @@ gem 'groupdate'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem "mailgun-ruby"
+gem 'twilio-ruby', '~> 6.5.0'
 gem 'kaminari'
 
 gem 'activeadmin'
