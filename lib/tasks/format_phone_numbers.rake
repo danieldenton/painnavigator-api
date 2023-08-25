@@ -1,5 +1,3 @@
-
-
 namespace :custom do
   desc "Format phone numbers"
   task :format_phone_numbers => :environment do
@@ -8,8 +6,7 @@ namespace :custom do
 
     users.each do |user|
       if user.phone.present?
-       
-        cleaned_phone = user.phone.gsub(/\D/, '')
+        cleaned_phone = user.phone.scan(/\d/).join('')
 
         if cleaned_phone.match?(/^\d{10}$/)
           formatted_phone = '+1' + cleaned_phone
@@ -26,6 +23,7 @@ namespace :custom do
       end
     end
   end
+end
 end
 
 
