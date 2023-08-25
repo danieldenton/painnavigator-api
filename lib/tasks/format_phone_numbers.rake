@@ -24,7 +24,6 @@ namespace :custom do
     end
   end
 end
-end
 
 
 
