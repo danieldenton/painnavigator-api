@@ -1,5 +1,3 @@
-require './lib/format_phone_numbers.rb'
-
 module Api
   module V2
     class UsersController < ApplicationController
