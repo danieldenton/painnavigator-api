@@ -1,5 +1,6 @@
 module Api
   module V2
+    require './lib/format_phone_numbers'
     class UsersController < ApplicationController
 
       def get_journals
