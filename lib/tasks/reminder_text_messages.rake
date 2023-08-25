@@ -31,8 +31,9 @@ namespace :text do
           begin
             @client = Twilio::REST::Client.new(account_sid, auth_token)
             message = @client.messages.create(
-              from: '+17084577226'
-              to: user.phone
+              from: '+18667744194',
+              to: user.phone,
+              body: "Hello, #{user[:name]}! Don't forget to log your daily pain score on PainNavigator today."
             )
             puts message.sid
           ensure
