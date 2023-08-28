@@ -1,5 +1,6 @@
 require 'twilio-ruby'
 require 'concurrent'
+require 'dotenv-rails'
 
 namespace :reminder do
   desc "Send reminder text messages"
