@@ -1,7 +1,7 @@
 require 'twilio-ruby'
 require 'concurrent'
 
-namespace :text do
+namespace :reminder do
   desc "Send reminder text messages"
   task send_text_messages: :environment do
     
