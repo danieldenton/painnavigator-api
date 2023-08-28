@@ -4,7 +4,6 @@ namespace :custom do
   desc "Format phone numbers"
   task :format_phone_numbers => :environment do
     users = User.all
-    formatted_users = []
 
     users.each do |user|
       if user.phone.present?
