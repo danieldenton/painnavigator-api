@@ -1,5 +1,6 @@
 require 'twilio-ruby'
 require 'concurrent'
+require 'dotenv-rails'
 
 namespace :reminder do
   desc "Send reminder text messages"
@@ -12,8 +13,8 @@ namespace :reminder do
       return
     end
 
-    account_sid = process.ENV['TWILIO_ACCOUNT_SID']
-    auth_token = process.ENV['TWILIO_AUTH_TOKEN']
+    account_sid = ENV['TWILIO_ACCOUNT_SID']
+    auth_token = ENV['TWILIO_AUTH_TOKEN']
     
     semaphore = Concurrent::Semaphore.new(6)
 
