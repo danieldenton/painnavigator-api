@@ -13,8 +13,6 @@ namespace :custom do
         if cleaned_phone.match?(/^\d{10}$/)
           formatted_phone = '+1' + cleaned_phone
           user.update(phone: formatted_phone)
-          # formatted_users << user.clone.tap { |u| u.phone = formatted_phone }
-          puts user.uid
         else
           next
         end
