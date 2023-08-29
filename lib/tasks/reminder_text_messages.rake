@@ -14,6 +14,8 @@ namespace :reminder do
 
     account_sid = ENV['TWILIO_ACCOUNT_SID']
     auth_token = ENV['TWILIO_AUTH_TOKEN']
+
+    deep_link_url = 'painnavigator://'
     
     semaphore = Concurrent::Semaphore.new(6)
 
@@ -33,7 +35,7 @@ namespace :reminder do
             message = @client.messages.create(
               from: '+18667744194',
               to: user.phone,
-              body: "Hello, #{user[:name]}! Don't forget to log your daily pain score on PainNavigator today."
+              body: "Hi #{user[:name]}! Please remember to log your pain score today in the #{deep_link_url} app. Your daily input helps your Dr. best support you. Thank you!"
             )
             puts message.sid
           ensure
