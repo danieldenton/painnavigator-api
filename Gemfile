@@ -38,7 +38,6 @@ gem 'draper'
 gem 'pundit'
 gem 'exponent-server-sdk'
 gem 'concurrent-ruby'
-gem 'dotenv-rails'
 
 
 # Reduces boot times through caching; required in config/boot.rb

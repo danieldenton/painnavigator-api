@@ -108,6 +108,10 @@ ENV DATABASE_URL="postgresql://gitpod@localhost"
 ENV PGHOSTADDR="127.0.0.1"
 ENV PGDATABASE="postgres"
 
+#Twilio keys
+ENV TWILIO_ACCOUNT_SID='ACe69619d1585542e86e6a25f77b1566b2'
+ENV TWILIO_AUTH_TOKEN='529445b46538fb959f9ae0e029dfc5a6'
+
 # This is a bit of a hack. At the moment we have no means of starting background
 # tasks from a Dockerfile. This workaround checks, on each bashrc eval, if the
 # PostgreSQL server is running, and if not starts it.
