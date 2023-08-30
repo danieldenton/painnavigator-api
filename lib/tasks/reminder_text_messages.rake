@@ -1,5 +1,6 @@
 require 'twilio-ruby'
 require 'concurrent'
+require 'date'
 
 namespace :reminder do
   desc "Send reminder text messages"
@@ -21,11 +22,17 @@ namespace :reminder do
 
     active_users = User.where(completed_program: false)
 
-    current_date = Date.today
+    current_date = Date.today.strftime('%Y-%m-%d')
+
+    def convert_date_format(date_str)
+      date = Date.strptime(date_str, '%m/%d/%y')
+      formatted_date = date.strftime('%Y-%m-%d')
+      return formatted_date
+    end
 
     active_users.each_slice(100) do |batch|
       batch.each do |user|
-        if user.phone.present? && current_date != Date.parse(user.last_date_on_app)
+        if user.phone.present? && current_date != convert_date_format(user.last_date_on_app)
 
           # See reminder_notifications.rake for semaphore explqanation
           semaphore.acquire
