@@ -16,7 +16,8 @@ namespace :reminder do
     account_sid = ENV['TWILIO_ACCOUNT_SID']
     auth_token = ENV['TWILIO_AUTH_TOKEN']
 
-    deep_link_url = 'painnavigator://'
+    # deep_link_url = 'painnavigator://'
+    deep_link_url = 'PainNavigator'
     
     semaphore = Concurrent::Semaphore.new(6)
 
