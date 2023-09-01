@@ -33,22 +33,24 @@ namespace :reminder do
 
     active_users.each_slice(100) do |batch|
       batch.each do |user|
-        if user.phone.present? && current_date != convert_date_format(user.last_date_on_app)
+        if user.phone.present? && user.last_date_on_app.present?
+          if current_date != convert_date_format(user.last_date_on_app)
 
-          # See reminder_notifications.rake for semaphore explqanation
-          semaphore.acquire
+            # See reminder_notifications.rake for semaphore explqanation
+            semaphore.acquire
 
-          begin
-            @client = Twilio::REST::Client.new(account_sid, auth_token)
-            message = @client.messages.create(
-              from: '+18667744194',
-              to: user.phone,
-              body: "Hi #{user[:name]}! Please remember to log your pain score today in the #{deep_link_url} app. Your daily input helps your Dr. best support you. Thank you!"
-            )
-            puts message.sid
-          ensure
-    
-            semaphore.release
+            begin
+              @client = Twilio::REST::Client.new(account_sid, auth_token)
+              message = @client.messages.create(
+                from: '+18667744194',
+                to: user.phone,
+                body: "Hi #{user[:name]}! Please remember to log your pain score today in the #{deep_link_url} app. Your daily input helps your Dr. best support you. Thank you!"
+              )
+              puts message.sid
+            ensure
+      
+              semaphore.release
+            end
           end
         end
       end
