@@ -26,6 +26,8 @@ namespace :reminder do
     current_date = Date.today.strftime('%Y-%m-%d')
 
     def convert_date_format(date_str)
+      return nil if date_str.nil
+      
       date = Date.strptime(date_str, '%m/%d/%y')
       formatted_date = date.strftime('%Y-%m-%d')
       return formatted_date
