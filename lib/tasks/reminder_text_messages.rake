@@ -35,8 +35,8 @@ namespace :reminder do
     active_users.each_slice(100) do |batch|
       batch.each do |user|
         if user.phone.present? && user.last_date_on_app.present?
-          if current_date != convert_date_format(user.last_date_on_app)
-
+          last_date = user.last_date_on_app
+         if last_date && current_date != convert_date_format(last_date)
             # See reminder_notifications.rake for semaphore explqanation
             semaphore.acquire
 
