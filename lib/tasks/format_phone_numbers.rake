@@ -2,7 +2,7 @@
 
 namespace :custom do
   desc "Format phone numbers"
-  task :format_phone_numbers => :environment do
+  task format_phone_numbers: :environment do
     users = User.all
 
     users.each do |user|
