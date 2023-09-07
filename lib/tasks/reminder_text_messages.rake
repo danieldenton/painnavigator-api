@@ -45,7 +45,7 @@ namespace :reminder do
               message = @client.messages.create(
                 from: '+18667744194',
                 to: user.phone,
-                body: "Hi #{user[:name]}! Please remember to log your pain score today in the PainNavigator app <a href='#{deep_link_url}'>here</a>. Your daily input helps your Dr. best support you. Thank you!"
+                body: "Hi #{user[:first_name]}! Please remember to log your pain score today in the PainNavigator app <a href='#{deep_link_url}'>here</a>. Your daily input helps your Dr. best support you. Thank you!"
                 content_type: "text/html"
               )
               puts message.sid
