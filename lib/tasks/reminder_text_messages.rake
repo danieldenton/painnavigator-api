@@ -52,7 +52,6 @@ namespace :reminder do
       
               semaphore.release
             end
-            end
           end
         end
       end
