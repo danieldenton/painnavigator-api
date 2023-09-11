@@ -1,5 +1,5 @@
 module Api
-  module V1
+  module V2
     class MovementModuleCompletionsController < ApplicationController
       before_action :get_user
 
