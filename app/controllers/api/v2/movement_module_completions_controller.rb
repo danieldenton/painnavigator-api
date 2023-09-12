@@ -5,8 +5,8 @@ module Api
 
       def index
         # movement_modules =  .all.order(:created_at).reverse
-        # @movement_modules = @user.movement_modules
-        puts @user.uid
+        movement_modules = @user.movement_modules
+      
         render json: MovementModuleCompletionSerializer.new(movement_modules).serializable_hash.to_json
       end
 
