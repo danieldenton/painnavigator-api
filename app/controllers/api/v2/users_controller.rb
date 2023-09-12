@@ -80,7 +80,8 @@ module Api
           :outcome_little_interest_or_pleasure,
           :outcome_depressed,
           :dates_on_app,
-          :last_date_on_app
+          :last_date_on_app,
+          :saved_movement_modules
         )
       end
     end
