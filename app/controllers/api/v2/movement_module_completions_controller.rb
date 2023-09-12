@@ -4,7 +4,6 @@ module Api
       before_action :get_user
 
       def index
-        # movement_modules =  .all.order(:created_at).reverse
         movement_modules = @user.movement_modules
       
         render json: MovementModuleCompletionSerializer.new(movement_modules).serializable_hash.to_json
