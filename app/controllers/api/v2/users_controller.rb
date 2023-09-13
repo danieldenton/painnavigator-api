@@ -81,7 +81,7 @@ module Api
           :outcome_depressed,
           :dates_on_app,
           :last_date_on_app,
-          :saved_movement_modules
+          :saved_movement_units
         )
       end
     end
