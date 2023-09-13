@@ -184,6 +184,14 @@ class User < ApplicationRecord
     }
   end
 
+  def movement_units
+    return {
+      saved_movement_units: self.saved_movement_units
+      skipped_movement_units: self.skipped_movement_units
+      completed_movement_units: self.completed_movement_units
+    }
+  end
+
   def profile
     return {
         first_name: self.first_name, 
