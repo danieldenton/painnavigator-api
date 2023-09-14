@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_13_175628) do
+ActiveRecord::Schema.define(version: 2023_09_14_195337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -234,13 +234,9 @@ ActiveRecord::Schema.define(version: 2023_09_13_175628) do
     t.string "dates_on_app", default: [], array: true
     t.string "last_date_on_app"
     t.string "type_of_pain"
-<<<<<<< HEAD
-    t.integer "saved_movement_units", default: [], array: true
-=======
     t.integer "saved_movement_units", array: true
->>>>>>> parent of b1e8582 (updated migration)
-    t.integer "skipped_movement_units", default: [], array: true
-    t.integer "completed_movement_units", default: [], array: true
+    t.integer "skipped_movement_units", array: true
+    t.integer "completed_movement_units", array: true
   end
 
   create_table "wellness_coaches", force: :cascade do |t|
