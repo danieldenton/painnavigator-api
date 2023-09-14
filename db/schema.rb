@@ -234,7 +234,7 @@ ActiveRecord::Schema.define(version: 2023_09_13_175628) do
     t.string "dates_on_app", default: [], array: true
     t.string "last_date_on_app"
     t.string "type_of_pain"
-    t.integer "saved_movement_units", array: true
+    t.integer "saved_movement_units", default: [], array: true
     t.integer "skipped_movement_units", default: [], array: true
     t.integer "completed_movement_units", default: [], array: true
   end
