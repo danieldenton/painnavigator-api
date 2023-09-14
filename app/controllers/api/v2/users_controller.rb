@@ -7,7 +7,10 @@ module Api
       end
 
       def show
-        render json: UserSerializer.new(user).serializable_hash.to_json
+        render json: UserSerializer.new(user).serializable_hash.
+      rescue JSON::ParserError
+        render json: { error: 'Invalid JSON format' }, status: :bad_request
+      end
       end
 
       def create
