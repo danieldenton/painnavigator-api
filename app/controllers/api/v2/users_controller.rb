@@ -83,7 +83,7 @@ module Api
           :last_date_on_app,
           saved_movement_units: [],
           skipped_movement_units: [],
-          completed_movement_units: [],
+          completed_movement_units: []
         )
       end
     end
