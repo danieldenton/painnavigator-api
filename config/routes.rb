@@ -38,7 +38,7 @@ Rails.application.routes.draw do
       resources :pain_journals, only: [:index, :create, :update, :destroy]
       resources :mood_journals, only: [:index, :create, :update, :destroy]
       resources :food_journals, only: [:index, :create, :update]
-      resources :movement_module_completions, only: [:index, :create, :update]
+      resources :movement_module_completions, only: [:index, :create, :update, :destroy]
     end
   end
 end
