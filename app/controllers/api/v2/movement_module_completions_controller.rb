@@ -29,6 +29,16 @@ module Api
         end
       end
 
+      def destroy
+        movement_modules = @user.movement_module
+
+        if movement_modules.destroy
+          head :no_content
+        else 
+          render json: { error: user.errors.messages }, status: 422
+        end
+      end
+
       private
 
       def movement_module_params
