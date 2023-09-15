@@ -30,7 +30,7 @@ module Api
       end
 
       def destroy
-        movement_modules = @user.movement_module
+        movement_modules = @user.movement_modules
 
         if movement_modules.destroy
           head :no_content
