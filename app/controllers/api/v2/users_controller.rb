@@ -81,6 +81,7 @@ module Api
           :outcome_depressed,
           :dates_on_app,
           :last_date_on_app,
+          :opt_out_sms,
           saved_movement_units: [],
           skipped_movement_units: [],
           completed_movement_units: []

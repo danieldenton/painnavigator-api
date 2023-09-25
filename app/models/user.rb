@@ -202,6 +202,7 @@ class User < ApplicationRecord
         gender: self.gender,
         dob: self.dob,
         phone: self.phone,
+        opt_out_sms: self.opt_out_sms,
         starting_pain_duration: self.starting_pain_duration,
         activity_level: self.activity_level,
         profile_status: self.profile_status,
