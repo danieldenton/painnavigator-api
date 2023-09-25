@@ -34,7 +34,7 @@ namespace :reminder do
 
     active_users.each_slice(100) do |batch|
       batch.each do |user|
-        if user.phone.present? && user.last_date_on_app.present?
+        if user.phone.present? && user.last_date_on_app.present? && !user.opt_out_sms
           if current_date != convert_date_format(user.last_date_on_app)
 
             # See reminder_notifications.rake for semaphore explqanation
