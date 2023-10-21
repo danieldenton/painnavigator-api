@@ -70,6 +70,7 @@ module Api
           :profile_status,
           :provider_id,
           :education_program,
+          :access_to_wellness_coach,
           :expo_push_token,
           :completed_program,
           :recommendation,
