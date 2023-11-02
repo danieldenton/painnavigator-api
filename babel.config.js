@@ -44,13 +44,13 @@ module.exports = function(api) {
       [
         '@babel/plugin-proposal-class-properties',
         {
-          loose: true
+          loose: false
         }
       ],
       [
         '@babel/plugin-proposal-object-rest-spread',
         {
-          useBuiltIns: false
+          useBuiltIns: true
         }
       ],
       [
