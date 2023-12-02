@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_21_232603) do
+ActiveRecord::Schema.define(version: 2023_11_09_175455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,16 +71,9 @@ ActiveRecord::Schema.define(version: 2023_10_21_232603) do
   end
 
   create_table "education_units", force: :cascade do |t|
-    t.integer "module_order"
-    t.string "module_type"
-    t.string "name"
-    t.integer "length"
-    t.string "post_video_destination"
-    t.string "source"
-    t.boolean "skippable"
-    t.string "summary"
-    t.string "steps"
-    t.boolean "condensed_program"
+    t.integer "saved", default: [], array: true
+    t.integer "skipped", default: [], array: true
+    t.integer "completed", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -126,6 +119,14 @@ ActiveRecord::Schema.define(version: 2023_10_21_232603) do
     t.integer "status"
     t.integer "user_id"
     t.float "date_time_value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "movement_units", force: :cascade do |t|
+    t.integer "saved", default: [], array: true
+    t.integer "skipped", default: [], array: true
+    t.integer "completed", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
