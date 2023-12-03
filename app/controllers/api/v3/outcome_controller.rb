@@ -3,10 +3,6 @@ module Api
     class OutcomeController < ApplicationController
       before_action :get_user
     
-      # def set_daily_pain_score
-      #   @daily_pain_score = DailyPainScore.find(params[:id])
-      # end
-    
       def outcome_params
         params.require(:outcome).permit(:recommendation, :outcome_enjoyment_of_life, :outcome_activity_interference, :outcome_anxious, :outcome_unable_to_stop_worrying, :outcome_little_interest_or_pleasure, :outcome_depressed)
       end
