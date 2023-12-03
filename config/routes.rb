@@ -41,4 +41,11 @@ Rails.application.routes.draw do
       resources :movement_module_completions, only: [:index, :create, :update, :destroy]
     end
   end
+
+  namespace :api do
+    namespace :v3 do
+      resources :onboard, only: [:index, :create, :update]
+      resources :outcome, only: [:show, :create, :update]
+    end
+  end
 end
