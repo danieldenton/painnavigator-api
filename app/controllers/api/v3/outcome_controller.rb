@@ -13,7 +13,7 @@ module Api
       end
     
       def create
-        @outcome = @user.outcome.new(daily_pain_score_params)
+        @outcome = @user.outcome.new(outcome_params)
         if @outcome.save
           render json: @outcome, status: :created
         else
@@ -22,7 +22,7 @@ module Api
       end
     
       def update
-        if @outcome.update(daily_pain_score_params)
+        if @outcome.update(outcome_params)
           render json: @outcome
         else
           render json: @outcome.errors, status: :unprocessable_entity

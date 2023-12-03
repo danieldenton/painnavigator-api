@@ -13,7 +13,7 @@ module Api
       end
     
       def create
-        @onboard = @user.onboard.new(daily_pain_score_params)
+        @onboard = @user.onboard.new(onboard_params)
         if @onboard.save
           render json: @outcome, status: :created
         else
@@ -22,7 +22,7 @@ module Api
       end
     
       def update
-        if @onboard.update(daily_pain_score_params)
+        if @onboard.update(onboard_params)
           render json: @onboard
         else
           render json: @onboard.errors, status: :unprocessable_entity
