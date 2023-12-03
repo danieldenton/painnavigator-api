@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_09_175455) do
+ActiveRecord::Schema.define(version: 2023_12_03_000857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,6 +129,38 @@ ActiveRecord::Schema.define(version: 2023_11_09_175455) do
     t.integer "completed", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "onboards", force: :cascade do |t|
+    t.integer "starting_pain_score"
+    t.integer "enjoyment_of_life"
+    t.integer "activity_interference"
+    t.string "hopes_to_achieve"
+    t.string "anxious"
+    t.string "unable_to_stop_worrying"
+    t.string "little_interest_or_pleasure"
+    t.string "depressed"
+    t.string "type_of_pain"
+    t.string "pain_injections"
+    t.string "spine_surgery"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_onboards_on_user_id"
+  end
+
+  create_table "outcomes", force: :cascade do |t|
+    t.integer "recommendation"
+    t.integer "outcome_enjoyment_of_life"
+    t.integer "outcome_activity_interference"
+    t.string "outcome_anxious"
+    t.string "outcome_unable_to_stop_worrying"
+    t.string "outcome_little_interest_or_pleasure"
+    t.string "outcome_depressed"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_outcomes_on_user_id"
   end
 
   create_table "pain_journals", force: :cascade do |t|
@@ -254,4 +286,6 @@ ActiveRecord::Schema.define(version: 2023_11_09_175455) do
     t.index ["reset_password_token"], name: "index_wellness_coaches_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "onboards", "users"
+  add_foreign_key "outcomes", "users"
 end

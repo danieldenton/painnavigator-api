@@ -7,9 +7,9 @@ module Api
       #   @daily_pain_score = DailyPainScore.find(params[:id])
       # end
     
-      # def daily_pain_score_params
-      #   params.require(:daily_pain_score).permit(:score, :date_time_value)
-      # end
+      def outcome_params
+        params.require(:outcome).permit(:recommendation, :outcome_enjoyment_of_life, :outcome_activity_interference, :outcome_anxious, :outcome_unable_to_stop_worrying, :outcome_little_interest_or_pleasure, :outcome_depressed)
+      end
     
       def index
         @outcome = @user.outcome
