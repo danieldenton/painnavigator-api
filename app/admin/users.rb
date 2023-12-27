@@ -41,7 +41,7 @@ ActiveAdmin.register User do
       elsif user.education_program == 9
         "65"
       elsif user.education_program == 10
-        "0"
+        nil
       end
     end
 
