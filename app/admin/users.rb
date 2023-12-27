@@ -40,6 +40,8 @@ ActiveAdmin.register User do
         "62"
       elsif user.education_program == 9
         "65"
+      elsif user.education_program == 10
+        "0"
       end
     end
 
