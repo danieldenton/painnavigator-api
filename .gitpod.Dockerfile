@@ -190,5 +190,5 @@ parse_git_branch() {\n\
 PS1='\[]0;\u \w\]\[[01;32m\]\u\[[00m\] \[[01;34m\]\w\[[00m\]\[\e[0;38;5;197m\]\$(parse_git_branch)\[\e[0m\] \\\$ '" >> ~/.bashrc
 
 # Hack to pre-install bundled gems
-RUN echo "rvm use 3.0.3" >> ~/.bashrc
+RUN echo "rvm use 3.2.2" >> ~/.bashrc
 RUN echo "rvm_silence_path_mismatch_check_flag=1" >> ~/.rvmrc
