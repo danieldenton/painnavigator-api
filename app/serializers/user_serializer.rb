@@ -36,8 +36,8 @@
 #
 class UserSerializer
   include JSONAPI::Serializer
-  # attributes :profile, :onboard, :outcome, :expo_push_token, :education_program, :access_to_wellness_coach, :last_date_on_app, :dates_on_app, :education_progress, :movement_progress, :movement_units
-  attributes :profile, :onboard, :outcome, :expo_push_token, :education_program, :access_to_wellness_coach, :last_date_on_app, :dates_on_app, :education_progress, :movement_progress, :movement_units, :conversation, :last_pain_journal_date, :last_mood_journal_date, :last_food_journal_date, :mood_journals, :pain_journals, :food_journals, :smart_goals, :active_goal_updates
+  attributes :profile, :onboard, :outcome, :expo_push_token, :education_program, :access_to_wellness_coach, :last_date_on_app, :dates_on_app, :education_progress, :movement_progress, :movement_units
+
   #has_many  :bookmarks
   #has_many  :education_modules
   #has_many  :food_journals
