@@ -75,29 +75,29 @@ class User < ApplicationRecord
     self.received_messages.create(sender_id: 1, body: "https://calendly.com/marinasumofallpositive/painnavigator-check-in")
   end
 
-  # def last_pain_journal_date
-  #   if self.pain_journals.any? 
-  #     self.pain_journals.last.created_at.to_f * 1000
-  #   else 
-  #     return nil
-  #   end
-  # end
+  def last_pain_journal_date
+    if self.pain_journals.any? 
+      self.pain_journals.last.created_at.to_f * 1000
+    else 
+      return nil
+    end
+  end
 
-  # def last_food_journal_date
-  #   if self.food_journals.any? 
-  #     self.food_journals.last.created_at.to_f * 1000
-  #   else 
-  #     return nil
-  #   end
-  # end
+  def last_food_journal_date
+    if self.food_journals.any? 
+      self.food_journals.last.created_at.to_f * 1000
+    else 
+      return nil
+    end
+  end
 
-  # def last_mood_journal_date
-  #   if self.mood_journals.any? 
-  #     self.mood_journals.last.created_at.to_f * 1000
-  #   else 
-  #     return nil
-  #   end
-  # end
+  def last_mood_journal_date
+    if self.mood_journals.any? 
+      self.mood_journals.last.created_at.to_f * 1000
+    else 
+      return nil
+    end
+  end
 
   def education_progress
     if self.education_modules.any?
@@ -170,19 +170,19 @@ class User < ApplicationRecord
     messages = Message.where(sender_id: self.id).or(Message.where(recipient_id: self.id)).order(:created_at)
   end
 
-  # def conversation
-  #   messages = Message.where(sender_id: self.id).or(Message.where(recipient_id: self.id)).order(:created_at)
-  #   return messages.map { |message| 
-  #     { 
-  #       id: message.id, 
-  #       body: message.body,
-  #       date_time_value: message.created_at.to_f * 1000, 
-  #       sender_id: message.sender_id, 
-  #       recipient_id: message.recipient_id,
-  #       status: message.status
-  #     }
-  #   }
-  # end
+  def conversation
+    messages = Message.where(sender_id: self.id).or(Message.where(recipient_id: self.id)).order(:created_at)
+    return messages.map { |message| 
+      { 
+        id: message.id, 
+        body: message.body,
+        date_time_value: message.created_at.to_f * 1000, 
+        sender_id: message.sender_id, 
+        recipient_id: message.recipient_id,
+        status: message.status
+      }
+    }
+  end
 
   def movement_units
     return {
