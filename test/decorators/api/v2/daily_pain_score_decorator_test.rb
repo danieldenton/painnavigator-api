@@ -1,4 +1,4 @@
-require 'test_helper'
+# require 'test_helper'
 
-class Api::V2::DailyPainScoreDecoratorTest < Draper::TestCase
-end
+# class Api::V2::DailyPainScoreDecoratorTest < Draper::TestCase
+# end

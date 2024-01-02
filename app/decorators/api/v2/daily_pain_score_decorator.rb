@@ -1,5 +1,5 @@
-class Api::V2::DailyPainScoreDecorator < Draper::Decorator
-  delegate_all
+# class Api::V2::DailyPainScoreDecorator < Draper::Decorator
+#   delegate_all
 
   # Define presentation-specific methods here. Helpers are accessed through
   # `helpers` (aka `h`). You can override attributes, for example:
@@ -10,4 +10,4 @@ class Api::V2::DailyPainScoreDecorator < Draper::Decorator
   #     end
   #   end
 
-end
+# end
