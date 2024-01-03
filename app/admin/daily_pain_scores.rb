@@ -1,4 +1,4 @@
-ActiveAdmin.register DailyPainScore do
+ActiveAdmin.register DailyPainScore do as: "Check"
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
