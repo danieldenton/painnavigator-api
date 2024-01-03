@@ -1,0 +1,29 @@
+ActiveAdmin.register DailyPainScore do
+
+  # See permitted parameters documentation:
+  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
+  #
+  # Uncomment all parameters which should be permitted for assignment
+  #
+  permit_params :id, :user_id, :score 
+	"user_id": 93,
+	"score": 1,
+	"date_time_value": 1691171575098
+
+  index do
+    id_column
+    column :id
+    column :user_id
+    column :score
+    actions
+  end
+  #
+  # or
+  #
+  # permit_params do
+  #   permitted = [:name, :code, :users_count]
+  #   permitted << :other if params[:action] == 'create' && current_user.admin?
+  #   permitted
+  # end
+  
+end
