@@ -170,6 +170,8 @@ ActiveAdmin.setup do |config|
   #
   config.localize_format = :long
 
+  config.load_paths = [File.join(Rails.root, "app", "admin")]
+
   # == Setting a Favicon
   #
   # config.favicon = 'favicon.ico'
