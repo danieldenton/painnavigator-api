@@ -1,5 +1,5 @@
 class ApplicationRecord < ActiveRecord::Base
-  self.abstract_class = true
+  primary_abstract_class
 
   Rails.logger.info("INSIDE APPLICATION RECORD");
   self.abstract_class = true
