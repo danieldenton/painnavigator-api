@@ -5,8 +5,6 @@ ActiveAdmin.register DailyPainScore do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :id, :user_id, :score 
-
 
   index do
     id_column
