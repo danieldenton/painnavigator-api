@@ -12,5 +12,5 @@
 #
 class EducationModuleCompletionSerializer
   include JSONAPI::Serializer
-  attributes :id, :date_time_value, :status, :module_id, :education_progress
+  attributes :id, :created_at, :status, :module_id, :education_progress
 end
