@@ -14,6 +14,7 @@ module Api
 
         if education_module.save
             render json: EducationModuleCompletionSerializer.new(education_module).serializable_hash.to_json
+
         else 
           render json: { error: education_module.errors.messages }, status: 422
         end
@@ -33,7 +34,7 @@ module Api
 
       def education_module_params
         params.require(:education_module_completion)
-        .permit(:uid, :user_id, :status, :module_id)
+        .permit(:uid, :user_id, :status, :module_id, :education_progress)
       end
 
     end
