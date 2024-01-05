@@ -4,7 +4,7 @@ module Api
       before_action :get_user
 
       def index
-        education_modules = EducationModuleCompletion.all.order(:created_at).reverse
+        education_modules = @user.education_modules.order(:created_at).reverse
 
         render json: EducationModuleCompletionSerializer.new(education_modules).serializable_hash.to_json
       end
