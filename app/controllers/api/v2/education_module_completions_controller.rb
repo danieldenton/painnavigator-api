@@ -14,7 +14,6 @@ module Api
 
         if education_module.save
             render json: EducationModuleCompletionSerializer.new(education_module).serializable_hash.to_json
-          end
         else 
           render json: { error: education_module.errors.messages }, status: 422
         end
