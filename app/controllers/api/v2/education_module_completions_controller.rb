@@ -80,7 +80,7 @@ module Api
 
       def education_module_params
         params.require(:education_module_completion)
-        .permit(:uid, :user_id, :status, :module_id, :education_progress)
+        .permit(:uid, :user_id, :status, :module_id)
       end
 
     end
