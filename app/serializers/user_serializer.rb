@@ -36,7 +36,7 @@
 #
 class UserSerializer
   include JSONAPI::Serializer
-  attributes :profile, :expo_push_token, :education_program, :access_to_wellness_coach, :last_date_on_app, :dates_on_app, :education_progress, :movement_progress, :movement_units
+  attributes :profile, :completed_program, :expo_push_token, :education_program, :access_to_wellness_coach, :last_date_on_app, :dates_on_app, :education_progress, :movement_progress, :movement_units
 
   #has_many  :bookmarks
   #has_many  :education_modules
