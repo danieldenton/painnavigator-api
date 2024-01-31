@@ -220,4 +220,6 @@ class User < ApplicationRecord
       } 
     end
 
+  serialize :text_error_payload, JSON
+
 end

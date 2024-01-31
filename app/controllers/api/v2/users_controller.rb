@@ -82,6 +82,7 @@ module Api
           :dates_on_app,
           :last_date_on_app,
           :opt_out_sms,
+          :text_error_payload,
           saved_movement_units: [],
           skipped_movement_units: [],
           completed_movement_units: []
