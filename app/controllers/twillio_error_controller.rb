@@ -1,0 +1,2 @@
+class TwillioErrorController < ApplicationController
+end

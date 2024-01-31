@@ -44,6 +44,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v3 do
+      post '/twillio_error', to: 'twillio_error#debug'
       resources :onboard, only: [:index, :create, :update]
       resources :outcome, only: [:show, :create, :update]
     end
