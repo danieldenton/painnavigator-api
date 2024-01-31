@@ -1,5 +1,5 @@
 class TwillioErrorController < ApplicationController
-  skip_before_action :verify_authenticity_token 
+  skip_before_action :verify_authenticity_token, only: [:debug] 
 
   def debug
     payload = request.raw_post
