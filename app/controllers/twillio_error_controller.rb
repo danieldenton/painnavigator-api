@@ -5,6 +5,6 @@ class TwillioErrorController < ApplicationController
     # Your logic to handle or inspect the payload
     render plain: "Webhook Payload: #{payload}"
   end
-  end
-
 end
+
+
