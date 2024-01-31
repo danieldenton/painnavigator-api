@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/wellness'       => 'wellness_coaches#wellness'
   post '/reply_to_user' => 'wellness_coaches#reply_to_user'
   get 'download'        => 'application#download'
+  post '/twillio_error' => 'twillio_error#debug'
   
   namespace :api do
     namespace :v1 do
@@ -44,7 +45,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v3 do
-      post '/twillio_error', to: 'twillio_error#debug'
       resources :onboard, only: [:index, :create, :update]
       resources :outcome, only: [:show, :create, :update]
     end
