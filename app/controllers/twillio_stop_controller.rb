@@ -8,7 +8,7 @@ class TwillioStopController < ApplicationController
     stripped_body = incoming_body.downcase.strip
     user = User.find_by(phone: incoming_number)
 
-    Rails.logger.info "Incoming SMS from: #{incoming_number}: #{incoming_body}"
+    Rails.logger.info "Incoming SMS from: #{incoming_number}: #{stripped_body}"
 
     if stripped_body == "stop"
       user.update(opt_out_sms: true)
