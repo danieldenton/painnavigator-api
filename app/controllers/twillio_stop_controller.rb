@@ -13,7 +13,7 @@ class TwillioStopController < ApplicationController
     if stripped_body == "stop"
       user.update(opt_out_sms: true)
       
-    elsif stripped_body == "start"
+    elsif stripped_body == "start" || stripped_body == "unstop"
       user.update(opt_out_sms: false)
 
     else
