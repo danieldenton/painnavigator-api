@@ -1,10 +1,8 @@
 require 'twilio-ruby'
 
-class TwillioStopController < ApplicationController
-  skip_before_action :verify_authenticity_token # Skip CSRF protection for debugging purposes
+class TwillioStopController < ApplicationController=
 
   def handle
-    # Access the incoming SMS body
     incoming_body = params[:Body]
 
     # Log the incoming SMS body
