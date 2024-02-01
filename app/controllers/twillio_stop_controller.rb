@@ -9,13 +9,13 @@ class TwillioStopController < ApplicationController
 
     Rails.logger.info "Incoming SMS from: #{incoming_number}: #{incoming_body}"
 
-    if incoming_body.downwcase == "stop"
+    if incoming_body.downcase == "stop"
       user.update(opt_out_sms: true)
       twiml = Twilio::TwiML::MessagingResponse.new do |response|
         response.message(body: "You have successfully unsubscribed from PainNavigator's reminder SMS messages. If you wish to restart these messages simply reply 'START' to this number. If you need anything else at all please get in touch with your Wellness Coach through you PainNavigator app.")
       end
       
-    elsif incoming_body.downwcase == "start"
+    elsif incoming_body.downcase == "start"
       user.update(opt_out_sms: false)
       twiml = Twilio::TwiML::MessagingResponse.new do |response|
         response.message(body: "You have successfully subscribed to PainNavigator's reminder SMS messages!")
