@@ -5,14 +5,15 @@ class TwillioStopController < ApplicationController
   def handle
     incoming_number = params[:From]
     incoming_body = params[:Body]
+    stripped_body = incoming_body.downcase.strip
     user = User.find_by(phone: incoming_number)
 
     Rails.logger.info "Incoming SMS from: #{incoming_number}: #{incoming_body}"
 
-    if incoming_body.downcase.strip == "stop"
+    if stripped_body == "stop"
       user.update(opt_out_sms: true)
       
-    elsif incoming_body.downcase.strip == "start"
+    elsif stripped_body == "start"
       user.update(opt_out_sms: false)
 
     else
