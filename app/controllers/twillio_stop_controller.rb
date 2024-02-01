@@ -1,4 +1,4 @@
-class TwillioErrorController < ApplicationController
+class TwillioStopController < ApplicationController
   skip_before_action :verify_authenticity_token # Skip CSRF protection for debugging purposes
 
   def handle
