@@ -20,7 +20,7 @@ ActiveAdmin.register User do
     column :hopes_to_achieve
     column :dob
     column :email
-    # column :provider_id
+    column :provider_id
     column "Education Program Length", sortable: :education_program do |user|
       if user.education_program == 1
         "67"
