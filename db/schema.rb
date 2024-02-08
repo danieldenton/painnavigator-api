@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_05_170704) do
+ActiveRecord::Schema.define(version: 2024_02_08_173331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -271,6 +271,7 @@ ActiveRecord::Schema.define(version: 2024_01_05_170704) do
     t.integer "completed_movement_units", default: [], array: true
     t.boolean "opt_out_sms", default: false
     t.boolean "access_to_wellness_coach", default: true
+    t.integer "wellness_coach_reminder", default: 0
   end
 
   create_table "wellness_coaches", force: :cascade do |t|
