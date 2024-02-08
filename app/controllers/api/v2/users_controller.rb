@@ -83,6 +83,7 @@ module Api
           :last_date_on_app,
           :access_to_wellness_coach,
           :wellness_coach_reminder,
+          :wellness_coach_reminded,
           :opt_out_sms,
           saved_movement_units: [],
           skipped_movement_units: [],
