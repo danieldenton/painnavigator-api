@@ -272,7 +272,7 @@ ActiveRecord::Schema.define(version: 2024_02_08_185112) do
     t.boolean "opt_out_sms", default: false
     t.boolean "access_to_wellness_coach", default: true
     t.integer "wellness_coach_reminder", default: 0
-    t.integer "wellness_coach_reminded"
+    t.boolean "wellness_coach_reminded"
   end
 
   create_table "wellness_coaches", force: :cascade do |t|
