@@ -82,14 +82,11 @@ class User < ApplicationRecord
       self.update(wellness_coach_reminder: 4)
     else
       if self.created_at <= 3.days.ago & self.well_coach_reminder == 0
-        self.update(wellness_coach_reminder: 1)
-        self.update(wellness_coach_reminded: false)
+        self.update(wellness_coach_reminded: false, wellness_coach_reminder: 1)
       elsif self.created_at <= 7.days.ago & self.well_coach_reminder == 1
-        self.update(wellness_coach_reminder: 2)
-        self.update(wellness_coach_reminded: false)
+        self.update(wellness_coach_reminded: false, wellness_coach_reminder: 2)
       elsif self.created_at <= 14.days.ago & self.well_coach_reminder == 2
-        self.update(wellness_coach_reminder: 3)
-        self.update(wellness_coach_reminded: false)
+        self.update(wellness_coach_reminded: false, wellness_coach_reminder: 3)
       end
     end
   end
