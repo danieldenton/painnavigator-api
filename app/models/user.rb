@@ -76,7 +76,9 @@ class User < ApplicationRecord
   end
 
   def update_wellness_coach_reminder
-    if self.wellness_coach_reminder != 4 || self.sent_messages.any?
+    if well_coach_reminder == 4
+      return
+    elsif self.sent_messages.any?
       self.update(wellness_coach_reminder: 4)
     else
       if self.created_at <= 3.days.ago & self.well_coach_reminder == 0
