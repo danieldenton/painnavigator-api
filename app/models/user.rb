@@ -76,7 +76,7 @@ class User < ApplicationRecord
   end
 
   def update_wellness_coach_reminder
-    if well_coach_reminder == 4
+    if self.wellness_coach_reminder == 4
       return
     elsif self.sent_messages.any?
       self.update(wellness_coach_reminder: 4)
