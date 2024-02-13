@@ -75,6 +75,22 @@ class User < ApplicationRecord
     self.received_messages.create(sender_id: 1, body: "https://calendly.com/marinasumofallpositive/painnavigator-check-in")
   end
 
+  def update_wellness_coach_reminder
+    if self.wellness_coach_reminder == 4
+      return
+    elsif self.sent_messages.any?
+      self.update(wellness_coach_reminder: 4)
+    else
+      if self.created_at >= 3.days.ago & self.well_coach_reminder == 0
+        self.update(wellness_coach_reminded: false, wellness_coach_reminder: 1)
+      elsif self.created_at >= 7.days.ago & self.well_coach_reminder == 1
+        self.update(wellness_coach_reminded: false, wellness_coach_reminder: 2)
+      elsif self.created_at >= 14.days.ago & self.well_coach_reminder == 2
+        self.update(wellness_coach_reminded: false, wellness_coach_reminder: 3)
+      end
+    end
+  end
+
   def last_pain_journal_date
     if self.pain_journals.any? 
       self.pain_journals.last.created_at.to_f * 1000
