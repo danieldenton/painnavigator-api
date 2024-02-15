@@ -28,6 +28,7 @@ gem "mailgun-ruby"
 gem 'twilio-ruby', '~> 6.5.0'
 gem 'kaminari'
 
+gem 'activesupport'
 gem 'activeadmin', '3.2.0'
 gem 'caxlsx'
 gem 'caxlsx_rails'

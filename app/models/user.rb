@@ -30,6 +30,9 @@
 #  wellness_coach_id       :integer
 #  has_unreplied_message   :boolean          default(FALSE)
 #
+
+require 'active_support/core_ext/numeric/time' 
+
 class User < ApplicationRecord
   has_many  :education_modules, class_name: "EducationModuleCompletion", dependent: :destroy
   has_many  :food_journals, dependent: :destroy
