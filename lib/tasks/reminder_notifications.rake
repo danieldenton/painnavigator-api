@@ -54,8 +54,8 @@ namespace :reminder do
             client = Exponent::Push::Client.new(gzip: true)
             handler = client.send_messages([message])
            
-            sleep(60)
-            client.verify_deliveries(handler.receipt_ids)
+            # sleep(60)
+            # client.verify_deliveries(handler.receipt_ids)
           ensure
             # Release the permit after the push notification is sent
             semaphore.release
