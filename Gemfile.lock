@@ -444,7 +444,6 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin (= 3.2.0)
-  activesupport
   annotate
   awesome_print
   better_errors
