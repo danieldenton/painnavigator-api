@@ -31,8 +31,6 @@
 #  has_unreplied_message   :boolean          default(FALSE)
 #
 
-require 'active_support/core_ext/numeric/time' 
-
 class User < ApplicationRecord
   has_many  :education_modules, class_name: "EducationModuleCompletion", dependent: :destroy
   has_many  :food_journals, dependent: :destroy
@@ -84,11 +82,11 @@ class User < ApplicationRecord
     elsif self.sent_messages.any?
       self.update(wellness_coach_reminder: 4)
     else
-      if self.created_at.to_time >= 3.days.ago && self.wellness_coach_reminder == 0
+      if Time.zone.now >= self.created_at + 3.days && self.wellness_coach_reminder == 0
         self.update(wellness_coach_reminded: false, wellness_coach_reminder: 1)
-      elsif self.created_at.to_time >= 7.days.ago && self.wellness_coach_reminder == 1
+      elsif Time.zone.now >= self.created_at + 7.days && self.wellness_coach_reminder == 1
         self.update(wellness_coach_reminded: false, wellness_coach_reminder: 2)
-      elsif self.created_at.to_time >= 14.days.ago && self.wellness_coach_reminder == 2
+      elsif Time.zone.now >= self.created_at + 14.days && self.wellness_coach_reminder == 2
         self.update(wellness_coach_reminded: false, wellness_coach_reminder: 3)
       end
     end
