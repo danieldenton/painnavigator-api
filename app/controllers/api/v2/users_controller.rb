@@ -7,6 +7,7 @@ module Api
       end
 
       def show
+        user.update_wellness_coach_reminder
         render json: UserSerializer.new(user).serializable_hash.to_json
       end
 
