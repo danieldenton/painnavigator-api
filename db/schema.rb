@@ -270,7 +270,6 @@ ActiveRecord::Schema.define(version: 2024_02_26_194206) do
     t.integer "skipped_movement_units", default: [], array: true
     t.integer "completed_movement_units", default: [], array: true
     t.boolean "opt_out_sms", default: false
-    t.integer "wellness_coach_reminder", default: 0
     t.boolean "wellness_coach_reminded", default: true
   end
 

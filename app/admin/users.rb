@@ -5,7 +5,7 @@ ActiveAdmin.register User do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :role, :uid, :first_name, :last_name, :profile_status, :phone, :starting_pain_score, :enjoyment_of_life, :activity_interference, :hopes_to_achieve, :dob, :email, :pain_journals, :mood_journals, :food_journals, :education_program, :education_progress, :movement_progress, :bookmarks_count, :smart_goals, :provider_id, :wellness_coach_id, :completed_program
+  permit_params :role, :uid, :first_name, :last_name, :profile_status, :phone, :starting_pain_score, :enjoyment_of_life, :activity_interference, :hopes_to_achieve, :dob, :email, :daily_pain_scores, :pain_journals, :mood_journals, :food_journals, :education_program, :education_progress, :movement_progress, :bookmarks_count, :smart_goals, :provider_id, :wellness_coach_id, :completed_program
  
   index do
     id_column
@@ -42,6 +42,12 @@ ActiveAdmin.register User do
         "65"
       elsif user.education_program == 10
         nil
+      end
+    end
+
+    column "Daily Pain Scores", sortable: :daily_pain_scores do |user|
+      user.daily_pain_scores do |daily_pain_score|
+        daily_pain_score.score
       end
     end
 
