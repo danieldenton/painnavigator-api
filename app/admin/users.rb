@@ -46,9 +46,7 @@ ActiveAdmin.register User do
     end
 
     column "Daily Pain Scores", sortable: :daily_pain_scores do |user|
-      user.daily_pain_scores do |daily_pain_score|
-        daily_pain_score.score
-      end
+      user.daily_pain_scores.map(&:score).join(", ")
     end
 
     column :education_progress, sortable: :education_progress do |user|
