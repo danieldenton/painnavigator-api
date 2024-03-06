@@ -46,7 +46,7 @@ ActiveAdmin.register User do
     end
 
     column "Daily Pain Scores", sortable: :daily_pain_scores do |user|
-      user.daily_pain_scores.map { |daily_pain_score| Time.at(daily_pain_score.date_time_value / 1000).strftime("%Y-%m-%d %H:%M:%S") }.join(", ")
+      user.daily_pain_scores.map { |daily_pain_score| "#{Time.at(daily_pain_score.date_time_value / 1000).strftime("%Y-%m-%d")} (#{daily_pain_score.score})" }.join(", ")
     end
 
     column :education_progress, sortable: :education_progress do |user|
