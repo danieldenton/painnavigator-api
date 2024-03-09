@@ -11,7 +11,6 @@ ActiveAdmin.register DailyPainScore do
     id_column
     column :user_id
     column :score
-    column :date_time_value
     column "date", sortable: :date_time_value do |date_time_value|
       Time.at(date_time_value / 1000).strftime("%Y-%m-%d")
     end
