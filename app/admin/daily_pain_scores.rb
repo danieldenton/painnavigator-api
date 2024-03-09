@@ -7,7 +7,7 @@ ActiveAdmin.register DailyPainScore do
   #
   permit_params :user_id, :score, :date_time_value
 
-  index do
+csv do
     id_column
     column :user_id
     column :score
