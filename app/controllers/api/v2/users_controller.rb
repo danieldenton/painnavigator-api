@@ -82,13 +82,13 @@ module Api
           :outcome_depressed,
           :dates_on_app,
           :last_date_on_app,
+          :access_to_wellness_coach,
           :wellness_coach_reminder,
           :wellness_coach_reminded,
           :opt_out_sms,
           saved_movement_units: [],
           skipped_movement_units: [],
-          completed_movement_units: [],
-          :access_to_wellness_coach,
+          completed_movement_units: []
         )
       end
     end
