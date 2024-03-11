@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_26_194206) do
+ActiveRecord::Schema.define(version: 2024_03_11_165351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,9 @@ ActiveRecord::Schema.define(version: 2024_02_26_194206) do
     t.bigint "user_id", null: false
     t.integer "score"
     t.bigint "date_time_value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer "user_id_copy_for_admin"
   end
 
   create_table "education_module_completions", force: :cascade do |t|
@@ -270,6 +273,7 @@ ActiveRecord::Schema.define(version: 2024_02_26_194206) do
     t.integer "skipped_movement_units", default: [], array: true
     t.integer "completed_movement_units", default: [], array: true
     t.boolean "opt_out_sms", default: false
+    t.integer "wellness_coach_reminder", default: 0
     t.boolean "wellness_coach_reminded", default: true
   end
 
