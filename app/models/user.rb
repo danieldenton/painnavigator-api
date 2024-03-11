@@ -91,6 +91,7 @@ class User < ApplicationRecord
       end
     end
   end
+  
 
   def last_pain_journal_date
     if self.pain_journals.any? 
