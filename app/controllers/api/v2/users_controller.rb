@@ -6,9 +6,18 @@ module Api
         # render json: UserSerializer.new(user).serializable_hash.to_json
       end
 
+      # def show
+      #   user.update_wellness_coach_reminder
+      #   render json: UserSerializer.new(user).serializable_hash.to_json
+      # end
+
       def show
-        user.update_wellness_coach_reminder
-        render json: UserSerializer.new(user).serializable_hash.to_json
+        if user.present?
+          user.update_wellness_coach_reminder
+          render json: UserSerializer.new(user).serializable_hash.to_json
+        else
+          render json: { error: "User not found" }, status: :not_found
+        end
       end
 
       def create
