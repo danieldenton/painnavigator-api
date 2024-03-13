@@ -12,5 +12,5 @@
 #
 class MovementModuleCompletionSerializer
   include JSONAPI::Serializer
-  attributes :id, :status, :module_id, :video_id
+  attributes :id, :status, :module_id, :video_id, :created_at, :updated_at
 end
