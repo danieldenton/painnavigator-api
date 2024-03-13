@@ -9,13 +9,6 @@ module Api
         render json: MovementModuleCompletionSerializer.new(movement_modules).serializable_hash.to_json
       end
 
-      # def index
-      #   movement_modules = MovementModuleCompletion.all.order(:created_at).reverse
-
-      #   render json: MovementModuleCompletionSerializer.new(movement_modules).serializable_hash.to_json
-      # end
-
-
       def create
         movement_module = @user.movement_modules.new(movement_module_params)
 
@@ -50,7 +43,7 @@ module Api
 
       def movement_module_params
         params.require(:movement_module)
-        .permit(:uid, :user_id, :status, :module_id)
+        .permit(:uid, :user_id, :status, :module_id, :video_id)
       end
 
     end
