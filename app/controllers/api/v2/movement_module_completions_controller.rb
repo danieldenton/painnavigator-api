@@ -22,7 +22,7 @@ module Api
       def update
         movement_module = MovementModuleCompletion.find_by(id: params[:id])
 
-        if movement_module.update(movement_module_params)
+        if movement_module.update(status: params[:status])
           render json: MovementModuleCompletionSerializer.new(movement_module).serializable_hash.to_json
         else 
           render json: { error: movement_module.errors.messages }, status: 422
