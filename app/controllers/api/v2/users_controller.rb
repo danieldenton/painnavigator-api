@@ -3,7 +3,7 @@ module Api
     class UsersController < ApplicationController
 
       def show
-        user.update_wellness_coach_reminder
+        # user.update_wellness_coach_reminder
         render json: UserSerializer.new(user).serializable_hash.to_json
       end
       
@@ -20,9 +20,7 @@ module Api
 
       def update
         if user.update(user_params)
-          if user.present?
-           render json: UserSerializer.new(user).serializable_hash.to_json
-          end
+          render json: UserSerializer.new(user).serializable_hash.to_json
         else 
           render json: { error: user.errors.messages }, status: 422
         end
