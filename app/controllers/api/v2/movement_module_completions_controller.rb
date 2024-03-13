@@ -50,7 +50,7 @@ module Api
 
       def movement_module_params
         params.require(:movement_module)
-        .permit(:uid, :user_id, :status, :module_id)
+        .permit(:uid, :user_id, :status, :module_id, :video_id)
       end
 
     end
