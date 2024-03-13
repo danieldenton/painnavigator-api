@@ -9,13 +9,6 @@ module Api
         render json: MovementModuleCompletionSerializer.new(movement_modules).serializable_hash.to_json
       end
 
-      # def index
-      #   movement_modules = MovementModuleCompletion.all.order(:created_at).reverse
-
-      #   render json: MovementModuleCompletionSerializer.new(movement_modules).serializable_hash.to_json
-      # end
-
-
       def create
         movement_module = @user.movement_modules.new(movement_module_params)
 
