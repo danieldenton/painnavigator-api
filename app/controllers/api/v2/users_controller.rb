@@ -2,23 +2,11 @@ module Api
   module V2
     class UsersController < ApplicationController
 
-      def get_journals
-        # render json: UserSerializer.new(user).serializable_hash.to_json
-      end
-
-      # def show
-      #   user.update_wellness_coach_reminder
-      #   render json: UserSerializer.new(user).serializable_hash.to_json
-      # end
-
       def show
-        if user.present?
-          user.update_wellness_coach_reminder
-          render json: UserSerializer.new(user).serializable_hash.to_json
-        else
-          render json: { error: "User not found" }, status: :not_found
-        end
+        user.update_wellness_coach_reminder
+        render json: UserSerializer.new(user).serializable_hash.to_json
       end
+      
 
       def create
         user = User.new(user_params)
@@ -32,7 +20,9 @@ module Api
 
       def update
         if user.update(user_params)
-          render json: UserSerializer.new(user).serializable_hash.to_json
+          if user.present?
+           render json: UserSerializer.new(user).serializable_hash.to_json
+          end
         else 
           render json: { error: user.errors.messages }, status: 422
         end
