@@ -4,7 +4,7 @@ module Api
       before_action :get_user
 
       def index
-        movement_modules = @user.movement_modules
+        movement_modules = @user.movement_modules.order(:id)
       
         render json: MovementModuleCompletionSerializer.new(movement_modules).serializable_hash.to_json
       end
