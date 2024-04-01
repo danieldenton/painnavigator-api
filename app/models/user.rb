@@ -225,6 +225,21 @@ class User < ApplicationRecord
     }
   end
 
+  def movement_program
+    case type_of_pain
+    when "Low Back Pain"
+      1
+    when "Neck Pain"
+      2
+    when "Shoulder Pain"
+      3
+    when "Hip Pain"
+      4
+    else
+      nil
+    end
+  end
+
   def outcome        
     return {  
       completed_program: self.completed_program,
