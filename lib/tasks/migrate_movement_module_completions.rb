@@ -45,44 +45,27 @@ namespace :data do
         { "id": 36, "videos": [133, 131, 99, 118] }
       ]
 
-      # Initialize variables to store movement_module_completions and current module ID
-      movement_module_completions = []
-      current_module_id = nil
+      current_module_id = 1
 
-      # Iterate through each video ID in the array_of_ints
-      array_of_ints.each do |video_id|
-        # Find the module that contains the current video ID
-        module_info = modules.find { |module| module[:videos].include?(video_id) }
+      completed_movement_units.each do |video_id|
 
-        if module_info
-          # If current module ID is nil or different from the module ID of the current video
-          if current_module_id.nil? || current_module_id != module_info[:id]
-            # Assign the module ID of the current video to current_module_id
-            current_module_id = module_info[:id]
-          else
-            # If the module ID of the current video is the same as the previous one,
-            # increment current_module_id to the next module ID
-            current_module_id = modules[(modules.index(module_info) + 1) % modules.length][:id]
-          end
+        module_info = modules.find { |module| module[:id] == current_module_id }
 
-          # Create a movement_module_completion
+        if module_info && module_info[:videos].include?(video_id)
+         data = {
+          uid: uid,
           movement_module_completion = {
-            user_id: user.id, # Assuming you want to associate each completion with the user
             module_id: current_module_id,
             video_id: video_id,
             status: 0
           }
-
-          # Add the movement_module_completion to the array
-          movement_module_completions << movement_module_completion
-        else
-          # Handle the case where the video ID does not belong to any module
-          puts "Video ID #{video_id} does not belong to any module"
+         }
+     
+          MovementModuleCompletion.create(data)
         end
+      
+        current_module_id += 1
       end
-
-      # Save the movement_module_completions to the database for the current user
-      MovementModuleCompletion.create(movement_module_completions)
     end
   end
 end
