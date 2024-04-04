@@ -54,12 +54,11 @@ namespace :data do
         if module_info && module_info[:videos].include?(video_id)
           data = {
             user_id: user.id,
-            movement_module: {
               module_id: current_module_id,
               video_id: video_id,
               status: 0
             }
-          }
+          
      
           MovementModuleCompletion.create(data)
         end
