@@ -1,11 +1,11 @@
 
-namespace :migrate do
+namespace :data do
   desc "Migrate movement completion from User table to MovementModuleCompletions"
   task migrate_movement_completions: :environment do
     
     User.all.each do |user|
       completed_movement_units = user.completed_movement_units
-      uid = user.uid
+      
       modules = [
         { "id": 1, "videos": [63, 64, 67, 68] },
         { "id": 2, "videos": [69, 70, 71, 72] },
@@ -53,7 +53,6 @@ namespace :migrate do
 
         if module_info && module_info[:videos].include?(video_id)
           data = {
-            uid: uid,
             movement_module_completion: {
               module_id: current_module_id,
               video_id: video_id,
