@@ -70,6 +70,7 @@ namespace :data do
               video_id: video_id,
               status: 0
               }
+            end
         end
 
       end
