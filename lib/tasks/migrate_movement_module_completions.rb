@@ -2,82 +2,29 @@
 namespace :data do
   desc "Migrate movement completion from User table to MovementModuleCompletions"
   task migrate_movement_completions: :environment do
-    # Iterate through each user
+    
     User.all.each do |user|
-      # Assuming user.array_of_ints is the attribute containing the array of ints for each user
       completed_movement_units = user.completed_movement_units
-
-      # Assuming you have the module data as an array of hashes
+      uid = user.uid
       modules = [
         { "id": 1, "videos": [63, 64, 67, 68] },
-        {
-          "id": 2,
-          "videos": [69, 70, 71, 72]
-        },
-        {
-          "id": 3,
-          "videos": [65, 67, 68]
-        },
-        {
-          "id": 4,
-          "videos": [73, 74, 75]
-        },
-        {
-          "id": 5,
-          "videos": [66, 67, 68]
-        },
-        {
-          "id": 6,
-          "videos": [76, 71, 77]
-        },
-        {
-          "id": 7,
-          "videos": [78, 79, 80]
-        },
-        {
-          "id": 8,
-          "videos": [81, 74, 82]
-        },
-        {
-          "id": 9,
-          "videos": [83, 79, 80]
-        },
-        {
-          "id": 10,
-          "videos": [84, 85, 72]
-        },
-        {
-          "id": 11,
-          "videos": [86, 79, 80]
-        },
-        {
-          "id": 12,
-          "videos": [87, 88, 89]
-        },
-        {
-          "id": 13,
-          "videos": [90, 91, 92]
-        },
-        {
-          "id": 14,
-          "videos": [93, 85, 75]
-        },
-        {
-          "id": 15,
-          "videos": [94, 91, 92]
-        },
-        {
-          "id": 16,
-          "videos": [95, 88, 96]
-        },
-        {
-          "id": 17,
-          "videos": [97, 91, 92]
-        },
-        {
-          "id": 18,
-          "videos": [98, 99, 100, 101]
-        },
+        { "id": 2, "videos": [69, 70, 71, 72] },
+        { "id": 3, "videos": [65, 67, 68] },
+        { "id": 4, "videos": [73, 74, 75] },
+        { "id": 5, "videos": [66, 67, 68] },
+        { "id": 6, "videos": [76, 71, 77] },
+        { "id": 7, "videos": [78, 79, 80] },
+        { "id": 8, "videos": [81, 74, 82] },
+        { "id": 9, "videos": [83, 79, 80] },
+        { "id": 10, "videos": [84, 85, 72] },
+        { "id": 11, "videos": [86, 79, 80] },
+        { "id": 12, "videos": [87, 88, 89] },
+        { "id": 13, "videos": [90, 91, 92] },
+        { "id": 14, "videos": [93, 85, 75] },
+        { "id": 15, "videos": [94, 91, 92] },
+        { "id": 16, "videos": [95, 88, 96] },
+        { "id": 17, "videos": [97, 91, 92] },
+        { "id": 18, "videos": [98, 99, 100, 101] },
         {
           "id": 19,
           "videos": [102, 103, 92]
