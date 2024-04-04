@@ -1,7 +1,7 @@
 
 namespace :migrate do
   desc "Migrate movement completion from User table to MovementModuleCompletions"
-  task movement_completions: :environment do
+  task migrate_movement_completions: :environment do
     
     User.all.each do |user|
       completed_movement_units = user.completed_movement_units
