@@ -62,17 +62,15 @@ namespace :data do
      
           MovementModuleCompletion.create(data)
         else
-          current_module_id += 1
-          if module_info && module_info[:videos].include?(video_id)
+          next_module = current_module_id + 1
             data = {
               user_id: user.id,
-              module_id: current_module_id,
+              module_id: next_module,
               video_id: video_id,
               status: 0
               }
-            end
+            current_module_id += 1
         end
-
       end
     end
   end
