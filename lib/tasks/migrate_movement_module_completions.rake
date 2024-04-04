@@ -57,7 +57,7 @@ namespace :data do
             movement_module: {
               module_id: current_module_id,
               video_id: video_id,
-              status: 
+              status: 0
             }
           }
      
