@@ -52,15 +52,14 @@ namespace :data do
         module_info = modules.find { |mod| mod[:id] == current_module_id }
 
         if module_info && module_info[:videos].include?(video_id)
-          data = {
-            movement_module: {
+         
+          movement_module = {
               module_id: current_module_id,
               video_id: video_id,
               status: 0
-            }
           }
      
-          MovementModuleCompletion.create(data)
+          MovementModuleCompletion.create(movement_module)
         end
       
         current_module_id += 1
