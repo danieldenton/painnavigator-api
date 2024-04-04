@@ -49,7 +49,7 @@ namespace :migrate do
 
       completed_movement_units.each do |video_id|
 
-        module_info = modules.find { |module| module[:id] == current_module_id }
+        module_info = modules.find { |mod| mod[:id] == current_module_id }
 
         if module_info && module_info[:videos].include?(video_id)
          data = {
