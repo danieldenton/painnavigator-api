@@ -69,6 +69,7 @@ namespace :data do
               video_id: video_id,
               status: 0
               }
+            MovementModuleCompletion.create(data)
             current_module_id += 1
         end
       end
