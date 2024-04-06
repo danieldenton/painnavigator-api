@@ -56,7 +56,7 @@ namespace :data do
                 data = {
                 user_id: user.id,
                 module_id: mod.id,
-                video_id: video.id,
+                video_id: video,
                 status: 0
                 }
                 MovementModuleCompletion.create(data)
