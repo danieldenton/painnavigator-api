@@ -48,7 +48,7 @@ namespace :data do
         no_completed_movement_units = user.completed_movement_units.empty?
 
         if movement_modules.any? && no_completed_movement_units
-          movement_modules do |mod|
+          movement_modules.each do |mod|
             module_video_info = modules.find { |module_hash| module_hash[:id] == mod.id }
             videos = module_video_info[:videos]
             videos.each do |video|
@@ -65,5 +65,5 @@ namespace :data do
       end
     end
   end
-  
+
 
