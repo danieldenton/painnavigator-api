@@ -50,15 +50,17 @@ namespace :data do
         if movement_modules.any? && no_completed_movement_units
           movement_modules.each do |mod|
             module_video_info = modules.find { |module_hash| module_hash[:id] == mod.id }
-            videos = module_video_info[:videos]
-            videos.each do |video|
-              data = {
-              user_id: user.id,
-              module_id: mod.id,
-              video_id: video.id,
-              status: 0
-              }
-              MovementModuleCompletion.create(data)
+              if module_video_info
+                videos = module_video_info[:videos]
+                videos.each do |video|
+                data = {
+                user_id: user.id,
+                module_id: mod.id,
+                video_id: video.id,
+                status: 0
+                }
+                MovementModuleCompletion.create(data)
+              end
             end
           end
         end
