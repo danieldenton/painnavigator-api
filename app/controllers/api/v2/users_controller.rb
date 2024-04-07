@@ -83,6 +83,7 @@ module Api
           :wellness_coach_reminder,
           :wellness_coach_reminded,
           :opt_out_sms,
+          :app_update_required,
           saved_movement_units: [],
           skipped_movement_units: [],
           completed_movement_units: []
