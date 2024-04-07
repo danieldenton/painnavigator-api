@@ -60,6 +60,8 @@ ActiveAdmin.register User do
       end
     end
     column :completed_movement_units
+    column :skipped_movement_units
+    column :saved_movement_units
     column :movement_progress, sortable: :movement_progress do |user|
       progress = user.movement_progress["progress"] - 1
       last_completed_date = user.movement_progress["last_completed_date"]
