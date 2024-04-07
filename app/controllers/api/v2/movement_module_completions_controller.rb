@@ -30,16 +30,14 @@ module Api
       end
 
       def destroy
-        movement_module = MovementModuleCompletion.find_by(id: params[:id])
-        # movement_modules = @user.movement_modules
+        movement_modules = @user.movement_modules
 
-        # if movement_modules.destroy
-        if movement_module
-          movement_module.destroy
+        if movement_modules.destroy
+        
           head :no_content
         else 
           render json: { error: user.errors.messages }, status: 422
-        # end
+        end
       end
 
       private
