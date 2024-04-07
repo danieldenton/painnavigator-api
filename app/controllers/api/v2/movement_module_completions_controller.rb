@@ -29,27 +29,27 @@ module Api
         end
       end
 
-      # def destroy
-      #   movement_modules = @user.movement_modules
-
-      #   if movement_modules.destroy
-        
-      #     head :no_content
-      #   else 
-      #     render json: { error: user.errors.messages }, status: 422
-      #   end
-      # end
-
       def destroy
-        movement_module = MovementModuleCompletion.find_by(id: params[:id])
-      
-        if movement_module
-          movement_module.destroy
+        movement_modules = @user.movement_modules
+
+        if movement_modules.destroy
+        
           head :no_content
-        else
-          render json: { error: "Movement module not found" }, status: :not_found
+        else 
+          render json: { error: user.errors.messages }, status: 422
         end
       end
+
+      # def destroy
+      #   movement_module = MovementModuleCompletion.find_by(id: params[:id])
+      
+      #   if movement_module
+      #     movement_module.destroy
+      #     head :no_content
+      #   else
+      #     render json: { error: "Movement module not found" }, status: :not_found
+      #   end
+      # end
 
       private
 
