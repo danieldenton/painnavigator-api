@@ -236,7 +236,7 @@ class User < ApplicationRecord
     when "Hip Pain"
       4
     else
-      nil
+      1
     end
   end
 
