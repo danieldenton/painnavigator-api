@@ -8,7 +8,7 @@ namespace :reminder do
 
     
     message = {
-      to: user.expo_push_token,
+      to: me.expo_push_token,
       body: "hey bud"
     }
 
