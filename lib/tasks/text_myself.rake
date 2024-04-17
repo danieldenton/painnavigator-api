@@ -2,7 +2,7 @@ require 'exponent-server-sdk'
 
 namespace :reminder do
   desc "Send myself push notification"
-  task send_notifications: :environment do
+  task notify_me: :environment do
 
     me = User.where(first_name: "Daniel3")
 
