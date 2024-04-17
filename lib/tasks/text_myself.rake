@@ -4,7 +4,7 @@ namespace :reminder do
   desc "Send myself push notification"
   task notify_me: :environment do
 
-    me = User.where(first_name: "Daniel3")
+    me = User.where(first_name: "Production")
 
     
     message = {
