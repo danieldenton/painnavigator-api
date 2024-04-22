@@ -5,10 +5,11 @@ namespace :reminder do
   task notify_me: :environment do
 
     me = User.where(first_name: "Production2")
+    expo_push_token = me.expo_push_token
 
     
     message = {
-      to: me.expo_push_token,
+      to: expo_push_token,
       body: "hey bud"
     }
 
