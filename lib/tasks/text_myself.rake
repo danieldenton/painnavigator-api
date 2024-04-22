@@ -4,7 +4,7 @@ namespace :reminder do
   desc "Send myself push notification"
   task notify_me: :environment do
 
-    me = User.where(first_name: "Production2")
+    me = User.find_by(first_name: "Production2")
     if me 
       expo_push_token = me.expo_push_token
       message = {
