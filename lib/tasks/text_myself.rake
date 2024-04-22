@@ -5,17 +5,15 @@ namespace :reminder do
   task notify_me: :environment do
 
     me = User.find_by(first_name: "Production2")
-    if me 
-      expo_push_token = me.expo_push_token
-      message = {
-        to: expo_push_token,
-        body: "hey bud"
-      }
+    expo_push_token = me.expo_push_token
+    message = {
+      to: expo_push_token,
+      body: "hey bud"
+    }
 
-      begin
-        client = Exponent::Push::Client.new(gzip: true)
-        handler = client.send_messages([message])
-      end
+    begin
+      client = Exponent::Push::Client.new(gzip: true)
+      handler = client.send_messages([message])
     end
   end
 end
