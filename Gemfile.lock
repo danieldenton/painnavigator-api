@@ -465,7 +465,7 @@ DEPENDENCIES
   kaminari
   listen (~> 3.3)
   mailgun-ruby
-  pg (~> 1.1, >= 1.5.6)
+  pg (~> 1.1)
   pry-rails
   puma (~> 5.0)
   rack-canonical-host
