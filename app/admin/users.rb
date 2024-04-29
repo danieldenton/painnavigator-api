@@ -5,13 +5,14 @@ ActiveAdmin.register User do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :role, :uid, :first_name, :last_name, :profile_status, :phone, :starting_pain_score, :enjoyment_of_life, :activity_interference, :hopes_to_achieve, :dob, :email, :daily_pain_scores, :pain_journals, :mood_journals, :food_journals, :education_program, :education_progress, :movement_progress, :bookmarks_count, :smart_goals, :provider_id, :wellness_coach_id, :completed_program
+  permit_params :role, :uid, :first_name, :last_name, :app_update_required, :profile_status, :phone, :starting_pain_score, :enjoyment_of_life, :activity_interference, :hopes_to_achieve, :dob, :email, :daily_pain_scores, :pain_journals, :mood_journals, :food_journals, :education_program, :education_progress, :movement_progress, :bookmarks_count, :smart_goals, :provider_id, :wellness_coach_id, :completed_program
  
   index do
     id_column
     column :role
     column :first_name
     column :last_name
+    column :app_update_required
     column :profile_status
     column :phone
     column :starting_pain_score
