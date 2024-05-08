@@ -1,2 +1,27 @@
-<h1>ProviderDashboard#dashboard</h1>
-<p>Find me in app/views/provider_dashboard/dashboard.html.erb</p>
+<div class="full-container">
+  <div class="half-container">
+    <div class="provider-name-div">
+      <h1><%= @provider.name %></h1>
+      <p><strong>Total Patients To Date: <%= @provider.users_count %></strong></p>
+    </div>
+
+    <div>
+     <%= bar_chart @users.group_by_month(:created_at).count %>
+    </div>
+  
+    <div class="bar-graph">
+      <p><strong>starting pain scores: </strong></p>
+      <% (1..10).each do |score| %>
+        <% count = @starting_pain_score_counts[score] || 0 %>
+        <p><%= score %>: <%= count %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="half-container">
+    <p><strong>cumulative user count</strong></p>
+    <p><strong>pain score improvement: </strong></p>
+    <p><strong>logins per month: </strong></p>
+    <p><strong>reimbursment running total: </strong></p>
+  </div>
+</div>

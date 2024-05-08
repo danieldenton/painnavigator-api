@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post '/reply_to_user' => 'wellness_coaches#reply_to_user'
   get 'download'        => 'application#download'
   post '/twillio_stop' => 'twillio_stop#handle'
+  get '/provider_dashboard' => 'provider_dashboard#dashboard'
+  get '/provider_users' => 'provider_users#index'
   
   namespace :api do
     namespace :v1 do
