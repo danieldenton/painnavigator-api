@@ -5,7 +5,7 @@
       <p><strong>Total Patients To Date: <%= @provider.users_count %></strong></p>
     </div>
 
-    <div>
+    <div class="bar-graph">
      <%= bar_chart @users.group_by_month(:created_at).count %>
     </div>
   
