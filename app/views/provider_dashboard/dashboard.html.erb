@@ -6,15 +6,12 @@
     </div>
 
     <div class="bar-graph">
-     <%= bar_chart @users.group_by_month(:created_at).count %>
+     <%= column_chart @users.group_by_month(:created_at).count %>
     </div>
   
     <div class="bar-graph">
-      <p><strong>starting pain scores: </strong></p>
-      <% (1..10).each do |score| %>
-        <% count = @starting_pain_score_counts[score] || 0 %>
-        <p><%= score %>: <%= count %></p>
-      <% end %>
+    <%= column_chart @starting_pain_score_counts %>
+      
     </div>
   </div>
 
