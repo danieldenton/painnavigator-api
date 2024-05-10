@@ -1,22 +1,18 @@
-
-
 .full-container {
-  display: flex; 
-  justify-content: space-between; 
+  display: flex;
   border: 2px solid black;
   border-radius: 10px;
   background-color: rgb(227, 240, 217);
 }
 
 .half-container {
-  flex: 0 1 calc(50% - 5px);
+  flex: .48;
   border-radius: 10px;
 }
 
 .user-name-div {
-  flex: 1; 
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgb(197, 225, 181);
@@ -28,29 +24,40 @@
   margin: 10px;
 }
 
-.bar-graph {
-  flex: 1; 
+.four-circle-box {
   display: flex;
-  flex-direction: column; 
-  justify-content: center;
+  flex-direction: fle;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
   color: black;
   border: 2px solid black;
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
 }
-
-.circle {
-  width: 300px;
-  height: 300px;
-  flex: 1; 
-  display: flex;
+.circle-box {
+  height: 45%;
+  width: 45%;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background-color: rgb(197, 225, 181);
-  border: 2px solid black;
-  border-radius: 50%;
   color: black;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 13px;
+}
+
+.circle {
+  width:23%;
+  height: 23%;
+  background-color: rgb(197, 225, 181);
+  border-radius: 50%;
+  align-content: center;
+  padding: 30%;
+  color: black;
+  border: 2px solid black;
 }
 
 .chart-title {
