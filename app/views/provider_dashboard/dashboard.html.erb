@@ -23,7 +23,11 @@
     <%= line_chart @cumulative_user_count %>
     </div>
     <p><strong>pain score improvement: </strong></p>
-    <p><strong>logins per month: </strong></p>
+     <div class="bar-graph">
+    <p class="chart-title"><strong>Logins Per Month</strong></p>
+     <%= column_chart @dates_on_app_by_month_count %>
+    </div>
+  </div>
     <p><strong>reimbursment running total: </strong></p>
   </div>
 </div>
