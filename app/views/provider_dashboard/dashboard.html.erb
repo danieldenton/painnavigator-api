@@ -11,12 +11,15 @@
   
     <div class="bar-graph">
     <%= column_chart @starting_pain_score_counts %>
-      
     </div>
   </div>
 
   <div class="half-container">
+    
+    <div class="bar-graph">
     <p><strong>cumulative user count</strong></p>
+    <%= line_chart @users.group_by_month(:created_at).count %>
+    </div>
     <p><strong>pain score improvement: </strong></p>
     <p><strong>logins per month: </strong></p>
     <p><strong>reimbursment running total: </strong></p>
