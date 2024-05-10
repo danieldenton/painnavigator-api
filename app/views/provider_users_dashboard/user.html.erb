@@ -2,27 +2,31 @@
 
   <div class="half-container">
     <div class="user-name-div">
-      <h1><%= @user.first_name %><%= @user.last_name %></h1>
+      <h1><%= @user.first_name %><%= @user.last_name %></h1>  
+      <h6>Date of Birth: <%= @user.dob %></h6>
+      <h6>Email: <%= @user.email %></h6>
+      <h6>Last Login: <%= @user.last_date_on_app %></h6>
     </div>
 
     <div class="four-circle-box">
       <div class="circle-box">
-        <p class="circle"><strong><%= @number_of_logins %></strong></p>
-        <p class="chart-title"><strong># of Logins</strong></p>
+        <h1 class="circle"><%= @number_of_logins %></h1>
+        <h6 class="chart-title"># of Logins</h6>
       </div>
       <div class="circle-box">
-        <p class="circle"><strong><%= @number_of_logins %></strong></p>
-        <p class="chart-title"><strong>Education Modules Completed</strong></p>
+        <h1 class="circle"><%= @number_of_logins %></h1>
+        <h6 class="chart-title">Education Modules Completed</h6>
       </div>
       <div class="circle-box">
-        <p class="circle"><strong><%= @number_of_logins %></strong></p>
-        <p class="chart-title"><strong>Times Exercised n App</strong></p>
+        <h1 class="circle"><%= @number_of_logins %></h1>
+        <h6 class="chart-title">Times Exercised in App</h6>
       </div>
       <div class="circle-box">
-        <p class="circle"><strong><%= @number_of_logins %></strong></p>
-        <p class="chart-title"><strong># of Smart Goals</strong></p>
+        <h1 class="circle"><%= @number_of_logins %></h1>
+        <h6 class="chart-title"># of Smart Goals</h6>
       </div>      
     </div>
+  </div>
     
   <div class="half-container">
   <div>
