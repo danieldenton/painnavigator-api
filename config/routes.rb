@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'provider_users_dashboard/user'
   get 'provider_dashboard/dashboard'
   devise_for :wellness_coaches, controllers: { sessions: 'wellness_coaches/sessions' }
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
   get 'download'        => 'application#download'
   post '/twillio_stop' => 'twillio_stop#handle'
   get '/provider_dashboard' => 'provider_dashboard#dashboard'
-  get '/provider_users' => 'provider_users#index'
+  get '/provider_users_dashboard' => 'provider_users_dashboard#user'
   
   namespace :api do
     namespace :v1 do

@@ -1,0 +1,37 @@
+<div class="full-container">
+
+  <div class="half-container">
+    <div class="user-name-div">
+      <h1><%= @user.first_name %><%= @user.last_name %></h1>
+    </div>
+
+    <div class="bar-graph">
+    <p class="circle"><strong><%= @number_of_logins %></strong></p>
+    <p class="chart-title"><strong># of Logins</strong></p>
+    <p class="chart-title"><strong>Education Modules Completed</strong></p>
+    <p class="chart-title"><strong>Times Exercised n App</strong></p>
+    <p class="chart-title"><strong># of Smart Goals</strong></p>
+    </div>
+  
+    <div class="bar-graph">
+    <p class="chart-title"><strong>Starting Pain Scores</strong></p>
+    </div>
+  </div>
+  <div class="half-container">
+   <div class="user-name-div">
+      <%= area_chart @pain_progress %>
+    </div>
+    <p>DOB</p>
+    <p>email</p>
+    <p>phone</p>
+    <p>last login</p>
+    <p>times exercized</p>
+    <p>education modules completed</p>
+    <p>smart goals</p>
+    <p>pain score trend</p>
+    <p>daily pain scores</p></div>
+</div>
+
+
+
+
