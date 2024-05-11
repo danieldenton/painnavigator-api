@@ -6,6 +6,10 @@
   background-color: rgb(227, 240, 217);
 }
 
+.black {
+  color: black;
+}
+
 .half-container {
   flex: .50;
   margin: 5px;
@@ -17,8 +21,7 @@
   justify-content: center;
   align-items: center;
   background-color: rgb(197, 225, 181);
-  // color: rgb(51, 161, 138);
-  color: black;
+  color: rgb(51, 161, 138);
   border: 2px solid black;
   border-radius: 10px;
   padding: 10px;
@@ -36,13 +39,14 @@
   padding: 10px;
   margin: 10px;
 }
+
 .circle-box {
-  height: 45%;
-  width: 45%;
+  height: 40%;
+  width: 42%;
   flex-wrap: wrap;
   color: black;
-  padding: 5px;
-  margin: 13px;
+  padding: 10px;
+  margin: 20px;
 }
 
 .circle {
@@ -50,7 +54,7 @@
   justify-content: space-around;
   background-color: rgb(197, 225, 181);
   border-radius: 50%;
-  padding: 38%;
+  padding: 37%;
   color: black;
   border: 2px solid black;
   margin: 5px;

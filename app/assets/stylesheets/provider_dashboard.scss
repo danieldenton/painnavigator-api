@@ -20,12 +20,15 @@
   justify-content: center;
   align-items: center;
   background-color: rgb(197, 225, 181);
-  // color: rgb(51, 161, 138);
-  color: black;
+  color: rgb(51, 161, 138);
   border: 2px solid black;
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
+}
+
+.black {
+  color: black;
 }
 
 .bar-graph {

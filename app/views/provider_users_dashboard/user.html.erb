@@ -3,9 +3,9 @@
   <div class="half-container">
     <div class="user-name-div">
       <h1><%= @user.first_name %><%= @user.last_name %></h1>  
-      <h6>Date of Birth: <%= @user.dob %></h6>
-      <h6>Email: <%= @user.email %></h6>
-      <h6>Last Login: <%= @user.last_date_on_app %></h6>
+      <h6 class="black">Date of Birth: <%= @user.dob %></h6>
+      <h6 class="black">Email: <%= @user.email %></h6>
+      <h6 class="black">Last Login: <%= @user.last_date_on_app %></h6>
     </div>
 
     <div class="four-circle-box">
@@ -14,33 +14,35 @@
         <h6 class="chart-title"># of Logins</h6>
       </div>
       <div class="circle-box">
-        <h1 class="circle"><%= @number_of_logins %></h1>
+        <h1 class="circle"><%= @education_module_completions %></h1>
         <h6 class="chart-title">Education Modules Completed</h6>
       </div>
       <div class="circle-box">
-        <h1 class="circle"><%= @number_of_logins %></h1>
+        <h1 class="circle"><%= @movement_module_completions %></h1>
         <h6 class="chart-title">Times Exercised in App</h6>
       </div>
       <div class="circle-box">
-        <h1 class="circle"><%= @number_of_logins %></h1>
+        <h1 class="circle"><%= @smart_goal_count %></h1>
         <h6 class="chart-title"># of Smart Goals</h6>
       </div>      
     </div>
   </div>
     
   <div class="half-container">
-  <div>
-      <p class="chart-title"><strong>Starting Pain Scores</strong></p>
+  <div class="four-circle-box">
+      <div class="circle-box">
+        <h1 class="circle"><%= @starting_pain_score %></h1>
+        <h6 class="chart-title">Starting Pain Score</h6>
       </div>
-    <p>DOB</p>
-    <p>email</p>
-    <p>phone</p>
-    <p>last login</p>
-    <p>times exercized</p>
-    <p>education modules completed</p>
-    <p>smart goals</p>
-    <p>pain score trend</p>
-    <p>daily pain scores</p></div>
+      <div class="circle-box">
+        <h1 class="circle"><%= @last_pain_score %></h1>
+        <h6 class="chart-title">Last Pain Score</h6>
+      </div>
+    </div>
+    <div class="four-circle-box">
+    <p class="chart-title"><strong>Daily Pain Scores</strong></p>
+    <%= column_chart @daily_pain_scores %>
+    </div>
 </div>
 
 
