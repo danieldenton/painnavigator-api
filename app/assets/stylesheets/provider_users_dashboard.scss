@@ -1,6 +1,6 @@
 .full-container {
   display: flex;
-  flex: 1;
+ padding: 3px;
   border: 2px solid black;
   border-radius: 10px;
   background-color: rgb(227, 240, 217);
@@ -42,11 +42,11 @@
 
 .circle-box {
   height: 40%;
-  width: 42%;
+  width: 46%;
   flex-wrap: wrap;
   color: black;
   padding: 10px;
-  margin: 20px;
+  margin-left: 10px;
 }
 
 .circle {
@@ -54,13 +54,21 @@
   justify-content: space-around;
   background-color: rgb(197, 225, 181);
   border-radius: 50%;
-  padding: 37%;
+  padding: 27%;
   color: black;
   border: 2px solid black;
-  margin: 5px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
-.chart-title {
-  margin: 5px;
+.bar-graph {
+  height: 57.5%;
+  flex-direction: column; 
+  justify-content: center;
   text-align: center;
+  color: black;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
 }
