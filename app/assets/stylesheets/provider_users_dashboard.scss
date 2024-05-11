@@ -1,6 +1,7 @@
 .full-container {
   display: flex;
- padding: 3px;
+  flex-wrap: wrap;
+  padding: 3px;
   border: 2px solid black;
   border-radius: 10px;
   background-color: rgb(227, 240, 217);
@@ -11,8 +12,8 @@
 }
 
 .half-container {
-  flex: .50;
-  margin: 5px;
+  width: 48%;
+  min-width: 540px;
 }
 
 .user-name-div {
