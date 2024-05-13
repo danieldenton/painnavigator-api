@@ -9,7 +9,10 @@
     <p class="chart-title"><strong>New User Count By Month</strong></p>
      <%= column_chart @users.group_by_month(:created_at).count %>
     </div>
-  
+  <div class="bar-graph">
+    <p class="chart-title"><strong>Cumulative User Count</strong></p>
+    <%= line_chart @cumulative_user_count %>
+    </div>
     <div class="bar-graph">
     <p class="chart-title"><strong>Starting Pain Scores</strong></p>
     <%= column_chart @starting_pain_score_counts %>
@@ -18,10 +21,7 @@
 
   <div class="half-container">
     
-    <div class="bar-graph">
-    <p class="chart-title"><strong>Cumulative User Count</strong></p>
-    <%= line_chart @cumulative_user_count %>
-    </div>
+    
     <p><strong>pain score improvement: </strong></p>
      <div class="bar-graph">
     <p class="chart-title"><strong>Logins Per Month</strong></p>

@@ -49,7 +49,7 @@
     </div>
     <div class="user-bar-graph">
     <h5 style="margin: 40px;">Daily Pain Scores</h5>
-    <%= line_chart @daily_pain_scores, ymin: 0, ymax: 10, stepsize: 1 %>
+    <%= line_chart @daily_pain_scores, curve: false %>
     </div>
 </div>
 
