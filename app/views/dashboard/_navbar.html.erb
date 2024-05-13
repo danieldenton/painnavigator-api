@@ -17,13 +17,13 @@
             <% end %>
           </ul>
         </li>
-        <% if params[:provider_id].present? %>
+        <% if params[:provider_id].present? || params[:user_id].present?%>
          <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Users
           </a>
         <ul class="dropdown-menu" aria-labelledby="userDropdown">
-          <% User.where(provider_id: params[:provider_id]).each do |user| %>
+          <% User.where(provider_id: @provider).each do |user| %>
             <li>
               <a class="dropdown-item" href="/provider_users_dashboard?user_id=<%= user.id %>"><%= user.first_name %><%= user.first_name %></a>
             </li>

@@ -47,9 +47,9 @@
         <h6 class="chart-title">Pain Score Trend</h6>
       </div>
     </div>
-    <div class="bar-graph">
-    <h5 style="margin-bottom: 40px;">Daily Pain Scores</h5>
-    <%= column_chart @daily_pain_score_counts %>
+    <div class="user-bar-graph">
+    <h5 style="margin: 40px;">Daily Pain Scores</h5>
+    <%= line_chart @daily_pain_scores, ymin: 0, ymax: 10, stepsize: 1 %>
     </div>
 </div>
 

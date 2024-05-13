@@ -2,16 +2,14 @@ class ProviderUsersDashboardController < ApplicationController
   def user
     @user = User.find(params[:user_id])
 
+    @provider = @user.provider_id
+
     @starting_pain_score = @user.starting_pain_score
 
     daily_pain_scores = DailyPainScore.where(user_id: @user.id)
     @last_pain_score = daily_pain_scores.any? ? daily_pain_scores.last.score : @starting_pain_score
 
-    @daily_pain_score_counts = {}
-(1..10).each do |score|
-  count = daily_pain_scores.count { |dps| dps.score == score }
-  @daily_pain_score_counts[score] = count
-end
+    @daily_pain_scores = daily_pain_scores.map { |score| [score.created_at.to_date.to_s, score.score] }.to_h 
 
     @number_of_logins = @user.dates_on_app.length
 
