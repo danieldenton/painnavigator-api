@@ -39,12 +39,16 @@
         <h6 class="chart-title">Last Pain Score</h6>
       </div>
       <div class="small-circle-box">
-        <h2 class="small-circle"><%= @pain_score_trend %></h2>
+        <% if @pain_score_trend.positive? %>
+          <h2 class="small-circle" style="color: red;">+<%= @pain_score_trend %></h2>
+        <% elsif @pain_score_trend.negative? %>
+          <h2 class="small-circle" style="color: green;"><%= @pain_score_trend %></h2>
+        <% end %>
         <h6 class="chart-title">Pain Score Trend</h6>
       </div>
     </div>
     <div class="bar-graph">
-    <h6><strong>Daily Pain Scores</h6>
+    <h5 style="margin-bottom: 40px;">Daily Pain Scores</h5>
     <%= column_chart @daily_pain_score_counts %>
     </div>
 </div>

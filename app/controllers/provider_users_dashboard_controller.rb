@@ -8,10 +8,10 @@ class ProviderUsersDashboardController < ApplicationController
     @last_pain_score = daily_pain_scores.any? ? daily_pain_scores.last.score : @starting_pain_score
 
     @daily_pain_score_counts = {}
-    (1..10).each do |score| 
-      count = daily_pain_scores.count(score)
-      @daily_pain_score_counts[score] = count
-    end
+(1..10).each do |score|
+  count = daily_pain_scores.count { |dps| dps.score == score }
+  @daily_pain_score_counts[score] = count
+end
 
     @number_of_logins = @user.dates_on_app.length
 
@@ -22,8 +22,7 @@ class ProviderUsersDashboardController < ApplicationController
 
     @smart_goal_count = SmartGoal.where(user_id: @user.id).count 
 
-    pain_score_trend = @starting_pain_score - @last_pain_score
-    @pain_score_trend = pain_score_trend.abs
+    @pain_score_trend = @last_pain_score - @starting_pain_score
 
   end
 end
