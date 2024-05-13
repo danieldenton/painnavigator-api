@@ -4,6 +4,8 @@ class ProviderDashboardController < ApplicationController
     
     @users = User.where(provider_id: @provider.id)
 
+    @current_date = Date.today
+
     @starting_pain_score_counts = {}
     starting_pain_scores = @users.map(&:starting_pain_score)
     (1..10).each do |score| 
@@ -22,6 +24,17 @@ class ProviderDashboardController < ApplicationController
     dates_on_app = @users.map(&:dates_on_app).flatten.map { |date_string| Date.strptime(date_string, "%m/%d/%y") }
     dates_on_app_by_month = dates_on_app.group_by { |date| date.strftime("%Y-%m") }
     @dates_on_app_by_month_count = dates_on_app_by_month.transform_values(&:count)
+
+    @pain_score_trends = Hash.new(0)
+    @users.each do |user|
+      daily_pain_scores = DailyPainScore.where(user_id: user.id)
+      last_pain_score = daily_pain_scores.any? ? daily_pain_scores.last.score : nil 
+      if last_pain_score
+        pain_score_trend = last_pain_score - user.starting_pain_score
+        @pain_score_trends[pain_score_trend] += 1
+      end
+    end
+
     
   end
 end

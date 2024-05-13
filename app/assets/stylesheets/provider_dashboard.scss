@@ -14,10 +14,10 @@
 }
 
 .provider-name-div {
-  flex: 1; 
   display: flex;
-  flex-direction: column; 
-  justify-content: center;
+  width: 98%;
+  flex-direction: row; 
+  justify-content: space-evenly;
   align-items: center;
   background-color: rgb(197, 225, 181);
   color: rgb(51, 161, 138);
@@ -41,7 +41,7 @@
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
-}
+} 
 
 .chart-title {
   margin: 5px;
