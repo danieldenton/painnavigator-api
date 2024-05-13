@@ -22,7 +22,8 @@ class ProviderUsersDashboardController < ApplicationController
 
     @smart_goal_count = SmartGoal.where(user_id: @user.id).count 
 
-    
+    pain_score_trend = @starting_pain_score - @last_pain_score
+    @pain_score_trend = pain_score_trend.abs
 
   end
 end

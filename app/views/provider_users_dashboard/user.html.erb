@@ -30,13 +30,17 @@
     
   <div class="half-container">
   <div class="four-circle-box">
-      <div class="circle-box">
-        <h1 class="circle"><%= @starting_pain_score %></h1>
+      <div class="small-circle-box">
+        <h2 class="small-circle"><%= @starting_pain_score %></h2>
         <h6 class="chart-title">Starting Pain Score</h6>
       </div>
-      <div class="circle-box">
-        <h1 class="circle"><%= @last_pain_score %></h1>
+      <div class="small-circle-box">
+        <h2 class="small-circle"><%= @last_pain_score %></h2>
         <h6 class="chart-title">Last Pain Score</h6>
+      </div>
+      <div class="small-circle-box">
+        <h2 class="small-circle"><%= @pain_score_trend %></h2>
+        <h6 class="chart-title">Pain Score Trend</h6>
       </div>
     </div>
     <div class="bar-graph">

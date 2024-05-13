@@ -13,7 +13,7 @@
 
 .half-container {
   width: 48%;
-  min-width: 540px;
+  min-width: 600px;
 }
 
 .user-name-div {
@@ -62,8 +62,28 @@
   margin-right: 25px;
 }
 
+.small-circle-box {
+  width: 31%;
+  flex-wrap: wrap;
+  color: black;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.small-circle {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(197, 225, 181);
+  border-radius: 50%;
+  padding: 21%;
+  color: black;
+  border: 2px solid black;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
 .bar-graph {
-  height: 57.5%;
+  height: 68.7%;
   flex-direction: column; 
   justify-content: center;
   text-align: center;
