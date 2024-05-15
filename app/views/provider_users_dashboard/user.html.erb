@@ -43,6 +43,8 @@
           <h2 class="small-circle" style="color: red;">+<%= @pain_score_trend %></h2>
         <% elsif @pain_score_trend.negative? %>
           <h2 class="small-circle" style="color: green;"><%= @pain_score_trend %></h2>
+        <% else %>
+          <h2 class="small-circle"><%= @pain_score_trend %></h2>
         <% end %>
         <h6 class="chart-title">Pain Score Trend</h6>
       </div>

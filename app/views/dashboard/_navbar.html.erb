@@ -5,34 +5,47 @@
 </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="/wellness">Wellness Coach</a>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Providers
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="providerDropdown">
-            <% Provider.all.each do |provider| %>
-              <li><a class="dropdown-item" href="/provider_dashboard?provider_id=<%= provider.id %>"><%= provider.name %></a></li>
-            <% end %>
-          </ul>
-        </li>
-        <% if params[:provider_id].present? || params[:user_id].present?%>
-         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Users
-          </a>
-        <ul class="dropdown-menu" aria-labelledby="userDropdown">
-          <% User.where(provider_id: @provider).each do |user| %>
-            <li>
-              <a class="dropdown-item" href="/provider_users_dashboard?user_id=<%= user.id %>"><%= user.first_name %><%= user.first_name %></a>
+        <% if wellness_coach_signed_in? %>
+          <li class="nav-item">
+            <a class="nav-link" href="/wellness">Wellness Coach</a>
+          </li>
+        <% end %>
+        <% if provider_dashboard_signed_in? %> 
+          <li class="nav-item">
+          <a class="nav-link"> <%= link_to 'Profile', edit_provider_dashboard_registration_path %></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Providers
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="providerDropdown">
+              <% Provider.all.each do |provider| %>
+                <li><a class="dropdown-item" href="/provider_dashboard?provider_id=<%= provider.id %>"><%= provider.name %></a></li>
+              <% end %>
+            </ul>
+          </li>
+          <% if params[:provider_id].present? || params[:user_id].present?%>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Users
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                <% User.where(provider_id: @provider).each do |user| %>
+                  <li>
+                    <a class="dropdown-item" href="/provider_users_dashboard?user_id=<%= user.id %>"><%= user.first_name %><%= user.first_name %></a>
+                  </li>
+                <% end %>
+              </ul>
             </li>
           <% end %>
-        </ul>
-      <% end %>
+          <% end %>
       </ul>
       <% if wellness_coach_signed_in? %>
         <a href="/wellness_coaches/sign_out" data-method="delete" rel="nofollow">Sign Out</a>
+        <%= button_to "Log Out", destroy_provider_dashboard_session_path, method: :delete %>
+      <% end %>
+      <% if provider_dashboard_signed_in? %>
+        <%= button_to "Log Out", destroy_provider_dashboard_session_path, method: :delete %>
       <% end %>
     </div>
   </div>

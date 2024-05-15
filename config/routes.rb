@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'provider_users_dashboard/user'
   get 'provider_dashboard/dashboard'
   devise_for :wellness_coaches, controllers: { sessions: 'wellness_coaches/sessions' }
+  devise_for :provider_dashboards, controllers: { sessions: 'provider_dashboards/sessions'}
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
