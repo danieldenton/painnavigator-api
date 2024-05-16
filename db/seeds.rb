@@ -24,8 +24,4 @@
 
 # AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
-pd = ProviderDashboard.where(email: "daniel@painnavigator.io").first_or_initialize
-pd.update!(
-  password: "password",
-  password_confirmation: "password"
-)
+ProviderDashboard.create(email: "danielmdenton@gmail.com", password: "password", password_confirmation: "password") if Rails.env.development?
