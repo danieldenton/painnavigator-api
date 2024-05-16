@@ -1,4 +1,5 @@
 class ProviderDashboardController < ApplicationController
+  before_action :authenticate_provider_dashboard!
   def dashboard
     if params[:provider_id].present?
         @provider = Provider.find(params[:provider_id])
