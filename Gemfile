@@ -36,6 +36,8 @@ gem 'devise'
 gem 'exponent-server-sdk'
 gem 'concurrent-ruby'
 gem 'dotenv-rails'
+
+gem 'therubyracer', platforms: :ruby
 gem "chartkick"
 
 
