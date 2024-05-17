@@ -1,0 +1,60 @@
+<div class="full-container">
+
+  <div class="half-container">
+    <div class="user-name-div">
+      <h1><%= @user.first_name %><%= @user.last_name %></h1>  
+      <h6 class="black">Date of Birth: <%= @user.dob %></h6>
+      <h6 class="black">Email: <%= @user.email %></h6>
+      <h6 class="black">Last Login: <%= @user.last_date_on_app %></h6>
+    </div>
+
+    <div class="four-circle-box">
+      <div class="circle-box">
+        <h1 class="circle"><%= @number_of_logins %></h1>
+        <h6 class="chart-title"># of Logins</h6>
+      </div>
+      <div class="circle-box">
+        <h1 class="circle"><%= @education_module_completions %></h1>
+        <h6 class="chart-title">Education Modules Completed</h6>
+      </div>
+      <div class="circle-box">
+        <h1 class="circle"><%= @movement_module_completions %></h1>
+        <h6 class="chart-title">Times Exercised in App</h6>
+      </div>
+      <div class="circle-box">
+        <h1 class="circle"><%= @smart_goal_count %></h1>
+        <h6 class="chart-title"># of Smart Goals</h6>
+      </div>      
+    </div>
+  </div>
+    
+  <div class="half-container">
+  <div class="four-circle-box">
+      <div class="small-circle-box">
+        <h2 class="small-circle"><%= @starting_pain_score %></h2>
+        <h6 class="chart-title">Starting Pain Score</h6>
+      </div>
+      <div class="small-circle-box">
+        <h2 class="small-circle"><%= @last_pain_score %></h2>
+        <h6 class="chart-title">Last Pain Score</h6>
+      </div>
+      <div class="small-circle-box">
+        <% if @pain_score_trend.positive? %>
+          <h2 class="small-circle" style="color: red;">+<%= @pain_score_trend %></h2>
+        <% elsif @pain_score_trend.negative? %>
+          <h2 class="small-circle" style="color: green;"><%= @pain_score_trend %></h2>
+        <% else %>
+          <h2 class="small-circle"><%= @pain_score_trend %></h2>
+        <% end %>
+        <h6 class="chart-title">Pain Score Trend</h6>
+      </div>
+    </div>
+    <div class="user-bar-graph">
+    <h5 style="margin: 40px;">Daily Pain Scores</h5>
+    <%= line_chart @daily_pain_scores, curve: false %>
+    </div>
+</div>
+
+
+
+

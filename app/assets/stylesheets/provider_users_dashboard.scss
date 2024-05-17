@@ -1,0 +1,95 @@
+.full-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: rgb(227, 240, 217);
+}
+
+.black {
+  color: black;
+}
+
+.half-container {
+  width: 48%;
+  min-width: 600px;
+}
+
+.user-name-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(197, 225, 181);
+  color: rgb(51, 161, 138);
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.four-circle-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  color: black;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.circle-box {
+  height: 40%;
+  width: 46%;
+  flex-wrap: wrap;
+  color: black;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.circle {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(197, 225, 181);
+  border-radius: 50%;
+  padding: 28%;
+  color: black;
+  border: 2px solid black;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.small-circle-box {
+  width: 31%;
+  flex-wrap: wrap;
+  color: black;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.small-circle {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(197, 225, 181);
+  border-radius: 50%;
+  padding: 21%;
+  color: black;
+  border: 2px solid black;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.user-bar-graph {
+  height: 69%;
+  flex-direction: column; 
+  justify-content: center;
+  text-align: center;
+  color: black;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}

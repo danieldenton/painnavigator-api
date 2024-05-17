@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_07_193051) do
+ActiveRecord::Schema.define(version: 2024_05_17_192118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -188,6 +188,18 @@ ActiveRecord::Schema.define(version: 2024_04_07_193051) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "provider_dashboards", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_provider_dashboards_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_provider_dashboards_on_reset_password_token", unique: true
+  end
+
   create_table "providers", force: :cascade do |t|
     t.string "name"
     t.string "code"
@@ -195,6 +207,7 @@ ActiveRecord::Schema.define(version: 2024_04_07_193051) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "condensed_program", default: false
+    t.string "email"
   end
 
   create_table "smart_goal_updates", force: :cascade do |t|
@@ -275,7 +288,6 @@ ActiveRecord::Schema.define(version: 2024_04_07_193051) do
     t.boolean "opt_out_sms", default: false
     t.integer "wellness_coach_reminder", default: 0
     t.boolean "wellness_coach_reminded", default: true
-    t.boolean "access_to_wellness_coach", default: false, null: false
     t.boolean "app_update_required", default: false
   end
 

@@ -1,0 +1,45 @@
+<div class="full-container">
+  <% if @provider %>
+    <div class="provider-name-div">
+      <h1><%= @provider.name %></h1>
+      <div style="text-align: center;">
+      <p class="black"><strong>As of <%= @current_date %></strong></p>
+      <p class="black"><strong>Total Patients To Date:</strong></p>
+      <h5 class="black"><%= @provider.users_count %></h5>
+      </div>
+    </div>
+  <div class="half-container">
+    <div class="bar-graph">
+    <p class="chart-title"><strong>New User Count By Month</strong></p>
+     <%= column_chart @users.group_by_month(:created_at).count %>
+    </div>
+  <div class="bar-graph">
+    <p class="chart-title"><strong>Cumulative User Count</strong></p>
+    <%= line_chart @cumulative_user_count %>
+    </div>
+    <div class="bar-graph">
+      <p class="chart-title"><strong>Starting Pain Scores</strong></p>
+      <%= column_chart @starting_pain_score_counts %>
+    </div>
+    
+  </div>
+
+  <div class="half-container">     
+    <div class="bar-graph">
+      <p class="chart-title"><strong>Logins Per Month</strong></p>
+      <%= column_chart @dates_on_app_by_month_count %>  
+  </div>
+   <div class="bar-graph">
+    <p class="chart-title"><strong>Reimbursment Running total</strong></p>
+     <%= column_chart @users.group_by_month(:created_at).count %>
+    </div>
+    <div class="bar-graph">
+      <div class="chart-title-with-description">
+        <p class="chart-title"><strong>Pain Score Improvement: </strong></p>
+        <p class="chart-title">negative change = pain is improving</p>
+        <%= column_chart @pain_score_trends %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
