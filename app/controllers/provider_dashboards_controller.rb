@@ -5,13 +5,18 @@ class ProviderDashboardsController < ApplicationController
   def set_current_provider_dashboard
     if provider_dashboard_signed_in?
       @current_provider = current_provider_dashboard
-      @provider = Provider.find_by(email: @current_provider.email)
+      if params[:provider_id].present?
+        @provider = Provider.find(params[:provider_id])
+      else
+        @provider = Provider.find_by(email: @current_provider.email)
+      end
+      
     end
   end
 
   def dashboard
     @users = User.where(provider_id: @provider.id)
-
+    
     @current_date = Date.today
 
     @starting_pain_score_counts = {}
