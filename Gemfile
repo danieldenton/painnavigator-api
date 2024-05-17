@@ -39,6 +39,7 @@ gem 'dotenv-rails'
 
 gem 'therubyracer', platforms: :ruby
 gem "chartkick"
+gem 'chart-js-rails'
 
 
 # Reduces boot times through caching; required in config/boot.rb
