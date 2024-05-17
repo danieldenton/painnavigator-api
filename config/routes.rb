@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :wellness_coaches, controllers: { sessions: 'wellness_coaches/sessions' }
   devise_for :provider_dashboards, controllers: { sessions: 'provider_dashboards/sessions'}
+  delete 'provider_dashboards/sign_out', to: 'devise/sessions#destroy'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
