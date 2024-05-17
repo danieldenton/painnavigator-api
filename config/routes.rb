@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
-  get 'provider_users_dashboard/user'
-  get 'provider_dashboard/dashboard'
   devise_for :wellness_coaches, controllers: { sessions: 'wellness_coaches/sessions' }
   devise_for :provider_dashboards, controllers: { sessions: 'provider_dashboards/sessions'}
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  root to: 'provider_dashboard#dashboard'
+  root to: 'provider_dashboards#dashboard'
 
   get '/wellness'       => 'wellness_coaches#wellness'
   post '/reply_to_user' => 'wellness_coaches#reply_to_user'
   get 'download'        => 'application#download'
   post '/twillio_stop' => 'twillio_stop#handle'
-  get '/provider_dashboard' => 'provider_dashboard#dashboard'
+  get '/provider_dashboard' => 'provider_dashboards#dashboard'
   get '/provider_users_dashboard' => 'provider_users_dashboard#user'
   
   namespace :api do

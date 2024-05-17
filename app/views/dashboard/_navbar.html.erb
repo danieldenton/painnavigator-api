@@ -35,8 +35,7 @@
       <% if wellness_coach_signed_in? %>
         <a href="/wellness_coaches/sign_out" data-method="delete" rel="nofollow">Sign Out</a>
         <%= link_to "Sign Out", destroy_wellness_coach_session_path, method: :delete %>
-      <% end %>
-      <% if provider_dashboard_signed_in? %>
+      <% elsif provider_dashboard_signed_in? %>
         <%= link_to "Sign Out", destroy_provider_dashboard_session_path, method: :delete %>
       <% end %>
     </div>
