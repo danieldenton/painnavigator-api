@@ -5,15 +5,7 @@
 </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <% if wellness_coach_signed_in? %>
-          <li class="nav-item">
-            <a class="nav-link" href="/wellness">Wellness Coach</a>
-          </li>
-        <% end %>
-        <% if provider_dashboard_signed_in? %> 
-          <li class="nav-item">
-          <a class="nav-link"> <%= link_to 'Profile', edit_provider_dashboard_registration_path %></a>
-          </li>
+        <% if @provider.code == "EXPL22" %> 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Providers
@@ -24,7 +16,8 @@
               <% end %>
             </ul>
           </li>
-          <% if params[:provider_id].present? || params[:user_id].present?%>
+           <% end %>
+          <% if provider_dashboard_signed_in? %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Users
@@ -37,7 +30,6 @@
                 <% end %>
               </ul>
             </li>
-          <% end %>
           <% end %>
       </ul>
       <% if wellness_coach_signed_in? %>
