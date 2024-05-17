@@ -33,10 +33,12 @@
     <p class="chart-title"><strong>Reimbursment Running total</strong></p>
      <%= column_chart @users.group_by_month(:created_at).count %>
     </div>
-  <div class="bar-graph">
-      <p class="chart-title"><strong>pain score improvement: </strong></p>
-      <p class="chart-title">negative change = pain is improving</p>
-      <%= column_chart @pain_score_trends %>
+    <div class="bar-graph">
+      <div class="chart-title-with-description">
+        <p class="chart-title"><strong>Pain Score Improvement: </strong></p>
+        <p class="chart-title">negative change = pain is improving</p>
+        <%= column_chart @pain_score_trends %>
+      </div>
     </div>
   </div>
   <% end %>

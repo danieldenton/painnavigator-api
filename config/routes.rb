@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  root to: 'wellness_coaches#wellness'
+  root to: 'provider_dashboard#dashboard'
 
   get '/wellness'       => 'wellness_coaches#wellness'
   post '/reply_to_user' => 'wellness_coaches#reply_to_user'
