@@ -37,7 +37,7 @@ gem 'exponent-server-sdk'
 gem 'concurrent-ruby'
 gem 'dotenv-rails'
 
-gem 'chartkick', github: 'ankane/chartkick', branch: 'edge'
+gem 'chartkick'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
