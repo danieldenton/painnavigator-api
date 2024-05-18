@@ -12,12 +12,12 @@
  *
  *= require_tree .
  *= stub "active_admin"
+ *= require chartkick
  *= require_self
  */
 
- /*
- *= require chartkick
- */
+ 
+
 
 .blue-message {
   background-color: #E0E7F3;
