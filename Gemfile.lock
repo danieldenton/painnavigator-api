@@ -125,8 +125,6 @@ GEM
     caxlsx_rails (0.6.3)
       actionpack (>= 3.1)
       caxlsx (>= 3.0)
-    chart-js-rails (0.1.7)
-      railties (> 3.1)
     chartkick (5.0.6)
     choice (0.2.0)
     coderay (1.1.3)
@@ -209,7 +207,6 @@ GEM
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
     language_server-protocol (3.17.0.3)
-    libv8 (3.16.14.19.1-x86_64-linux)
     lint_roller (1.1.0)
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -320,7 +317,6 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rchardet (1.8.0)
-    ref (2.0.0)
     regexp_parser (2.9.2)
     responders (3.1.1)
       actionpack (>= 5.2)
@@ -413,9 +409,6 @@ GEM
       lint_roller (~> 1.1)
       rubocop-performance (~> 1.21.0)
     strscan (3.1.0)
-    therubyracer (0.12.3)
-      libv8 (~> 3.16.14.15)
-      ref
     thor (1.3.1)
     tilt (2.3.0)
     timeout (0.4.1)
@@ -469,7 +462,6 @@ DEPENDENCIES
   capybara (>= 3.26)
   caxlsx
   caxlsx_rails
-  chart-js-rails
   chartkick
   concurrent-ruby
   devise
@@ -497,7 +489,6 @@ DEPENDENCIES
   skylight
   spring
   standard
-  therubyracer
   turbolinks (~> 5)
   twilio-ruby (~> 6.5.0)
   tzinfo-data
