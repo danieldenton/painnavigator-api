@@ -125,8 +125,6 @@ GEM
     caxlsx_rails (0.6.3)
       actionpack (>= 3.1)
       caxlsx (>= 3.0)
-    chart-js-rails (0.1.7)
-      railties (> 3.1)
     chartkick (5.0.6)
     choice (0.2.0)
     coderay (1.1.3)
@@ -464,7 +462,6 @@ DEPENDENCIES
   capybara (>= 3.26)
   caxlsx
   caxlsx_rails
-  chart-js-rails
   chartkick
   concurrent-ruby
   devise
