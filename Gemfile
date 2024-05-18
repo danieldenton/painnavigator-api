@@ -38,6 +38,7 @@ gem 'concurrent-ruby'
 gem 'dotenv-rails'
 
 gem 'chartkick'
+gem 'chart-js-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
