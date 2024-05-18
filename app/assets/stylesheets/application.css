@@ -12,7 +12,6 @@
  *
  *= require_tree .
  *= stub "active_admin"
- *= require chartkick
  *= require_self
  */
 
