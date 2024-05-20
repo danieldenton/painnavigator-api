@@ -5,6 +5,7 @@
     "node": "20.x"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.24.5",
     "@rails/actioncable": "^7.1.2",
     "@rails/activestorage": "^7.1.2",
     "@rails/ujs": "^7.1.2",
