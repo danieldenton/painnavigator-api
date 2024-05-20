@@ -1,1 +1,1 @@
-// entry point for package.json
+// Entry point for the build script in your package.json
