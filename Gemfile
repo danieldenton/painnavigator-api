@@ -22,7 +22,6 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'jsonapi-serializer', '~> 2.2'
-gem 'groupdate'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem "mailgun-ruby"
@@ -36,7 +35,9 @@ gem 'devise'
 
 gem 'exponent-server-sdk'
 gem 'concurrent-ruby'
-gem 'dotenv-rails'
+
+gem "chartkick"
+gem 'groupdate'
 
 gem 'chartkick'
 
