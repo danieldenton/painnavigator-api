@@ -16,7 +16,7 @@ class ProviderDashboardsController < ApplicationController
 
   def dashboard
     @users = User.where(provider_id: @provider.id)
-
+    
     @current_date = Date.today
 
     @starting_pain_score_counts = {}

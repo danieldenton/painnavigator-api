@@ -9,6 +9,7 @@ import "channels"
 import "chartkick/chart.js"
 import Turbolinks from "turbolinks"
 
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
