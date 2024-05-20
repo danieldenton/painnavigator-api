@@ -11,7 +11,8 @@ gem 'pg', '~>1.5.6'
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-gem 'jsbundling-rails'
+# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
+gem 'webpacker', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -21,7 +22,6 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'jsonapi-serializer', '~> 2.2'
-gem 'groupdate'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem "mailgun-ruby"
@@ -35,8 +35,9 @@ gem 'devise'
 
 gem 'exponent-server-sdk'
 gem 'concurrent-ruby'
-gem 'dotenv-rails'
+
 gem "chartkick"
+gem 'groupdate'
 
 
 # Reduces boot times through caching; required in config/boot.rb
