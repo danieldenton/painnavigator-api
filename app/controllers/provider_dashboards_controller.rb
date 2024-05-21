@@ -1,6 +1,7 @@
 class ProviderDashboardsController < ApplicationController
   before_action :authenticate_provider_dashboard!
   before_action :set_current_provider_dashboard
+  before_action :set_users
 
   def set_current_provider_dashboard
     if provider_dashboard_signed_in?
@@ -14,8 +15,11 @@ class ProviderDashboardsController < ApplicationController
     end
   end
 
-  def dashboard
+  def set_users
     @users = User.where(provider_id: @provider.id)
+  end
+
+  def dashboard
     
     @current_date = Date.today
 
@@ -48,4 +52,11 @@ class ProviderDashboardsController < ApplicationController
       end
     end
   end
+
+  def user_list
+  end
+
+  def provider_list
+  end
+
 end

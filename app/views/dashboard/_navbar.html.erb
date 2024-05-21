@@ -6,31 +6,24 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <% if provider_dashboard_signed_in? %>
-        <% if @current_provider && @current_provider.email == "info@painnavigator.io" %> 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Providers
-            </a>
-      <% else %>
           <li class="nav-item">
            <a class="nav-link" href="/"  role="button">
               Home
             </a>
           </li>
-        <% end %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="/user_list" role="button">
               Users
             </a>
-            <ul class="dropdown-menu" aria-labelledby="userDropdown">
-              <% User.where(provider_id: @provider).each do |user| %>
-                <li>
-                  <a class="dropdown-item" href="/provider_users_dashboard?user_id=<%= user.id %>"><%= user.first_name %> <%= user.last_name %></a>
-                </li>
-              <% end %>
-            </ul>
           </li>
+        <% if @current_provider && @current_provider.email == "info@painnavigator.io" %> 
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Providers
+            </a>
         <% end %>
+      <% end %>
       </ul>
       <% if wellness_coach_signed_in? %>
         <a href="/wellness_coaches/sign_out" data-method="delete" rel="nofollow">Sign Out</a>

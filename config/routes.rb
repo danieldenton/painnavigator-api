@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   get 'download'        => 'application#download'
   post '/twillio_stop' => 'twillio_stop#handle'
   get '/provider_dashboard' => 'provider_dashboards#dashboard'
-  get '/provider_list' => 'provider_dashboards#dashboard'
-  get '/user_list' => 'provider_dashboards#dashboard'
+  get '/provider_list' => 'provider_dashboards#provider_list'
+  get '/user_list' => 'provider_dashboards#user_list'
   get '/provider_users_dashboard' => 'provider_users_dashboard#user'
   
   namespace :api do
