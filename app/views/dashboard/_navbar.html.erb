@@ -11,11 +11,11 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Providers
             </a>
-            <ul class="dropdown-menu" aria-labelledby="providerDropdown">
-              <% Provider.all.each do |provider| %>
-                <li><a class="dropdown-item" href="/provider_dashboard?provider_id=<%= provider.id %>"><%= provider.name %></a></li>
-              <% end %>
-            </ul>
+      <% else %>
+          <li class="nav-item">
+           <a class="nav-link" href="/"  role="button">
+              Home
+            </a>
           </li>
         <% end %>
           <li class="nav-item dropdown">
