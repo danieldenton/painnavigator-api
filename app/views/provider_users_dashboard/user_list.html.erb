@@ -1,0 +1,16 @@
+<div class="full-container">
+  <% if @provider %>
+    <div class="provider-name-div">
+      <h1><%= @provider.name %></h1>
+    </div>
+    <div class="provider-name-div">
+       <ul aria-labelledby="userList">
+          <% User.where(provider_id: @provider).each do |user| %>
+            <li>
+              <a href="/provider_users_dashboard?user_id=<%= user.id %>"><%= user.first_name %> <%= user.last_name %></a>
+            </li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>
+</div>
