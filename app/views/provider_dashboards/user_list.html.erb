@@ -1,16 +1,15 @@
 <div class="full-container">
-  <% if @provider %>
-    <div class="provider-name-div">
-      <h1><%= @provider.name %></h1>
-    </div>
-    <div class="provider-name-div">
-       <ul aria-labelledby="userList">
+  <div class="provider-name-div">
+    <h1><%= @provider.name %></h1>
+  </div>
+  <div class="provider-name-div">
+    <h3>Patient List:</h3>
+        <ul aria-labelledby="userList">
           <% @users.each do |user| %>
             <li>
               <a href="/provider_users_dashboard?user_id=<%= user.id %>"><%= user.first_name %> <%= user.last_name %></a>
             </li>
-          <% end %>
-        </ul>
-    </div>
-  <% end %>
+        <% end %>
+      </ul>
+  </div>
 </div>

@@ -1,0 +1,12 @@
+<div class="full-container">
+  <div class="provider-name-div">
+    <h3>Provider List:</h3>
+        <ul aria-labelledby="userList">
+          <% @providers.each do |provider| %>
+            <li>
+              <a href="/provider_dashboard?provider_id=<%= provider.id %>"><%= provider.name %></a>
+            </li>
+          <% end %>
+      </ul>
+  </div>
+</div>
