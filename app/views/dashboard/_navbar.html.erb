@@ -12,13 +12,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/user_list" role="button">
+            <a class="nav-link" href="/user_list?provider_id=<%= @provider.id %>" role="button">
               Users
             </a>
           </li>
         <% if @current_provider && @current_provider.email == "info@painnavigator.io" %> 
           <li class="nav-item">
-            <a class="nav-link" href="/provider_list" role="button">
+            <a class="nav-link" href="/provider_list"role="button">
               Providers
             </a>
           </li>
