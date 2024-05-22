@@ -1,6 +1,12 @@
 <div class="full-container">
   <div class="provider-name-div">
     <h1><%= @provider.name %></h1>
+     <h1><%= @provider.name %></h1>
+      <div style="text-align: center;">
+      <p class="black"><strong>As of <%= @current_date %></strong></p>
+      <p class="black"><strong>Total Patients To Date:</strong></p>
+      <h5 class="black"><%= @provider.users_count %></h5>
+      </div>
   </div>
   <div class="provider-name-div">
     <h3>Patient List:</h3>
