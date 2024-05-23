@@ -1,9 +1,9 @@
 class ProviderUsersDashboardController < ApplicationController
- 
+
   def user
     @user = User.find(params[:user_id])
 
-    @provider = @user.provider_id
+    @provider = Provider.find_by(id: @user.provider_id)
 
     @starting_pain_score = @user.starting_pain_score
 

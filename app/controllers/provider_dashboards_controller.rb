@@ -11,7 +11,6 @@ class ProviderDashboardsController < ApplicationController
       else
         @provider = Provider.find_by(email: @current_provider.email)
       end
-      
     end
   end
 
