@@ -20,7 +20,8 @@ class ProviderDashboardsController < ApplicationController
 
   def dashboard
     
-    @current_date = Date.today
+    date = Date.today
+    @current_date = date.strftime("%B %d %Y")
 
     @starting_pain_score_counts = {}
     starting_pain_scores = @users.map(&:starting_pain_score)
@@ -53,7 +54,8 @@ class ProviderDashboardsController < ApplicationController
   end
 
   def user_list
-    @current_date = Date.today
+    date = Date.today
+    @current_date = date.strftime("%B %d %Y")
   end
 
   def provider_list
