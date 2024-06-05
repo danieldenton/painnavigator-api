@@ -7,11 +7,11 @@
           </div>
           <div class="provider-stats">
           <p class="black"><strong>Total Patients To Date:</strong></p>
-          <h5 class="blue"><strong><%= @provider.users_count %></strong></h5>
+          <h5 class="blue"><strong><%= @provider.users_count || 0 %></strong></h5>
           </div>
           <div class="provider-stats">
           <p class="black"><strong>Total Patient Reimbursement:</strong></p>
-          <h5 class="blue"><strong><%= @provider.users_count %></strong></h5>
+          <h5 class="blue"><strong><%= @provider.users_count || 0 %></strong></h5>
         </div>
     </div>
   <div class="list-div-header">
