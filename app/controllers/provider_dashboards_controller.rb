@@ -50,6 +50,7 @@ class ProviderDashboardsController < ApplicationController
       if last_pain_score
         pain_score_trend = last_pain_score - user.starting_pain_score
         @pain_score_trends[pain_score_trend] += 1
+        
       end
     end
   end
