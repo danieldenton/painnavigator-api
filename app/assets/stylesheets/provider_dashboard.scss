@@ -42,7 +42,7 @@
   font-style: italic;
 }
 .blue {
-  color: blue
+  color: rgb(47, 110, 235)
 }
 
 .bar-graph {
@@ -82,4 +82,24 @@
 .chart-title {
   text-align: center;
   margin-bottom: auto;
+}
+
+.list-div-header {
+  width: 100%;
+  padding: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  color: rgb(51, 161, 138);
+}
+
+.list-div {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+  padding: 20px;
+  min-height: 450px;
+  width: 100%;
+  color: rgb(51, 161, 138);
 }

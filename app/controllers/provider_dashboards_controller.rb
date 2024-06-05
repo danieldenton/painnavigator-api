@@ -53,6 +53,7 @@ class ProviderDashboardsController < ApplicationController
   end
 
   def user_list
+    @current_date = Date.today
   end
 
   def provider_list

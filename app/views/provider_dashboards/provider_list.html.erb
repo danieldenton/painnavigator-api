@@ -1,6 +1,8 @@
 <div class="full-container">
-  <div class="provider-name-div">
-    <h3>Provider List:</h3>
+  <div class="list-div-header">
+    <h3>Provider List</h3>
+    </div>
+    <div class="list-div">
         <ul aria-labelledby="userList">
           <% @providers.each do |provider| %>
             <li>
@@ -8,5 +10,6 @@
             </li>
           <% end %>
       </ul>
+      </div>
   </div>
 </div>
