@@ -18,7 +18,7 @@
   <div class="half-container1">
     <div class="bar-graph">
     <p class="chart-title"><strong>New User Count By Month</strong></p>
-     <%= column_chart @users.group_by_month(:created_at).count, height: "200px" %>
+     <%= column_chart @users.group_by_month(:created_at, format: "%m-%Y").count, height: "200px" %>
     </div>
   <div class="bar-graph">
     <p class="chart-title"><strong>Cumulative User Count</strong></p>

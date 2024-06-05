@@ -30,7 +30,7 @@ class ProviderDashboardsController < ApplicationController
       @starting_pain_score_counts[score] = count
     end
 
-    user_counts_by_month = @users.group_by_month(:created_at, format: "%m-%Y").count
+    user_counts_by_month = @users.group_by_month(:created_at).count
     puts user_counts_by_month
     @cumulative_user_count = {}
     cumulative_count = 0
@@ -40,7 +40,7 @@ class ProviderDashboardsController < ApplicationController
     end
 
     dates_on_app = @users.map(&:dates_on_app).flatten.map { |date_string| Date.strptime(date_string, "%m/%d/%y") }
-    dates_on_app_by_month = dates_on_app.group_by { |date| date.strftime("%m-%Y") }
+    dates_on_app_by_month = dates_on_app.group_by { |date| date.strftime("%m/%Y") }
     @dates_on_app_by_month_count = dates_on_app_by_month.transform_values(&:count)
 
     @pain_score_trends = Hash.new(0)
