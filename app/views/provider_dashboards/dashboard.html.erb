@@ -2,11 +2,18 @@
   <% if @provider %>
     <div class="provider-name-div">
       <h1><%= @provider.name %></h1>
-      <div style="text-align: center;">
-      <p class="black"><strong>As of <%= @current_date %></strong></p>
-      <p class="black"><strong>Total Patients To Date:</strong></p>
-      <h5 class="black"><%= @provider.users_count %></h5>
-      </div>
+        <div class="provider-stats">
+        <p class="black"><strong>as of:</strong></p>
+        <h5><strong><%= @current_date %></strong></h5>
+        </div>
+        <div class="provider-stats">
+        <p class="black"><strong>Total Patients To Date:</strong></p>
+        <h5><strong><%= @provider.users_count %></strong></h5>
+        </div>
+        <div class="provider-stats">
+        <p class="black"><strong>Total Patient Reimbursement:</strong></p>
+        <h5><strong><%= @provider.users_count %></strong></h5>
+        </div>
     </div>
   <div class="half-container1">
     <div class="bar-graph">

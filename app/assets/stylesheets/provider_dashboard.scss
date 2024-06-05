@@ -27,11 +27,19 @@
   border: 2px solid black;
   border-radius: 10px;
   padding: 10px;
-  margin: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.provider-stats {
+  padding: 10px;
+  text-align: center;
 }
 
 .black {
   color: black;
+  font-style: italic;
 }
 
 .bar-graph {
@@ -46,6 +54,7 @@
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
+  font-style: italic;
 }
 
 .bar-graph-right {
@@ -59,6 +68,7 @@
   padding: 10px;
   margin-top: 10px;
   margin-right: 10px;
+  font-style: italic;
 }
 
 .two-bar-graphs {
