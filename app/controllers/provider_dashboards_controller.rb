@@ -42,7 +42,9 @@ class ProviderDashboardsController < ApplicationController
     dates_on_app = @users.map(&:dates_on_app).flatten.map { |date_string| Date.strptime(date_string, "%m/%d/%y") }
     dates_on_app_by_month = dates_on_app.group_by { |date| date.strftime("%m/%Y") }
     sorted_dates_on_app_by_month = dates_on_app_by_month.sort_by { |month, _| Date.strptime(month, "%m/%Y") }.to_h
-    @dates_on_app_by_month_count = sorted_dates_on_app_by_month.transform_values(&:count)
+    @dates_on_app_by_month_count = sorted_dates_on_app_by_month.transform_keys { |month| Date.strptime(month, "%m/%Y").strftime("%b %Y") }.transform_values(&:count)
+
+
 
     @pain_score_trends = Hash.new(0)
     @users.each do |user|
