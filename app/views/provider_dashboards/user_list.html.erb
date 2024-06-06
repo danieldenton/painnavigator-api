@@ -19,7 +19,7 @@
   </div>
   <div class="list-div">
         <ul aria-labelledby="userList">
-          <% @users = User.order(:last_name).each do |user| %>
+          <% @ordered_users.each do |user| %>
             <li>
               <a href="/provider_users_dashboard?user_id=<%= user.id %>"><%= user.first_name %> <%= user.last_name %></a>
             </li>
