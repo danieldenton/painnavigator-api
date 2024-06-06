@@ -4,6 +4,8 @@ class ProviderDashboardsController < ApplicationController
   before_action :set_users
 
   def set_current_provider_dashboard
+    date = Date.today
+    @current_date = date.strftime("%B %d %Y")
     if provider_dashboard_signed_in?
       @current_provider = current_provider_dashboard
       if params[:provider_id].present?
@@ -11,6 +13,7 @@ class ProviderDashboardsController < ApplicationController
       else
         @provider = Provider.find_by(email: @current_provider.email)
       end
+      @total_patient_reimbursement = @provider.users_count * 100 
     end
   end
 
@@ -19,12 +22,6 @@ class ProviderDashboardsController < ApplicationController
   end
 
   def dashboard
-    
-    date = Date.today
-    @current_date = date.strftime("%B %d %Y")
-
-    @total_patient_reimbursement = @provider.users_count * 100 
-
     @new_user_count_by_month = @users.group_by_month(:created_at).count.transform_keys { |month| month.strftime("%b %Y") }
 
     @starting_pain_score_counts = {}
@@ -44,14 +41,11 @@ class ProviderDashboardsController < ApplicationController
     end
 
     @reimbursement_total = @cumulative_user_count.transform_values { |count| count * 100 }
-    
 
     dates_on_app = @users.map(&:dates_on_app).flatten.map { |date_string| Date.strptime(date_string, "%m/%d/%y") }
     dates_on_app_by_month = dates_on_app.group_by { |date| date.strftime("%m/%Y") }
     sorted_dates_on_app_by_month = dates_on_app_by_month.sort_by { |month, _| Date.strptime(month, "%m/%Y") }.to_h
     @dates_on_app_by_month_count = sorted_dates_on_app_by_month.transform_keys { |month| Date.strptime(month, "%m/%Y").strftime("%b %Y") }.transform_values(&:count)
-
-
 
     @pain_score_trends = Hash.new(0)
     @users.each do |user|
@@ -60,15 +54,12 @@ class ProviderDashboardsController < ApplicationController
       if last_pain_score
         pain_score_trend = last_pain_score - user.starting_pain_score
         @pain_score_trends[pain_score_trend] += 1
-        
       end
     end
   end
 
   def user_list
-    date = Date.today
-    @current_date = date.strftime("%B %d %Y")
-    @total_patient_reimbursement = @provider.users_count * 100 
+    @ordered_users = @users.order(:last_name)
   end
 
   def provider_list
