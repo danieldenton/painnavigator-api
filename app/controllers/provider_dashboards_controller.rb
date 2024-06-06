@@ -40,7 +40,7 @@ class ProviderDashboardsController < ApplicationController
     cumulative_count = 0
     user_counts_by_month.each do |month, count|
       cumulative_count += count
-      @cumulative_user_count[month] = cumulative_count
+      @cumulative_user_count[month.strftime("%b %Y")] = cumulative_count
     end
 
     @reimbursement_total = @cumulative_user_count.transform_values { |count| count * 100 }
@@ -68,6 +68,7 @@ class ProviderDashboardsController < ApplicationController
   def user_list
     date = Date.today
     @current_date = date.strftime("%B %d %Y")
+    @total_patient_reimbursement = @provider.users_count * 100 
   end
 
   def provider_list
