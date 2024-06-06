@@ -23,6 +23,8 @@ class ProviderDashboardsController < ApplicationController
     date = Date.today
     @current_date = date.strftime("%B %d %Y")
 
+    @new_user_count_by_month = @users.group_by_month(:created_at).count.transform_keys { |month| month.strftime("%b %Y") }
+
     @starting_pain_score_counts = {}
     starting_pain_scores = @users.map(&:starting_pain_score)
     (1..10).each do |score| 
@@ -38,6 +40,9 @@ class ProviderDashboardsController < ApplicationController
       cumulative_count += count
       @cumulative_user_count[month] = cumulative_count
     end
+
+    @reimbursement_total = @cumulative_user_count.transform_values { |count| count * 100 }
+
 
     dates_on_app = @users.map(&:dates_on_app).flatten.map { |date_string| Date.strptime(date_string, "%m/%d/%y") }
     dates_on_app_by_month = dates_on_app.group_by { |date| date.strftime("%m/%Y") }

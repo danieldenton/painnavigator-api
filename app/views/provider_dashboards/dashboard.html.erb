@@ -18,7 +18,7 @@
   <div class="half-container1">
     <div class="bar-graph">
     <p class="chart-title"><strong>New User Count By Month</strong></p>
-     <%= column_chart @dates_on_app_by_month_count = @users.group_by_month(:created_at).count.transform_keys { |month| month.strftime("%b %Y") }, height: "200px" %>
+     <%= column_chart @new_user_count_by_month, height: "200px" %>
     </div>
   <div class="bar-graph">
     <p class="chart-title"><strong>Cumulative User Count</strong></p>
@@ -46,7 +46,7 @@
   </div>
    <div class="bar-graph-right">
     <p class="chart-title"><strong>Reimbursment Running total</strong></p>
-     <%= column_chart @users.group_by_month(:created_at).count, height: "335px"  %>
+     <%= column_chart @reimbursement_total, height: "335px"  %>
     </div>
   </div>
   <% end %>
