@@ -108,8 +108,5 @@
   flex-direction: column;
   flex-wrap: wrap;
   gap: 5px; 
-}
-
-.list-div ul:not(:last-child) {
-  margin-right: 20px; 
+  flex-basis: calc(50% - 16px);
 }
