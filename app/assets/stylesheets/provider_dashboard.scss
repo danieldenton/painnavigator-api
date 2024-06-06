@@ -96,16 +96,15 @@
 
 .list-div {
   display: flex;
-  flex-wrap: wrap;
   margin: 10px;
   padding: 10px;
   height: 450px;
   width: 100%;
   color: rgb(51, 161, 138);
-  overflow-y: auto; 
 }
 
 .list-div ul {
   display: flex;
-  flex-direction: column; /* Change to column */
+  flex-direction: column;
+  flex-wrap: wrap;
 }
