@@ -107,5 +107,9 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin-right: 16px; 
+  gap: 5px; 
+}
+
+.list-div ul:not(:last-child) {
+  margin-right: 20px; 
 }
