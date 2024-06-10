@@ -79,6 +79,7 @@ module Api
           :outcome_depressed,
           :dates_on_app,
           :last_date_on_app,
+          :app_version,
           :wellness_coach_reminder,
           :wellness_coach_reminded,
           :opt_out_sms,

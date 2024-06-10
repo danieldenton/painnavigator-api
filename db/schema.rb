@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_05_17_192118) do
+ActiveRecord::Schema.define(version: 2024_06_10_180609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -289,6 +289,7 @@ ActiveRecord::Schema.define(version: 2024_05_17_192118) do
     t.integer "wellness_coach_reminder", default: 0
     t.boolean "wellness_coach_reminded", default: true
     t.boolean "app_update_required", default: false
+    t.string "app_version"
   end
 
   create_table "wellness_coaches", force: :cascade do |t|
