@@ -82,35 +82,35 @@ class ProviderDashboardsController < ApplicationController
     Prawn::Document.new do |pdf|
       pdf.text "PainNavigator Provider Data", size: 20, style: :bold
       pdf.move_down 10
-      pdf.text "Total Patients to Date: #{@provider.users_count}"
-      pdf.text "Total Patient Reimbursement: #{@total_patient_reimbursement}"
+      pdf.text "Total Patients to Date: #{@provider.users_count}", style: :bold
+      pdf.text "Total Patient Reimbursement: #{@total_patient_reimbursement}", style: :bold
       pdf.move_down 10
-      pdf.text "New User Count By Month:"
+      pdf.text "New User Count By Month:", style: :bold
       @new_user_count_by_month.each do |month, count|
         pdf.text "#{month}: #{count}"
       end
       pdf.move_down 10
-      pdf.text "Cumulative User Count:"
+      pdf.text "Cumulative User Count:", style: :bold
       @cumulative_user_count.each do |month, count|
         pdf.text "#{month}: #{count}"
       end
       pdf.move_down 10
-      pdf.text "Starting Pain Scores:"
+      pdf.text "Starting Pain Scores:", style: :bold
       @starting_pain_score_counts.each do |score, count|
         pdf.text "#{score}: #{count}"
       end
       pdf.move_down 10
-      pdf.text "Pain Score Imrovement (negaive change = pain is improving):"
+      pdf.text "Pain Score Imrovement (negaive change = pain is improving):", style: :bold
       @pain_score_trends.each do |score, count|
         pdf.text "#{score}: #{count}"
       end
       pdf.move_down 10
-      pdf.text "Logins Per Month:"
+      pdf.text "Logins Per Month:", style: :bold
       @dates_on_app_by_month_count.each do |month, count|
         pdf.text "#{month}: #{count}"
       end
       pdf.move_down 10
-      pdf.text "Reimbursement Running Total:"
+      pdf.text "Reimbursement Running Total:", style: :bold
       @reimbursement_total.each do |month, count|
         pdf.text "#{month}: #{count}"
       end
