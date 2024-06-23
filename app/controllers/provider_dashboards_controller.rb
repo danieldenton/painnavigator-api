@@ -105,8 +105,7 @@ class ProviderDashboardsController < ApplicationController
         pdf.text "#{score}: #{count}", size: 10
       end
       pdf.move_down 10
-      pdf.text "Pain Score Imrovement", size: 12, style: :bold
-      pdf.text "negaive change = pain is improving", size: 10
+      pdf.text "Pain Score Imrovement - negaive change = pain is improving", size: 12, style: :bold
       @pain_score_trends.sort.each do |score, count|
         pdf.text "#{score}: #{count}", size: 10
       end
