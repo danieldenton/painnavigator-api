@@ -84,35 +84,36 @@ class ProviderDashboardsController < ApplicationController
       pdf.text "#{@provider.name}", size: 15, style: :bold
       pdf.text "#{Date.today}", size: 12, style: :bold
       pdf.move_down 10
-      pdf.text "Total Patients to Date: #{@provider.users_count}", style: :bold
-      pdf.text "Total Patient Reimbursement: #{@total_patient_reimbursement}", style: :bold
+      pdf.text "Total Patients to Date: #{@provider.users_count}", size: 12, style: :bold
+      pdf.text "Total Patient Reimbursement: #{@total_patient_reimbursement}", size: 12, style: :bold
       pdf.move_down 10
-      pdf.text "New User Count By Month", style: :bold
+      pdf.text "New User Count By Month", size: 12, style: :bold
       @new_user_count_by_month.each do |month, count|
         pdf.text "#{month}: #{count}", size: 10
       end
       pdf.move_down 10
-      pdf.text "Cumulative User Count", style: :bold
+      pdf.text "Cumulative User Count", size: 12, style: :bold
       @cumulative_user_count.each do |month, count|
         pdf.text "#{month}: #{count}", size: 10
       end
       pdf.move_down 10
-      pdf.text "Starting Pain Scores", style: :bold
+      pdf.text "Starting Pain Scores", size: 12, style: :bold
       @starting_pain_score_counts.each do |score, count|
         pdf.text "#{score}: #{count}", size: 10
       end
       pdf.move_down 10
-      pdf.text "Pain Score Imrovement: negaive change = pain is improving:", style: :bold
+      pdf.text "Pain Score Imrovement", size: 12, style: :bold
+      pdf.text "negaive change = pain is improving", size 10
       @pain_score_trends.sort.each do |score, count|
         pdf.text "#{score}: #{count}", size: 10
       end
       pdf.move_down 10
-      pdf.text "Logins Per Month", style: :bold
+      pdf.text "Logins Per Month", size: 12, style: :bold
       @dates_on_app_by_month_count.each do |month, count|
         pdf.text "#{month}: #{count}", size: 10
       end
       pdf.move_down 10
-      pdf.text "Reimbursement Running Total", style: :bold
+      pdf.text "Reimbursement Running Total", size: 12, style: :bold
       @reimbursement_total.each do |month, count|
         pdf.text "#{month}: #{count}", size: 10
       end
