@@ -75,7 +75,7 @@ class ProviderDashboardsController < ApplicationController
     respond_to do |format|
       format.pdf do
         pdf = generate_pdf(@data)
-        send_data pdf.render, filename: "provider-data-#{Date.today}.pdf", type: "application/pdf", disposition: "inline"
+        send_data pdf.render, filename: "provider-data-#{Date.today}.pdf", type: "application/pdf", disposition: "attachment"
       end
     end
   end
