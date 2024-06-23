@@ -72,13 +72,13 @@ class ProviderDashboardsController < ApplicationController
   def download_pdf
     respond_to do |format|
       format.pdf do
-        pdf = generate_pdf(@data)
+        pdf = generate_pdf
         send_data pdf.render, filename: "provider-data-#{Date.today}.pdf", type: "application/pdf", disposition: "attachment"
       end
     end
   end
 
-  def generate_pdf(data)
+  def generate_pdf
     Prawn::Document.new do |pdf|
       pdf.text "PainNavigator Provider Data", size: 20, style: :bold
       pdf.move_down 10
