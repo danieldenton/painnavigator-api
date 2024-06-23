@@ -2,6 +2,7 @@ class ProviderDashboardsController < ApplicationController
   before_action :authenticate_provider_dashboard!
   before_action :set_current_provider_dashboard
   before_action :set_users
+  before_action :dashboard
 
   def set_current_provider_dashboard
     date = Date.today
