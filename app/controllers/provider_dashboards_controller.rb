@@ -1,3 +1,5 @@
+require 'prawn'
+
 class ProviderDashboardsController < ApplicationController
   before_action :authenticate_provider_dashboard!
   before_action :set_current_provider_dashboard
