@@ -86,33 +86,33 @@ class ProviderDashboardsController < ApplicationController
       pdf.text "Total Patient Reimbursement: #{@total_patient_reimbursement}"
       pdf.move_down 10
       pdf.text "New User Count By Month:"
-      @new_user_count_by_month.each do |month|
-        pdf.text "#{month.month}: #{month.count}"
+      @new_user_count_by_month.each do |month, count|
+        pdf.text "#{month}: #{count}"
       end
       pdf.move_down 10
       pdf.text "Cumulative User Count:"
-      @cumulative_user_count.each do |month|
-        pdf.text "#{month.month}: #{month.count}"
+      @cumulative_user_count.each do |month, count|
+        pdf.text "#{month}: #{count}"
       end
       pdf.move_down 10
       pdf.text "Starting Pain Scores:"
-      @starting_pain_score_counts.each do |score|
-        pdf.text "#{score.score}: #{score.count}"
+      @starting_pain_score_counts.each do |score, count|
+        pdf.text "#{score}: #{count}"
       end
       pdf.move_down 10
       pdf.text "Pain Score Imrovement (negaive change = pain is improving):"
-      @pain_score_trends.each do |score|
-        pdf.text "#{score.score}: #{score.count}"
+      @pain_score_trends.each do |score, count|
+        pdf.text "#{score}: #{count}"
       end
       pdf.move_down 10
       pdf.text "Logins Per Month:"
-      @dates_on_app_by_month_count.each do |month|
-        pdf.text "#{month.month}: #{month.count}"
+      @dates_on_app_by_month_count.each do |month, count|
+        pdf.text "#{month}: #{count}"
       end
       pdf.move_down 10
       pdf.text "Reimbursement Running Total:"
-      @reimbursement_total.each do |month|
-        pdf.text "#{month.month}: #{month.count}"
+      @reimbursement_total.each do |month, count|
+        pdf.text "#{month}: #{count}"
       end
     end
   end
