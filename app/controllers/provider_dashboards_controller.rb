@@ -73,14 +73,14 @@ class ProviderDashboardsController < ApplicationController
     respond_to do |format|
       format.pdf do
         pdf = generate_pdf
-        send_data pdf.render, filename: "provider-data-#{Date.today}.pdf", type: "application/pdf", disposition: "attachment"
+        send_data pdf.render, filename: "#{@provider.name}-PainNavigator-data-#{Date.today}.pdf", type: "application/pdf", disposition: "attachment"
       end
     end
   end
 
   def generate_pdf
     Prawn::Document.new do |pdf|
-      pdf.text "PainNavigator #{@provider.name} Data", size: 20, style: :bold
+      pdf.text "PainNavigator #{@provider.name} Data as of #{Date.today}", size: 15, style: :bold
       pdf.move_down 10
       pdf.text "Total Patients to Date: #{@provider.users_count}", style: :bold
       pdf.text "Total Patient Reimbursement: #{@total_patient_reimbursement}", style: :bold
