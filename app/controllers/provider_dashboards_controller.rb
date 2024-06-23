@@ -67,4 +67,32 @@ class ProviderDashboardsController < ApplicationController
     @providers = Provider.all
   end
 
+  def download_pdf
+    @data = dashboard
+
+    respond_to do |format|
+      format.pdf do
+        pdf = generate_pdf(@data)
+        send_data pdf.render, filename: "provider-data-#{Date.today}.pdf", type: "application/pdf", disposition: "inline"
+      end
+    end
+  end
+
+  def generate_pdf(data)
+    Prawn::Document.new do |pdf|
+      pdf.text "Provider Data", size: 20, style: :bold
+      data.each do |item|
+        pdf.text "Total Patients to Date: #{@provider.users_count}"
+        pdf.text "Total Patient Reimbursement: #{@total_patient_reimbursement}"
+        pdf.text "New User Count By Month: #{@new_user_count_by_month}"
+        pdf.text "Cumulative User Count: #{@cumulative_user_count}"
+        pdf.text "Starting Pain Scores: #{@starting_pain_score_counts}"
+        pdf.text "Pain Score Imrovement (negaive change = pain is improving): #{@pain_score_trends}"
+        pdf.text "Logins Per Month: #{@dates_on_app_by_month_count}"
+        pdf.text "Reimbursement Running Total: #{@reimbursement_total}"
+        pdf.move_down 10
+      end
+    end
+  end
+
 end
