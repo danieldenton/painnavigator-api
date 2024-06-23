@@ -79,11 +79,14 @@ class ProviderDashboardsController < ApplicationController
   end
 
   def generate_pdf
+    today = Date.today
+    formatted_date = today.strftime("%B %d %Y")
+
     Prawn::Document.new do |pdf|
       pdf.text "PainNavigator", size: 15, style: :bold
       pdf.text "#{@provider.name}", size: 15, style: :bold
-      pdf.text "#{Date.today}", size: 12, style: :bold
       pdf.move_down 10
+      pdf.text "#{formatted_date}", size: 12, style: :bold
       pdf.text "Total Patients to Date: #{@provider.users_count}", size: 12, style: :bold
       pdf.text "Total Patient Reimbursement: #{@total_patient_reimbursement}", size: 12, style: :bold
       pdf.move_down 10
